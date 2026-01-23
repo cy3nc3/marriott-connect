@@ -1,7 +1,7 @@
 <div class="h-full flex flex-col p-4">
     <div class="flex items-center justify-center mb-8 mt-2">
         <x-application-logo class="block h-10 w-auto fill-current text-indigo-600" />
-        <span class="ml-3 text-xl font-bold text-gray-800 tracking-tight">Marriott<span class="text-indigo-600">Edu</span></span>
+        <span class="ml-3 text-xl font-bold text-gray-800 tracking-tight">Marriott<span class="text-indigo-600">Connect</span></span>
     </div>
 
     <nav class="flex-1 space-y-1">
