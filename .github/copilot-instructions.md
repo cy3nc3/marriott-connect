@@ -1,11 +1,13 @@
 # AI Agent Instructions for Marriott Connect
 
 ## Project Overview
+
 This is a **Laravel 12** web application with **Livewire 4** and **Tailwind CSS**, featuring user authentication and profile management. The stack uses Vite for asset bundling and Blade templating for server-side views.
 
 ## Architecture & Key Components
 
 ### Technology Stack
+
 - **Backend**: Laravel 12, PHP 8.2+, Eloquent ORM
 - **Frontend**: Blade templates, Alpine.js, Tailwind CSS v3
 - **Build Tool**: Vite 7 with laravel-vite-plugin
@@ -14,6 +16,7 @@ This is a **Laravel 12** web application with **Livewire 4** and **Tailwind CSS*
 - **Database**: Configured for SQLite (testing), configurable for production
 
 ### Directory Structure
+
 ```
 app/
   Http/Controllers/        # Request handlers (ProfileController, Auth controllers)
@@ -46,6 +49,7 @@ database/
 ```
 
 ### Authentication Model
+
 - Uses **Laravel Breeze** (provided auth scaffolding)
 - Sessions stored in-memory (testing) or file-based (production)
 - Routes protected with `auth` and `verified` middleware
@@ -54,53 +58,63 @@ database/
 ## Development Workflow
 
 ### Setup & Installation
+
 ```bash
 composer run setup  # Installs dependencies, generates key, runs migrations, builds assets
 ```
 
 ### Development Server
+
 ```bash
 composer run dev  # Runs concurrent processes: Laravel server, queue listener, logs, Vite dev server
 ```
 
 ### Build & Deployment
+
 ```bash
 npm run build      # Vite builds production assets (public/build/)
 php artisan migrate  # Apply pending migrations to database
 ```
 
 ### Testing
+
 ```bash
 composer test      # Runs PHPUnit (clears config first)
 ```
+
 Tests use `RefreshDatabase` trait to reset database state between tests.
 
 ## Project-Specific Patterns
 
 ### Controllers
+
 - Controllers return views with `view('view.name', $data)` syntax
 - Use type-hinting for request objects: `ProfileUpdateRequest` extends `FormRequest`
 - Authentication check via `$request->user()` (returns authenticated User)
 - Redirects use `Redirect::route('name')` with `with('status', 'key')` for flash messages
 
 ### Blade Components
+
 - Custom components defined in `resources/views/components/`
 - Usage: `<x-component-name />` with slot syntax support
 - Main layout: `<x-app-layout>` wraps authenticated pages (see dashboard.blade.php)
 
 ### CSS & Styling
+
 - **Tailwind CSS** configured with Laravel views in `tailwind.config.js` content paths
 - Custom fonts via `@tailwindcss/forms` plugin
 - Figtree font extends default sans-serif family
 - Responsive classes: `sm:`, `lg:` prefixes standard
 
 ### Database
+
 - Migrations versioned with timestamps (e.g., `0001_01_01_000000_create_users_table.php`)
 - Models in `app/Models/` use `HasFactory` trait for testing
 - User model casts: `email_verified_at` → datetime, `password` → hashed
 - Fillable attributes: name, email, password
 
 ### Testing Patterns
+
 - Tests use `RefreshDatabase` middleware to reset DB per test
 - Authentication in tests: `$this->actingAs($user)->get('/profile')`
 - Factory usage: `User::factory()->create()` generates test data
@@ -109,6 +123,7 @@ Tests use `RefreshDatabase` trait to reset database state between tests.
 ## Critical Workflows
 
 ### Adding a New Feature
+
 1. Create migration: `php artisan make:migration create_table_name`
 2. Define model in `app/Models/` with `HasFactory`
 3. Create controller: `php artisan make:controller FeatureController`
@@ -117,6 +132,7 @@ Tests use `RefreshDatabase` trait to reset database state between tests.
 6. Write feature tests in `tests/Feature/`
 
 ### Modifying User Profile
+
 - Update `app/Models/User.php` with new fillable fields
 - Create migration for schema changes
 - Create `ProfileUpdateRequest` in `app/Http/Requests/` for validation
@@ -124,6 +140,7 @@ Tests use `RefreshDatabase` trait to reset database state between tests.
 - Update test in `tests/Feature/ProfileTest.php`
 
 ### Running Migrations
+
 - Always use `php artisan migrate` (not raw SQL)
 - Test migrations: `php artisan migrate:refresh` (destructive, resets DB)
 - Production: `php artisan migrate --force` (requires confirmation bypass)
