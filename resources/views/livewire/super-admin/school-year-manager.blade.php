@@ -49,6 +49,15 @@
                 <h3 class="text-lg font-semibold mb-4 text-gray-800">Enrollment Settings</h3>
 
                 <div class="space-y-6">
+                    <!-- Target Enrollment Year Dropdown -->
+                    <div>
+                        <x-input-label for="target_enrollment_year" :value="__('Target Enrollment Year')" />
+                        <select wire:model="data.target_enrollment_year" id="target_enrollment_year" class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                            <option value="2025-2026">2025-2026</option>
+                            <option value="2026-2027">2026-2027</option>
+                        </select>
+                    </div>
+
                     <!-- Toggle Switch -->
                     <div class="flex items-center justify-between">
                         <span class="flex-grow flex flex-col">

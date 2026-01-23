@@ -10,6 +10,7 @@ class SchoolYearManager extends Component
         'school_year' => '2024-2025',
         'quarter' => '1',
         'enrollment_open' => false,
+        'target_enrollment_year' => '2025-2026',
     ];
 
     public function updateStatus()
