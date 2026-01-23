@@ -85,6 +85,6 @@ class GradingSheet extends Component
     public function render()
     {
         return view('livewire.teacher.grading-sheet')
-            ->layout('layouts.app', ['header' => 'Grading Sheet', 'role' => 'teacher']);
+            ->layout('layouts.app', ['header' => 'Grading Sheet']);
     }
 }
