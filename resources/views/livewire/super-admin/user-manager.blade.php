@@ -86,14 +86,18 @@
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                         <div>
+                            <x-input-label for="password" :value="__('Password')" />
+                            <x-text-input wire:model="password" id="password" class="block mt-1 w-full" type="password" />
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        </div>
+                        <div>
                             <x-input-label for="role" :value="__('Role')" />
                             <select wire:model="role" id="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                <option value="super_admin">Super Admin</option>
                                 <option value="admin">Admin</option>
-                                <option value="teacher">Teacher</option>
-                                <option value="student">Student</option>
-                                <option value="parent">Parent</option>
                                 <option value="registrar">Registrar</option>
                                 <option value="finance">Finance</option>
+                                <option value="teacher">Teacher</option>
                             </select>
                             <x-input-error :messages="$errors->get('role')" class="mt-2" />
                         </div>

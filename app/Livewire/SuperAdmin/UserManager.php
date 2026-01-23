@@ -13,13 +13,15 @@ class UserManager extends Component
 
     public $name;
     public $email;
-    public $role = 'student';
+    public $password;
+    public $role = 'teacher';
 
     public function createUser()
     {
         $this->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'password' => 'required|min:8',
             'role' => 'required',
         ]);
 
@@ -29,7 +31,7 @@ class UserManager extends Component
             'role' => $this->role,
         ];
 
-        $this->reset(['name', 'email', 'role']);
+        $this->reset(['name', 'email', 'password', 'role']);
 
         $this->dispatch('user-created');
 
