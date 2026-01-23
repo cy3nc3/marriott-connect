@@ -6,6 +6,9 @@ use App\Livewire\Finance\ProductInventory;
 use App\Livewire\Registrar\EnrollmentWizard;
 use App\Livewire\SuperAdmin\SchoolYearManager;
 use App\Livewire\SuperAdmin\UserManager;
+use App\Livewire\Teacher\GradingSheet;
+use App\Livewire\Student\StudentDashboard;
+use App\Livewire\Parent\ParentDashboard;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +25,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Registrar Routes
     Route::get('/registrar/enrollment', EnrollmentWizard::class)->name('registrar.enrollment');
+
+    // Teacher Routes
+    Route::get('/teacher/grading', GradingSheet::class)->name('teacher.grading');
+
+    // Student Routes
+    Route::get('/student/dashboard', StudentDashboard::class)->name('student.dashboard');
+
+    // Parent Routes
+    Route::get('/parent/dashboard', ParentDashboard::class)->name('parent.dashboard');
 });
 
 Route::middleware('auth')->group(function () {
