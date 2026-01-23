@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Admin\CurriculumManager;
+use App\Livewire\Admin\SectionManager;
 use App\Livewire\Finance\PointOfSale;
 use App\Livewire\Finance\ProductInventory;
 use App\Livewire\Registrar\EnrollmentWizard;
@@ -18,6 +20,10 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', SchoolYearManager::class)->name('dashboard');
     Route::get('/users', UserManager::class)->name('users');
+
+    // Admin Routes
+    Route::get('/admin/curriculum', CurriculumManager::class)->name('admin.curriculum');
+    Route::get('/admin/sections', SectionManager::class)->name('admin.sections');
 
     // Finance Routes
     Route::get('/finance/inventory', ProductInventory::class)->name('finance.inventory');
