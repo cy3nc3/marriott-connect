@@ -25,6 +25,6 @@ class StudentDashboard extends Component
     public function render()
     {
         return view('livewire.student.student-dashboard')
-            ->layout('layouts.app', ['header' => 'My Dashboard', 'role' => 'student']);
+            ->layout('layouts.app', ['header' => 'My Dashboard']);
     }
 }
