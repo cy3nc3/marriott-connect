@@ -16,8 +16,8 @@
     </head>
     <body class="font-sans antialiased bg-gray-100">
         @php
-            // RBAC Simulation
-            $role = 'super_admin';
+            // RBAC Simulation: Use passed role or default
+            $role = $role ?? 'super_admin';
         @endphp
 
         <div class="flex h-screen overflow-hidden">
