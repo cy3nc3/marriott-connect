@@ -4,8 +4,10 @@ use App\Http\Controllers\ProfileController;
 use App\Livewire\Admin\CurriculumManager;
 use App\Livewire\Admin\SectionManager;
 use App\Livewire\Dashboards\AdminDashboard;
+use App\Livewire\Dashboards\FinanceDashboard;
 use App\Livewire\Dashboards\RegistrarDashboard;
 use App\Livewire\Dashboards\SuperAdminDashboard;
+use App\Livewire\Dashboards\TeacherDashboard;
 use App\Livewire\Finance\PointOfSale;
 use App\Livewire\Finance\ProductInventory;
 use App\Livewire\Registrar\EnrollmentWizard;
@@ -28,6 +30,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboards/super-admin', SuperAdminDashboard::class)->name('dashboards.super-admin');
     Route::get('/dashboards/admin', AdminDashboard::class)->name('dashboards.admin');
     Route::get('/dashboards/registrar', RegistrarDashboard::class)->name('dashboards.registrar');
+    Route::get('/dashboards/finance', FinanceDashboard::class)->name('dashboards.finance');
+    Route::get('/dashboards/teacher', TeacherDashboard::class)->name('dashboards.teacher');
 
     // Admin Routes
     Route::get('/admin/curriculum', CurriculumManager::class)->name('admin.curriculum');
