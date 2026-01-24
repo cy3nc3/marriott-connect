@@ -1,17 +1,38 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        @php
+            $role = $role ?? 'super_admin';
+            $headers = [
+                'super_admin' => 'System Monitor',
+                'admin' => 'DSS & Analytics',
+                'registrar' => 'Population Analytics',
+                'finance' => 'Revenue Analytics',
+                'teacher' => 'Academic Overview',
+                'student' => 'My Dashboard',
+                'parent' => 'Parent Portal',
+            ];
+            $currentHeader = $headers[$role] ?? 'Dashboard';
+        @endphp
+        {{ $currentHeader }}
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+            {{-- We assume $role is passed from the Layout or View Composer --}}
+            {{-- Fallback for testing/simulation --}}
+            @php
+                // Default to super_admin if not set, matching the Layout simulation default
+                $role = $role ?? 'super_admin';
+            @endphp
+
+            @if($role === 'super_admin')      <livewire:dashboards.super-admin-dashboard />
+            @elseif($role === 'admin')        <livewire:dashboards.admin-dashboard />
+            @elseif($role === 'registrar')    <livewire:dashboards.registrar-dashboard />
+            @elseif($role === 'finance')      <livewire:dashboards.finance-dashboard />
+            @elseif($role === 'teacher')      <livewire:dashboards.teacher-dashboard />
+            @elseif($role === 'student')      <livewire:dashboards.student-dashboard />
+            @elseif($role === 'parent')       <livewire:dashboards.parent-dashboard />
+            @endif
         </div>
     </div>
 </x-app-layout>
