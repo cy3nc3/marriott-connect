@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Admin\CurriculumManager;
 use App\Livewire\Admin\SectionManager;
+use App\Livewire\Dashboards\AdminDashboard;
+use App\Livewire\Dashboards\RegistrarDashboard;
+use App\Livewire\Dashboards\SuperAdminDashboard;
 use App\Livewire\Finance\PointOfSale;
 use App\Livewire\Finance\ProductInventory;
 use App\Livewire\Registrar\EnrollmentWizard;
@@ -20,6 +23,11 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', SchoolYearManager::class)->name('dashboard');
     Route::get('/users', UserManager::class)->name('users');
+
+    // Dashboards
+    Route::get('/dashboards/super-admin', SuperAdminDashboard::class)->name('dashboards.super-admin');
+    Route::get('/dashboards/admin', AdminDashboard::class)->name('dashboards.admin');
+    Route::get('/dashboards/registrar', RegistrarDashboard::class)->name('dashboards.registrar');
 
     // Admin Routes
     Route::get('/admin/curriculum', CurriculumManager::class)->name('admin.curriculum');
