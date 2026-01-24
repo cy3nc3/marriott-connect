@@ -23,7 +23,7 @@
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </a>
-
+                
             </div>
             <div class="flex items-center justify-center mb-0 mt-2">
                 <span class="ml-3 text-3xl font-bold text-gray-800 tracking-tight">Marriott<span class="text-indigo-600">Connect</span></span>
