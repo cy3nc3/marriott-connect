@@ -13,6 +13,8 @@ use App\Livewire\Dashboards\TeacherDashboard;
 use App\Livewire\Finance\PointOfSale;
 use App\Livewire\Finance\ProductInventory;
 use App\Livewire\Registrar\EnrollmentWizard;
+use App\Livewire\Student\StudentGrades;
+use App\Livewire\Student\StudentSchedule;
 use App\Livewire\SuperAdmin\SchoolYearManager;
 use App\Livewire\SuperAdmin\UserManager;
 use App\Livewire\Teacher\GradingSheet;
@@ -23,13 +25,15 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    // Main Dashboard Switcher (The Hub) - Originally SchoolYearManager, now the Switcher View
-    // We update this route to return the view 'dashboard' which contains the switcher
+    // Main Dashboard Switcher (The Hub)
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
     Route::get('/users', UserManager::class)->name('users');
+
+    // Super Admin Specific Routes
+    Route::get('/admin/school-year', SchoolYearManager::class)->name('admin.school-year');
 
     // Dashboards (Role Specific)
     Route::get('/dashboards/super-admin', SuperAdminDashboard::class)->name('dashboards.super-admin');
@@ -54,18 +58,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Teacher Routes
     Route::get('/teacher/grading', GradingSheet::class)->name('teacher.grading');
 
-    // Legacy Routes (remapped or kept for direct access if needed, but updated imports)
-    // Note: Previous steps had student.dashboard and parent.dashboard pointing to App\Livewire\Student\StudentDashboard
-    // If we want to use the NEW dashboards, we should point there.
-    // The instructions for Part C imply we are creating NEW components in App\Livewire\Dashboards namespace.
-    // I will comment out the old ones to avoid confusion, or map them to the new ones if they are meant to replace them.
-    // Given Step 1 & 2 instructions: "Create App\Livewire\Dashboards\StudentDashboard", this replaces the old one.
-
-    // Student Routes
-    // Route::get('/student/dashboard', \App\Livewire\Student\StudentDashboard::class)->name('student.dashboard');
-
-    // Parent Routes
-    // Route::get('/parent/dashboard', \App\Livewire\Parent\ParentDashboard::class)->name('parent.dashboard');
+    // Student Routes (Split)
+    Route::get('/student/schedule', StudentSchedule::class)->name('student.schedule');
+    Route::get('/student/grades', StudentGrades::class)->name('student.grades');
 });
 
 Route::middleware('auth')->group(function () {
