@@ -28,6 +28,7 @@
                     $links = [
                         ['label' => 'Dashboard', 'route' => 'dashboards.registrar', 'icon' => 'bx-grid-alt'],
                         ['label' => 'Enrollment', 'route' => 'registrar.enrollment', 'icon' => 'bx-id-card'],
+                        ['label' => 'Permanent Records', 'route' => 'registrar.permanent-record', 'icon' => 'bx-folder-open'],
                     ];
                     break;
                 case 'finance':
