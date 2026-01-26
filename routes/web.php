@@ -64,6 +64,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Teacher Routes
     Route::get('/teacher/grading', GradingSheet::class)->name('teacher.grading');
+    Route::get('/teacher/advisory', \App\Livewire\Teacher\AdvisoryBoard::class)->name('teacher.advisory');
 
     // Student Routes
     Route::get('/student/schedule', StudentSchedule::class)->name('student.schedule');
