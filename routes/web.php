@@ -54,6 +54,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/finance/inventory', ProductInventory::class)->name('finance.inventory');
     Route::get('/finance/pos', PointOfSale::class)->name('finance.pos');
     Route::get('/finance/expenses', ExpenseManager::class)->name('finance.expenses');
+    Route::get('/finance/history', \App\Livewire\Finance\TransactionHistory::class)->name('finance.history');
 
     // Registrar Routes
     Route::get('/registrar/enrollment', EnrollmentWizard::class)->name('registrar.enrollment');

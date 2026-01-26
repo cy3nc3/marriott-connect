@@ -19,6 +19,8 @@ class GradingSheet extends Component
         ['id' => 5, 'name' => '1st Quarter Exam', 'type' => 'qa', 'max' => 50],
     ];
 
+    public $isSubmitted = false;
+
     // Students and Scores
     public $students = [
         [
@@ -48,7 +50,14 @@ class GradingSheet extends Component
 
     public function updatedStudents()
     {
+        if ($this->isSubmitted) return;
         $this->calculateGrades();
+    }
+
+    public function submitGrades()
+    {
+        $this->isSubmitted = true;
+        session()->flash('message', 'Grades submitted successfully. Records are now locked.');
     }
 
     public function calculateGrades()
