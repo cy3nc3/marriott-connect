@@ -46,6 +46,7 @@
                     $links = [
                         ['label' => 'Dashboard', 'route' => 'dashboards.teacher', 'icon' => 'bx-grid-alt'],
                         ['label' => 'Grading Sheet', 'route' => 'teacher.grading', 'icon' => 'bx-edit'],
+                        ['label' => 'Advisory Board', 'route' => 'teacher.advisory', 'icon' => 'bx-chalkboard'],
                     ];
                     break;
                 case 'student':
