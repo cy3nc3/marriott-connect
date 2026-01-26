@@ -23,7 +23,7 @@
             @endif
 
             <div class="mt-2">
-                <a href="#" class="text-indigo-600 hover:text-indigo-900 font-semibold underline">View Details</a>
+                <a href="{{ route('parent.billing') }}" class="text-indigo-600 hover:text-indigo-900 font-semibold underline">View Details</a>
             </div>
         </div>
 
