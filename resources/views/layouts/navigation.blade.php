@@ -22,6 +22,7 @@
                         ['label' => 'Dashboard', 'route' => 'dashboards.admin', 'icon' => 'bx-grid-alt'],
                         ['label' => 'Curriculum', 'route' => 'admin.curriculum', 'icon' => 'bx-book-content'],
                         ['label' => 'Sections', 'route' => 'admin.sections', 'icon' => 'bx-group'],
+                        ['label' => 'Schedule Matrix', 'route' => 'admin.schedule', 'icon' => 'bx-calendar-event'],
                     ];
                     break;
                 case 'registrar':
