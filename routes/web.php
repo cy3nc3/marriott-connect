@@ -49,6 +49,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Admin Routes
     Route::get('/admin/curriculum', CurriculumManager::class)->name('admin.curriculum');
     Route::get('/admin/sections', SectionManager::class)->name('admin.sections');
+    Route::get('/admin/schedule', \App\Livewire\Admin\ScheduleBuilder::class)->name('admin.schedule');
 
     // Finance Routes
     Route::get('/finance/inventory', ProductInventory::class)->name('finance.inventory');
