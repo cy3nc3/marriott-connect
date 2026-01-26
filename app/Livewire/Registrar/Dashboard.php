@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Dashboards;
+namespace App\Livewire\Registrar;
 
 use Livewire\Component;
 
-class RegistrarDashboard extends Component
+class Dashboard extends Component
 {
     public $data = [
         'grade_7' => 120,
@@ -14,7 +14,7 @@ class RegistrarDashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboards.registrar-dashboard')
+        return view('livewire.registrar.dashboard')
             ->layout('layouts.app', ['header' => 'Population Analytics']);
     }
 }

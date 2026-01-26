@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Dashboards;
+namespace App\Livewire\SuperAdmin;
 
 use Livewire\Component;
 
-class SuperAdminDashboard extends Component
+class Dashboard extends Component
 {
     public $data = [
         'active_year' => '2025-2026',
@@ -14,7 +14,7 @@ class SuperAdminDashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboards.super-admin-dashboard')
+        return view('livewire.super-admin.dashboard')
             ->layout('layouts.app', ['header' => 'System Monitor']);
     }
 }

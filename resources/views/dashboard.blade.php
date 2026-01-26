@@ -25,13 +25,13 @@
                 $role = $role ?? 'super_admin';
             @endphp
 
-            @if($role === 'super_admin')      <livewire:dashboards.super-admin-dashboard />
-            @elseif($role === 'admin')        <livewire:dashboards.admin-dashboard />
-            @elseif($role === 'registrar')    <livewire:dashboards.registrar-dashboard />
-            @elseif($role === 'finance')      <livewire:dashboards.finance-dashboard />
-            @elseif($role === 'teacher')      <livewire:dashboards.teacher-dashboard />
-            @elseif($role === 'student')      <livewire:dashboards.student-dashboard />
-            @elseif($role === 'parent')       <livewire:dashboards.parent-dashboard />
+            @if($role === 'super_admin')      <livewire:super-admin.dashboard />
+            @elseif($role === 'admin')        <livewire:admin.dashboard />
+            @elseif($role === 'registrar')    <livewire:registrar.dashboard />
+            @elseif($role === 'finance')      <livewire:finance.dashboard />
+            @elseif($role === 'teacher')      <livewire:teacher.dashboard />
+            @elseif($role === 'student')      <livewire:student.dashboard />
+            @elseif($role === 'parent')       <livewire:parent.dashboard />
             @endif
         </div>
     </div>

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Dashboards;
+namespace App\Livewire\Admin;
 
 use Livewire\Component;
 
-class AdminDashboard extends Component
+class Dashboard extends Component
 {
     public $data = [
         'forecast_next_year' => 520,
@@ -15,7 +15,7 @@ class AdminDashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboards.admin-dashboard')
+        return view('livewire.admin.dashboard')
             ->layout('layouts.app', ['header' => 'DSS & Analytics']);
     }
 }

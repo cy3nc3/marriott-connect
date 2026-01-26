@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Dashboards;
+namespace App\Livewire\Parent;
 
 use Livewire\Component;
 
-class ParentDashboard extends Component
+class Dashboard extends Component
 {
     public $data = [
         'billing_status' => 'Action Needed',
@@ -14,7 +14,7 @@ class ParentDashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboards.parent-dashboard')
+        return view('livewire.parent.dashboard')
             ->layout('layouts.app', ['header' => 'Parent Portal']);
     }
 }
