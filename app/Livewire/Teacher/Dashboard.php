@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Dashboards;
+namespace App\Livewire\Teacher;
 
 use Livewire\Component;
 
-class TeacherDashboard extends Component
+class Dashboard extends Component
 {
     public $data = [
         'schedule' => [
@@ -17,7 +17,7 @@ class TeacherDashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboards.teacher-dashboard')
+        return view('livewire.teacher.dashboard')
             ->layout('layouts.app', ['header' => 'Academic Overview']);
     }
 }

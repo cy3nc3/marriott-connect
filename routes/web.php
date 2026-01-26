@@ -3,13 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Admin\CurriculumManager;
 use App\Livewire\Admin\SectionManager;
-use App\Livewire\Dashboards\AdminDashboard;
-use App\Livewire\Dashboards\FinanceDashboard;
-use App\Livewire\Dashboards\ParentDashboard;
-use App\Livewire\Dashboards\RegistrarDashboard;
-use App\Livewire\Dashboards\StudentDashboard;
-use App\Livewire\Dashboards\SuperAdminDashboard;
-use App\Livewire\Dashboards\TeacherDashboard;
 use App\Livewire\Finance\PointOfSale;
 use App\Livewire\Finance\ProductInventory;
 use App\Livewire\Registrar\EnrollmentWizard;
@@ -36,13 +29,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/school-year', SchoolYearManager::class)->name('admin.school-year');
 
     // Dashboards (Role Specific)
-    Route::get('/dashboards/super-admin', SuperAdminDashboard::class)->name('dashboards.super-admin');
-    Route::get('/dashboards/admin', AdminDashboard::class)->name('dashboards.admin');
-    Route::get('/dashboards/registrar', RegistrarDashboard::class)->name('dashboards.registrar');
-    Route::get('/dashboards/finance', FinanceDashboard::class)->name('dashboards.finance');
-    Route::get('/dashboards/teacher', TeacherDashboard::class)->name('dashboards.teacher');
-    Route::get('/dashboards/student', StudentDashboard::class)->name('dashboards.student');
-    Route::get('/dashboards/parent', ParentDashboard::class)->name('dashboards.parent');
+    Route::get('/dashboards/super-admin', App\Livewire\SuperAdmin\Dashboard::class)->name('dashboards.super-admin');
+    Route::get('/dashboards/admin', App\Livewire\Admin\Dashboard::class)->name('dashboards.admin');
+    Route::get('/dashboards/registrar', App\Livewire\Registrar\Dashboard::class)->name('dashboards.registrar');
+    Route::get('/dashboards/finance', App\Livewire\Finance\Dashboard::class)->name('dashboards.finance');
+    Route::get('/dashboards/teacher', App\Livewire\Teacher\Dashboard::class)->name('dashboards.teacher');
+    Route::get('/dashboards/student', App\Livewire\Student\Dashboard::class)->name('dashboards.student');
+    Route::get('/dashboards/parent', App\Livewire\Parent\Dashboard::class)->name('dashboards.parent');
 
     // Admin Routes
     Route::get('/admin/curriculum', CurriculumManager::class)->name('admin.curriculum');

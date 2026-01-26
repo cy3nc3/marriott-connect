@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Dashboards;
+namespace App\Livewire\Finance;
 
 use Livewire\Component;
 
-class FinanceDashboard extends Component
+class Dashboard extends Component
 {
     public $data = [
         'collection_efficiency' => 78,
@@ -14,7 +14,7 @@ class FinanceDashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboards.finance-dashboard')
+        return view('livewire.finance.dashboard')
             ->layout('layouts.app', ['header' => 'Revenue Analytics']);
     }
 }
