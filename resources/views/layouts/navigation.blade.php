@@ -35,6 +35,7 @@
                         ['label' => 'Dashboard', 'route' => 'dashboards.finance', 'icon' => 'bx-grid-alt'],
                         ['label' => 'POS', 'route' => 'finance.pos', 'icon' => 'bx-cart'],
                         ['label' => 'Inventory', 'route' => 'finance.inventory', 'icon' => 'bx-box'],
+                        ['label' => 'Expenses', 'route' => 'finance.expenses', 'icon' => 'bx-wallet'],
                     ];
                     break;
                 case 'teacher':

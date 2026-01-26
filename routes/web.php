@@ -3,8 +3,17 @@
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Admin\CurriculumManager;
 use App\Livewire\Admin\SectionManager;
+use App\Livewire\Dashboards\AdminDashboard;
+use App\Livewire\Dashboards\FinanceDashboard;
+use App\Livewire\Dashboards\ParentDashboard;
+use App\Livewire\Dashboards\RegistrarDashboard;
+use App\Livewire\Dashboards\StudentDashboard;
+use App\Livewire\Dashboards\SuperAdminDashboard;
+use App\Livewire\Dashboards\TeacherDashboard;
+use App\Livewire\Finance\ExpenseManager;
 use App\Livewire\Finance\PointOfSale;
 use App\Livewire\Finance\ProductInventory;
+use App\Livewire\Parent\BillingDetails;
 use App\Livewire\Registrar\EnrollmentWizard;
 use App\Livewire\Student\StudentGrades;
 use App\Livewire\Student\StudentSchedule;
@@ -44,6 +53,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Finance Routes
     Route::get('/finance/inventory', ProductInventory::class)->name('finance.inventory');
     Route::get('/finance/pos', PointOfSale::class)->name('finance.pos');
+    Route::get('/finance/expenses', ExpenseManager::class)->name('finance.expenses');
 
     // Registrar Routes
     Route::get('/registrar/enrollment', EnrollmentWizard::class)->name('registrar.enrollment');
@@ -51,9 +61,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Teacher Routes
     Route::get('/teacher/grading', GradingSheet::class)->name('teacher.grading');
 
-    // Student Routes (Split)
+    // Student Routes
     Route::get('/student/schedule', StudentSchedule::class)->name('student.schedule');
     Route::get('/student/grades', StudentGrades::class)->name('student.grades');
+
+    // Parent Routes
+    Route::get('/parent/billing', BillingDetails::class)->name('parent.billing');
 });
 
 Route::middleware('auth')->group(function () {
