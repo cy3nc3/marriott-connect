@@ -65,6 +65,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/finance/remittance', \App\Livewire\Finance\DailyRemittance::class)->name('finance.remittance');
 
     // Registrar Routes
+    Route::get('/registrar/students', \App\Livewire\Registrar\StudentDirectory::class)->name('registrar.students');
     Route::get('/registrar/enrollment', EnrollmentWizard::class)->name('registrar.enrollment');
     Route::get('/registrar/permanent-record', \App\Livewire\Registrar\HistoricalGrades::class)->name('registrar.permanent-record');
     Route::get('/registrar/promotion', \App\Livewire\Registrar\BatchPromotion::class)->name('registrar.promotion');
