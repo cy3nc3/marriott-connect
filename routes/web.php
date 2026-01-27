@@ -36,6 +36,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Super Admin Specific Routes
     Route::get('/admin/school-year', SchoolYearManager::class)->name('admin.school-year');
+    Route::get('/admin/settings', App\Livewire\SuperAdmin\SystemSettings::class)->name('admin.settings');
 
     // Dashboards (Role Specific)
     Route::get('/dashboards/super-admin', App\Livewire\SuperAdmin\Dashboard::class)->name('dashboards.super-admin');
