@@ -50,6 +50,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/curriculum', CurriculumManager::class)->name('admin.curriculum');
     Route::get('/admin/sections', SectionManager::class)->name('admin.sections');
     Route::get('/admin/schedule', \App\Livewire\Admin\ScheduleBuilder::class)->name('admin.schedule');
+    Route::get('/admin/reports/classlist', \App\Livewire\Admin\ClassListReport::class)->name('admin.reports.classlist');
 
     // Finance Routes
     Route::get('/finance/inventory', ProductInventory::class)->name('finance.inventory');
