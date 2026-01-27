@@ -22,10 +22,11 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($data as $user)
+                    @foreach($data as $loop_index => $user)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $user['name'] }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $user['email'] }}</td>
@@ -34,6 +35,14 @@
                                     {{ $user['role'] }}
                                 </span>
                             </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <button class="text-indigo-600 hover:text-indigo-900 mr-3">
+                                    <i class='bx bx-edit text-xl'></i>
+                                </button>
+                                <button wire:click="openResetModal({{ $loop_index }})" class="text-orange-500 hover:text-orange-700">
+                                    <i class='bx bx-key text-xl'></i>
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -41,7 +50,35 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Reset Password Modal -->
+    @if($showResetModal)
+    <div class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900 mb-4" id="modal-title">
+                        Reset Password for {{ $resetUserName }}
+                    </h3>
+                    <div>
+                        <x-input-label for="resetPassword" :value="__('New Password')" />
+                        <x-text-input wire:model="resetPassword" id="resetPassword" class="block mt-1 w-full" type="text" />
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <x-primary-button wire:click="savePassword" class="ml-3">
+                        Save New Password
+                    </x-primary-button>
+                    <x-secondary-button wire:click="closeResetModal">
+                        Cancel
+                    </x-secondary-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    <!-- Create User Modal -->
     <div x-show="open"
          style="display: none;"
          class="fixed inset-0 z-50 overflow-y-auto"

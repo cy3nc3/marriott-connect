@@ -16,6 +16,11 @@ class UserManager extends Component
     public $password;
     public $role = 'teacher';
 
+    // Reset Password Modal State
+    public $showResetModal = false;
+    public $resetUserName = '';
+    public $resetPassword = '';
+
     public function createUser()
     {
         $this->validate([
@@ -36,6 +41,26 @@ class UserManager extends Component
         $this->dispatch('user-created');
 
         session()->flash('message', 'User created successfully.');
+    }
+
+    public function openResetModal($index)
+    {
+        $this->resetUserName = $this->data[$index]['name'];
+        $this->resetPassword = 'marriottconnect2026'; // Default value
+        $this->showResetModal = true;
+    }
+
+    public function closeResetModal()
+    {
+        $this->showResetModal = false;
+        $this->reset(['resetUserName', 'resetPassword']);
+    }
+
+    public function savePassword()
+    {
+        // Prototype: No actual data update, just flash message
+        session()->flash('message', "Success: Password reset to '{$this->resetPassword}'.");
+        $this->closeResetModal();
     }
 
     public function render()
