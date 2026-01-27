@@ -23,6 +23,7 @@
                         ['label' => 'Curriculum', 'route' => 'admin.curriculum', 'icon' => 'bx-book-content'],
                         ['label' => 'Sections', 'route' => 'admin.sections', 'icon' => 'bx-group'],
                         ['label' => 'Schedule Matrix', 'route' => 'admin.schedule', 'icon' => 'bx-calendar-event'],
+                        ['label' => 'Class Lists', 'route' => 'admin.reports.classlist', 'icon' => 'bx-list-ol'],
                     ];
                     break;
                 case 'registrar':
