@@ -15,6 +15,7 @@
                         ['label' => 'Dashboard', 'route' => 'dashboards.super-admin', 'icon' => 'bx-grid-alt'],
                         ['label' => 'School Year', 'route' => 'admin.school-year', 'icon' => 'bx-calendar'],
                         ['label' => 'User Management', 'route' => 'users', 'icon' => 'bx-user'],
+                        ['label' => 'Settings', 'route' => 'admin.settings', 'icon' => 'bx-cog'],
                     ];
                     break;
                 case 'admin':
@@ -33,6 +34,7 @@
                         ['label' => 'Permanent Records', 'route' => 'registrar.permanent-record', 'icon' => 'bx-folder-open'],
                         ['label' => 'Promotion', 'route' => 'registrar.promotion', 'icon' => 'bx-up-arrow-circle'],
                         ['label' => 'Remedial/Summer', 'route' => 'registrar.remedial', 'icon' => 'bx-first-aid'],
+                        ['label' => 'Dropping/Transfer', 'route' => 'registrar.dropping', 'icon' => 'bx-user-minus'],
                     ];
                     break;
                 case 'finance':

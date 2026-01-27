@@ -36,6 +36,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Super Admin Specific Routes
     Route::get('/admin/school-year', SchoolYearManager::class)->name('admin.school-year');
+    Route::get('/admin/settings', App\Livewire\SuperAdmin\SystemSettings::class)->name('admin.settings');
 
     // Dashboards (Role Specific)
     Route::get('/dashboards/super-admin', App\Livewire\SuperAdmin\Dashboard::class)->name('dashboards.super-admin');
@@ -65,6 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/registrar/permanent-record', \App\Livewire\Registrar\HistoricalGrades::class)->name('registrar.permanent-record');
     Route::get('/registrar/promotion', \App\Livewire\Registrar\BatchPromotion::class)->name('registrar.promotion');
     Route::get('/registrar/remedial', \App\Livewire\Registrar\RemedialEntry::class)->name('registrar.remedial');
+    Route::get('/registrar/dropping', \App\Livewire\Registrar\StudentDeparture::class)->name('registrar.dropping');
 
     // Teacher Routes
     Route::get('/teacher/grading', GradingSheet::class)->name('teacher.grading');
