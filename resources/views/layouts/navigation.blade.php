@@ -15,6 +15,7 @@
                         ['label' => 'Dashboard', 'route' => 'dashboards.super-admin', 'icon' => 'bx-grid-alt'],
                         ['label' => 'School Year', 'route' => 'admin.school-year', 'icon' => 'bx-calendar'],
                         ['label' => 'User Management', 'route' => 'users', 'icon' => 'bx-user'],
+                        ['label' => 'Settings', 'route' => 'admin.settings', 'icon' => 'bx-cog'],
                     ];
                     break;
                 case 'admin':
