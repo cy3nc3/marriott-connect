@@ -25,6 +25,7 @@
                         ['label' => 'Sections', 'route' => 'admin.sections', 'icon' => 'bx-group'],
                         ['label' => 'Schedule Matrix', 'route' => 'admin.schedule', 'icon' => 'bx-calendar-event'],
                         ['label' => 'Class Lists', 'route' => 'admin.reports.classlist', 'icon' => 'bx-list-ol'],
+                        ['label' => 'DepEd Reports', 'route' => 'admin.reports.deped', 'icon' => 'bx-folder'],
                     ];
                     break;
                 case 'registrar':
