@@ -28,9 +28,9 @@
         <!-- Letterhead Placeholder -->
         <div class="text-center mb-10 border-b-2 border-gray-800 pb-4">
             <h2 class="text-xl font-bold uppercase">Department of Education</h2>
-            <h3 class="text-lg">Region [Region]</h3>
-            <h3 class="text-lg">Division of [Division]</h3>
-            <h2 class="text-2xl font-bold mt-2">MARRIOTT CONNECT HIGH SCHOOL</h2>
+            <h3 class="text-lg">National Capital Region</h3>
+            <h3 class="text-lg">Division</h3>
+            <h2 class="text-2xl font-bold mt-2">MARRIOTT SCHOOL</h2>
         </div>
 
         <!-- Dynamic Content Placeholder -->
