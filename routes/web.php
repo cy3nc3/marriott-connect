@@ -26,6 +26,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Custom Login Mock
+Route::get('/login-mock', \App\Livewire\Auth\CustomLogin::class)->name('login.mock');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     // Main Dashboard Switcher (The Hub)
     Route::get('/dashboard', function () {
