@@ -65,6 +65,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/finance/history', \App\Livewire\Finance\TransactionHistory::class)->name('finance.history');
     Route::get('/finance/discounts', \App\Livewire\Finance\DiscountManager::class)->name('finance.discounts');
     Route::get('/finance/remittance', \App\Livewire\Finance\DailyRemittance::class)->name('finance.remittance');
+    Route::get('/finance/ledger', \App\Livewire\Finance\StudentLedger::class)->name('finance.ledger');
     Route::get('/finance/fees', \App\Livewire\Finance\FeeStructure::class)->name('finance.fees');
 
     // Registrar Routes
