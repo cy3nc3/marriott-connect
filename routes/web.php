@@ -65,6 +65,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/registrar/enrollment', EnrollmentWizard::class)->name('registrar.enrollment');
     Route::get('/registrar/permanent-record', \App\Livewire\Registrar\HistoricalGrades::class)->name('registrar.permanent-record');
     Route::get('/registrar/promotion', \App\Livewire\Registrar\BatchPromotion::class)->name('registrar.promotion');
+    Route::get('/registrar/remedial', \App\Livewire\Registrar\RemedialEntry::class)->name('registrar.remedial');
     Route::get('/registrar/dropping', \App\Livewire\Registrar\StudentDeparture::class)->name('registrar.dropping');
 
     // Teacher Routes

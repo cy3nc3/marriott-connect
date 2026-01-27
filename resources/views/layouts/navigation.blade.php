@@ -33,6 +33,7 @@
                         ['label' => 'Enrollment', 'route' => 'registrar.enrollment', 'icon' => 'bx-id-card'],
                         ['label' => 'Permanent Records', 'route' => 'registrar.permanent-record', 'icon' => 'bx-folder-open'],
                         ['label' => 'Promotion', 'route' => 'registrar.promotion', 'icon' => 'bx-up-arrow-circle'],
+                        ['label' => 'Remedial/Summer', 'route' => 'registrar.remedial', 'icon' => 'bx-first-aid'],
                         ['label' => 'Dropping/Transfer', 'route' => 'registrar.dropping', 'icon' => 'bx-user-minus'],
                     ];
                     break;
