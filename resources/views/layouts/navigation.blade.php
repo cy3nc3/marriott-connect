@@ -26,6 +26,7 @@
                         ['label' => 'Schedule Matrix', 'route' => 'admin.schedule', 'icon' => 'bx-calendar-event'],
                         ['label' => 'Class Lists', 'route' => 'admin.reports.classlist', 'icon' => 'bx-list-ol'],
                         ['label' => 'DepEd Reports', 'route' => 'admin.reports.deped', 'icon' => 'bx-folder'],
+                        ['label' => 'SF9 Generator', 'route' => 'admin.reports.sf9', 'icon' => 'bx-printer'],
                     ];
                     break;
                 case 'registrar':

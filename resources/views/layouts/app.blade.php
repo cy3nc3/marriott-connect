@@ -23,16 +23,16 @@
             $role = $role ?? 'super_admin';
         @endphp
 
-        <div class="flex h-screen overflow-hidden">
+        <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
             <!-- Sidebar -->
-            <aside class="w-64 bg-white border-r border-gray-200 hidden md:flex flex-col">
+            <aside class="w-64 bg-white border-r border-gray-200 hidden md:flex flex-col print:hidden">
                 @include('layouts.navigation', ['role' => $role])
             </aside>
 
             <!-- Main Content -->
-            <div class="flex-1 flex flex-col overflow-hidden">
+            <div class="flex-1 flex flex-col overflow-hidden print:block print:overflow-visible print:h-auto">
                 <!-- Top Header -->
-                <header class="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 shadow-sm z-10">
+                <header class="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 shadow-sm z-10 print:hidden">
                     <div class="font-semibold text-xl text-gray-800 leading-tight">
                         {{ $header ?? 'Dashboard' }}
                     </div>
@@ -46,7 +46,7 @@
                 </header>
 
                 <!-- Scrollable Content -->
-                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto">
                     {{ $slot }}
                 </main>
             </div>
