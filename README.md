@@ -1,59 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MarriottConnect - School Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+MarriottConnect is a comprehensive School Management System designed to streamline administrative, academic, and financial operations. It features a robust Role-Based Access Control (RBAC) system ensuring that Super Admins, Admins, Registrars, Finance Officers, Teachers, Students, and Parents each have a tailored interface suited to their needs.
 
-## About Laravel
+**Note:** This application is currently in a **simulation state**, utilizing hardcoded data and logic to demonstrate the user interface and workflows without requiring a full database population for all modules.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Technology Stack
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Framework:** Laravel 12
+- **Frontend:** Livewire 4, Alpine.js, Tailwind CSS
+- **Database:** SQLite (for user authentication and core records)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Key Features by Role
 
-## Learning Laravel
+### 1. Super Admin
+The Super Admin oversees the entire system configuration and user management.
+- **User Manager:** Manage accounts and roles.
+- **System Settings:** Configure global application settings.
+- **School Year Manager:** Open/Close school years.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+![Super Admin Dashboard](public/screenshots/super_admin_dashboard.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Admin
+Admins handle the academic structure and reporting.
+- **Curriculum Manager:** Manage subjects and grade levels.
+- **Section Manager:** Organize classes and sections.
+- **Schedule Builder:** Create class schedules.
+- **Report Card Generator:** Generate SF9 and other DepEd reports.
 
-## Laravel Sponsors
+![Admin Dashboard](public/screenshots/admin_dashboard.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 3. Registrar
+The Registrar module manages student lifecycles from enrollment to graduation.
+- **Enrollment Wizard:** Step-by-step student enrollment.
+- **Student Directory:** Comprehensive search and management of student records.
+- **Historical Grades:** Permanent records and transcript management.
+- **Batch Promotion:** Automated promotion logic.
 
-### Premium Partners
+![Registrar Dashboard](public/screenshots/registrar_dashboard.png)
+![Student Directory](public/screenshots/registrar_students.png)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 4. Finance
+The Finance module handles all monetary transactions with a strict color-coded ledger system.
+- **Point of Sale (POS):** Single-page interface for payments (Green for Credit, Black for Debit, Red for Debt).
+- **Student Ledger:** Real-time financial status of students.
+- **Daily Remittance:** Cash vs. Digital transaction breakdowns.
 
-## Contributing
+![Finance Dashboard](public/screenshots/finance_dashboard.png)
+![Point of Sale](public/screenshots/finance_pos.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 5. Teacher
+Teachers have tools to manage their classes and grades.
+- **Grading Sheet:** Input grades for students (AO/SO/RO/NO for values).
+- **Advisory Board:** Manage advisory class details.
 
-## Code of Conduct
+![Teacher Dashboard](public/screenshots/teacher_dashboard.png)
+![Grading Sheet](public/screenshots/teacher_grading.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 6. Student
+Students can access their academic info.
+- **My Grades:** View current and historical grades.
+- **Schedule:** View class schedule.
 
-## Security Vulnerabilities
+![Student Dashboard](public/screenshots/student_dashboard.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 7. Parent
+Parents can monitor their child's status.
+- **Billing Details:** View statements of account and payment history.
 
-## License
+![Parent Dashboard](public/screenshots/parent_dashboard.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Installation & Setup
+
+1. **Clone the repository**
+2. **Install Dependencies:**
+   ```bash
+   composer install
+   npm install && npm run build
+   ```
+3. **Setup Environment:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   touch database/database.sqlite
+   php artisan migrate
+   ```
+4. **Run the Application:**
+   ```bash
+   php artisan serve
+   ```
+5. **Login:**
+   - Use the mock login or create a user via `php artisan tinker`.
+   - Default simulated role switching is handled via the dashboard.
+
+## Simulation Details
+
+This project uses a unique simulation approach where specific pages (like dashboards) adapt based on the assigned role. The data presented in tables and charts is often hardcoded to provide a consistent and realistic demonstration of the UI capabilities without the need for extensive data entry.
