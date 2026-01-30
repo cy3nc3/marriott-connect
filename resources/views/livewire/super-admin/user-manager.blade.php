@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8" x-data="{ open: false }" x-on:user-created.window="open = false">
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
     <!-- Success Message Simulation -->
     @if (session()->has('message'))
@@ -8,7 +8,7 @@
     @endif
 
     <div class="flex justify-end mb-4">
-        <x-primary-button @click="open = true">
+        <x-primary-button wire:click="openCreateModal">
             {{ __('Create User') }}
         </x-primary-button>
     </div>
@@ -22,11 +22,12 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Permissions</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($data as $loop_index => $user)
+                    @forelse($users as $loop_index => $user)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $user['name'] }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $user['email'] }}</td>
@@ -35,8 +36,17 @@
                                     {{ $user['role'] }}
                                 </span>
                             </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                @if(!empty($user['grant_enrollment_access']))
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Enrollment Agent
+                                    </span>
+                                @else
+                                    <span class="text-gray-400 text-xs">-</span>
+                                @endif
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button class="text-indigo-600 hover:text-indigo-900 mr-3">
+                                <button wire:click="editUser({{ $loop_index }})" class="text-indigo-600 hover:text-indigo-900 mr-3">
                                     <i class='bx bx-edit text-xl'></i>
                                 </button>
                                 <button wire:click="openResetModal({{ $loop_index }})" class="text-orange-500 hover:text-orange-700">
@@ -44,7 +54,11 @@
                                 </button>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="5" class="px-6 py-4 text-center text-gray-500">No users found.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -78,38 +92,21 @@
     </div>
     @endif
 
-    <!-- Create User Modal -->
-    <div x-show="open"
-         style="display: none;"
-         class="fixed inset-0 z-50 overflow-y-auto"
-         aria-labelledby="modal-title"
-         role="dialog"
-         aria-modal="true">
+    <!-- Create/Edit User Modal -->
+    @if($showUserModal)
+    <div class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
         <!-- Backdrop -->
-        <div x-show="open"
-             x-transition:enter="ease-out duration-300"
-             x-transition:enter-start="opacity-0"
-             x-transition:enter-end="opacity-100"
-             x-transition:leave="ease-in duration-200"
-             x-transition:leave-start="opacity-100"
-             x-transition:leave-end="opacity-0"
-             class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
              <!-- Modal Panel -->
-            <div x-show="open"
-                 x-transition:enter="ease-out duration-300"
-                 x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                 x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                 x-transition:leave="ease-in duration-200"
-                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                 @click.away="open = false"
-                 class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
 
                 <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <h3 class="text-lg font-semibold leading-6 text-gray-900 mb-4" id="modal-title">Create New User</h3>
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900 mb-4" id="modal-title">
+                        {{ $editingIndex !== null ? 'Edit User' : 'Create New User' }}
+                    </h3>
 
                     <div class="space-y-4">
                         <div>
@@ -122,11 +119,15 @@
                             <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
+
+                        @if($editingIndex === null)
                         <div>
                             <x-input-label for="password" :value="__('Password')" />
                             <x-text-input wire:model="password" id="password" class="block mt-1 w-full" type="password" />
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
+                        @endif
+
                         <div>
                             <x-input-label for="role" :value="__('Role')" />
                             <select wire:model="role" id="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
@@ -135,21 +136,34 @@
                                 <option value="registrar">Registrar</option>
                                 <option value="finance">Finance</option>
                                 <option value="teacher">Teacher</option>
+                                <option value="parent">Parent</option>
+                                <option value="student">Student</option>
                             </select>
                             <x-input-error :messages="$errors->get('role')" class="mt-2" />
+                        </div>
+
+                        <!-- Grant Enrollment Access Toggle -->
+                        <div class="mt-4">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" wire:model="grantEnrollmentAccess" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                                <span class="ml-3 text-sm font-medium text-gray-900">Grant Enrollment Access</span>
+                            </label>
+                            <p class="text-xs text-gray-500 mt-1 ml-1">Allow this user to process enrollments during peak season.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <x-primary-button wire:click="createUser" class="ml-3">
+                    <x-primary-button wire:click="saveUser" class="ml-3">
                         Save
                     </x-primary-button>
-                    <x-secondary-button @click="open = false">
+                    <x-secondary-button wire:click="closeUserModal">
                         Cancel
                     </x-secondary-button>
                 </div>
             </div>
         </div>
     </div>
+    @endif
 </div>
