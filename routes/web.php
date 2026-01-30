@@ -54,7 +54,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/curriculum', CurriculumManager::class)->name('admin.curriculum');
     Route::get('/admin/sections', SectionManager::class)->name('admin.sections');
     Route::get('/admin/schedule', \App\Livewire\Admin\ScheduleBuilder::class)->name('admin.schedule');
-    Route::get('/admin/reports/classlist', \App\Livewire\Admin\ClassListReport::class)->name('admin.reports.classlist');
+    Route::get('/admin/reports/classlist', \App\Livewire\Admin\ClassListManager::class)->name('admin.reports.classlist');
     Route::get('/admin/reports/deped', \App\Livewire\Admin\DepEdReports::class)->name('admin.reports.deped');
     Route::get('/admin/reports/preview', \App\Livewire\Admin\ReportPreview::class)->name('admin.reports.preview');
     Route::get('/admin/reports/sf9', \App\Livewire\Admin\ReportCardGenerator::class)->name('admin.reports.sf9');
