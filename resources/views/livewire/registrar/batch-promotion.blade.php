@@ -51,10 +51,10 @@
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
-                                        <!-- Select All Logic could go here -->
+                                        <!-- Checkbox Header -->
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student Name</th>
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Final Average</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">General Average</th>
                                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                                 </tr>
                             </thead>
@@ -62,8 +62,10 @@
                                 @foreach($students as $student)
                                     @php
                                         $isRetained = $student['average'] < 75;
+                                        // Row styling: Green for Eligible, Red for Retained
+                                        $rowClass = $isRetained ? 'bg-red-50 text-red-700' : 'bg-green-50';
                                     @endphp
-                                    <tr class="{{ $isRetained ? 'bg-red-50' : 'hover:bg-gray-50' }}">
+                                    <tr class="{{ $rowClass }}">
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <input type="checkbox"
                                                    value="{{ $student['id'] }}"
@@ -74,17 +76,17 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                             {{ $student['name'] }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-bold text-gray-700">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-bold {{ $isRetained ? 'text-red-600' : 'text-gray-700' }}">
                                             {{ $student['average'] }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-center">
                                             @if($isRetained)
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                    Retained
+                                                    RETAINED
                                                 </span>
                                             @else
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    Promoted
+                                                    ELIGIBLE
                                                 </span>
                                             @endif
                                         </td>
@@ -131,9 +133,16 @@
                                 <span class="text-lg font-bold text-gray-900">{{ count($selectedStudents) }}</span>
                             </div>
                             <button wire:click="promoteStudents"
+                                    wire:loading.attr="disabled"
+                                    wire:loading.class="opacity-50 cursor-not-allowed"
                                     @if(count($selectedStudents) === 0) disabled @endif
                                     class="w-full inline-flex justify-center items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring ring-indigo-300 disabled:opacity-50 transition ease-in-out duration-150">
-                                Mark as Eligible
+                                <span wire:loading.remove>
+                                    Promote {{ count($selectedStudents) }} Students to Next Grade Level
+                                </span>
+                                <span wire:loading>
+                                    Processing Promotion...
+                                </span>
                             </button>
                         </div>
                     </div>
