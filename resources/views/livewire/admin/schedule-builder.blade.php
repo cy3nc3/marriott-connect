@@ -83,7 +83,7 @@
                                             @if($slotData['status'] === 'free')
                                                 wire:click="openAddModal('{{ $day }}', '{{ $time }}')"
                                             @endif
-                                            class="w-full h-full rounded flex flex-col items-center justify-center text-center p-2 transition duration-150 ease-in-out {{ $slotData['bg'] }} {{ $slotData['text_color'] }}"
+                                            class="w-full h-full rounded flex flex-col items-center justify-center text-center p-2 transition duration-150 ease-in-out {{ $slotData['class'] }}"
                                         >
                                             @if($slotData['status'] === 'free')
                                                 <span class="text-3xl font-light text-gray-300 hover:text-indigo-500">+</span>
