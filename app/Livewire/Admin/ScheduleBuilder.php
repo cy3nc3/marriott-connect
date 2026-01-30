@@ -164,9 +164,8 @@ class ScheduleBuilder extends Component
         if ($sectionBusy && $teacherBusy) {
             return [
                 'status' => 'conflict',
-                'bg' => 'bg-red-500',
-                'text_color' => 'text-white',
-                'title' => 'Double Conflict',
+                'class' => 'bg-red-100 text-red-700 border-l-4 border-red-600',
+                'title' => 'CONFLICT!',
                 'subtitle' => 'Section & Teacher Busy'
             ];
         }
@@ -177,8 +176,7 @@ class ScheduleBuilder extends Component
             if ($this->selectedSubject && $sectionBusy['subject'] === $this->selectedSubject) {
                 return [
                     'status' => 'subject_match',
-                    'bg' => 'bg-green-500',
-                    'text_color' => 'text-white',
+                    'class' => 'bg-green-100 text-green-700 border-l-4 border-green-600',
                     'title' => $sectionBusy['subject'],
                     'subtitle' => $sectionBusy['teacher']
                 ];
@@ -187,8 +185,7 @@ class ScheduleBuilder extends Component
             // Case A: Standard Section Busy
             return [
                 'status' => 'section_busy',
-                'bg' => 'bg-blue-500',
-                'text_color' => 'text-white',
+                'class' => 'bg-blue-100 text-blue-700 border-l-4 border-blue-600',
                 'title' => $sectionBusy['subject'] . ' (' . $sectionBusy['teacher'] . ')',
                 'subtitle' => ''
             ];
@@ -198,8 +195,7 @@ class ScheduleBuilder extends Component
         if ($teacherBusy) {
             return [
                 'status' => 'teacher_busy',
-                'bg' => 'bg-orange-400',
-                'text_color' => 'text-white',
+                'class' => 'bg-orange-100 text-orange-700 border-l-4 border-orange-600',
                 'title' => 'Teacher Busy: ' . $teacherBusy['section_name'],
                 'subtitle' => ''
             ];
@@ -208,8 +204,7 @@ class ScheduleBuilder extends Component
         // Case E: Free
         return [
             'status' => 'free',
-            'bg' => 'bg-white hover:bg-gray-50 cursor-pointer',
-            'text_color' => 'text-gray-400',
+            'class' => 'bg-gray-50 text-gray-400 hover:bg-gray-100 cursor-pointer',
             'title' => '+',
             'subtitle' => ''
         ];
