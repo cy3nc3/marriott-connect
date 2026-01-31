@@ -67,6 +67,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Registrar Routes
     Route::get('/registrar/students', \App\Livewire\Registrar\StudentDirectory::class)->name('registrar.students');
     Route::get('/registrar/enrollment', EnrollmentWizard::class)->name('registrar.enrollment');
+    Route::get('/registrar/print-cor', function () {
+        $data = session('enrollment_details');
+        if (!$data) {
+            return redirect()->route('registrar.enrollment');
+        }
+        return view('livewire.registrar.print-cor', ['data' => $data]);
+    })->name('registrar.print-cor');
     Route::get('/registrar/permanent-record', \App\Livewire\Registrar\HistoricalGrades::class)->name('registrar.permanent-record');
     Route::get('/registrar/promotion', \App\Livewire\Registrar\BatchPromotion::class)->name('registrar.promotion');
     Route::get('/registrar/remedial', \App\Livewire\Registrar\RemedialEntry::class)->name('registrar.remedial');
