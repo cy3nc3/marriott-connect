@@ -26,9 +26,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Custom Login Mock
-Route::get('/login-mock', \App\Livewire\Auth\CustomLogin::class)->name('login.mock');
-
 Route::middleware(['auth', 'verified'])->group(function () {
     // Main Dashboard Switcher (The Hub)
     Route::get('/dashboard', function () {
@@ -96,3 +93,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Override default login route with Livewire component
+Route::get('/login', \App\Livewire\Auth\Login::class)->name('login');
