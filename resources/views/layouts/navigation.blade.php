@@ -44,7 +44,7 @@
                     $links = [
                         ['label' => 'Dashboard', 'route' => 'dashboards.finance', 'icon' => 'bx-grid-alt'],
                         ['label' => 'Student Accounts', 'route' => 'finance.ledger', 'icon' => 'bx-wallet'],
-                        ['label' => 'POS', 'route' => 'finance.pos', 'icon' => 'bx-cart'],
+                        ['label' => 'Cashier Panel', 'route' => 'finance.pos', 'icon' => 'bx-cart'],
                         ['label' => 'Inventory', 'route' => 'finance.inventory', 'icon' => 'bx-box'],
                         ['label' => 'History', 'route' => 'finance.history', 'icon' => 'bx-history'],
                         ['label' => 'Discounts', 'route' => 'finance.discounts', 'icon' => 'bx-gift'],

@@ -10,6 +10,8 @@ use App\Livewire\Dashboards\RegistrarDashboard;
 use App\Livewire\Dashboards\StudentDashboard;
 use App\Livewire\Dashboards\SuperAdminDashboard;
 use App\Livewire\Dashboards\TeacherDashboard;
+use App\Livewire\Finance\CashierPanel;
+use App\Livewire\Finance\ExpenseManager;
 use App\Livewire\Finance\PointOfSale;
 use App\Livewire\Finance\ProductInventory;
 use App\Livewire\Parent\BillingDetails;
@@ -57,6 +59,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Finance Routes
     Route::get('/finance/inventory', ProductInventory::class)->name('finance.inventory');
+    Route::get('/finance/pos', CashierPanel::class)->name('finance.pos');
+    Route::get('/finance/expenses', ExpenseManager::class)->name('finance.expenses');
     Route::get('/finance/pos', PointOfSale::class)->name('finance.pos');
     Route::get('/finance/history', \App\Livewire\Finance\TransactionHistory::class)->name('finance.history');
     Route::get('/finance/discounts', \App\Livewire\Finance\DiscountManager::class)->name('finance.discounts');
