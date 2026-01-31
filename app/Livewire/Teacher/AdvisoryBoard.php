@@ -7,86 +7,88 @@ use Livewire\Component;
 class AdvisoryBoard extends Component
 {
     public $students = [];
+    public $selectedQuarter;
 
     public function mount()
     {
-        // Mock Data: Grade 10 - Rizal
-        $this->students = [
-            [
-                'id' => 1,
-                'name' => 'Juan Dela Cruz',
-                'grades' => [
-                    'Math' => 85,
-                    'Science' => 88,
-                    'English' => 90,
-                    'Filipino' => 92,
-                    'History' => 89
-                ],
-                'behavior' => [
-                    'Maka-Diyos' => 'AO',
-                    'Makatao' => 'AO',
-                    'Makakalikasan' => 'AO',
-                    'Makabansa' => 'AO'
-                ]
-            ],
-            [
-                'id' => 2,
-                'name' => 'Maria Clara',
-                'grades' => [
-                    'Math' => 95,
-                    'Science' => 96,
-                    'English' => 98,
-                    'Filipino' => 97,
-                    'History' => 95
-                ],
-                'behavior' => [
-                    'Maka-Diyos' => 'AO',
-                    'Makatao' => 'AO',
-                    'Makakalikasan' => 'AO',
-                    'Makabansa' => 'AO'
-                ]
-            ],
-            [
-                'id' => 3,
-                'name' => 'Pedro Penduko',
-                'grades' => [
-                    'Math' => 74,
-                    'Science' => 76,
-                    'English' => 73,
-                    'Filipino' => 80,
-                    'History' => 75
-                ],
-                'behavior' => [
+        $this->selectedQuarter = session('selected_quarter', '1st');
+        $this->loadStudents();
+    }
+
+    public function updatedSelectedQuarter($value)
+    {
+        session(['selected_quarter' => $value]);
+        $this->loadStudents();
+    }
+
+    public function loadStudents()
+    {
+        $subjects = ['Math', 'Science', 'English', 'Filipino', 'AP', 'TLE', 'MAPEH'];
+        $baseStudents = [
+            1 => 'Juan Dela Cruz',
+            2 => 'Maria Clara',
+            3 => 'Pedro Penduko',
+            4 => 'Crisostomo Ibarra',
+            5 => 'Sisa',
+            6 => 'Basilio',
+            7 => 'Elias'
+        ];
+
+        $this->students = [];
+
+        foreach ($baseStudents as $id => $name) {
+            $grades = [];
+            foreach ($subjects as $subject) {
+                if ($this->selectedQuarter == '1st') {
+                    // Q1: Good grades
+                    $grades[$subject] = rand(85, 98);
+                } elseif ($this->selectedQuarter == '2nd') {
+                    // Q2: Lower grades, some failing
+                    if ($id == 3 || $id == 5) { // Pedro and Sisa struggle in Q2
+                         // Force failing in Math/Science
+                         if (in_array($subject, ['Math', 'Science'])) {
+                             $grades[$subject] = rand(65, 74);
+                         } else {
+                             $grades[$subject] = rand(75, 82);
+                         }
+                    } else {
+                         $grades[$subject] = rand(80, 92);
+                    }
+                } else {
+                    // Default for 3rd/4th
+                    $grades[$subject] = rand(75, 95);
+                }
+            }
+
+            // Mock Behavior
+            $behavior = [
+                'Maka-Diyos' => 'AO',
+                'Makatao' => 'AO',
+                'Makakalikasan' => 'AO',
+                'Makabansa' => 'AO'
+            ];
+             if ($this->selectedQuarter == '2nd' && ($id == 3 || $id == 5)) {
+                 $behavior = [
                     'Maka-Diyos' => 'SO',
                     'Makatao' => 'SO',
                     'Makakalikasan' => 'SO',
                     'Makabansa' => 'SO'
-                ]
-            ],
-            [
-                'id' => 4,
-                'name' => 'Crisostomo Ibarra',
-                'grades' => [
-                    'Math' => 90,
-                    'Science' => 92,
-                    'English' => 91,
-                    'Filipino' => 88,
-                    'History' => 95
-                ],
-                'behavior' => [
-                    'Maka-Diyos' => 'AO',
-                    'Makatao' => 'AO',
-                    'Makakalikasan' => 'AO',
-                    'Makabansa' => 'AO'
-                ]
-            ],
-        ];
+                ];
+             }
+
+            $this->students[] = [
+                'id' => $id,
+                'name' => $name,
+                'grades' => $grades,
+                'behavior' => $behavior
+            ];
+        }
     }
 
     public function releaseReportCards()
     {
-        // Simulation logic
-        session()->flash('message', 'Report Cards have been successfully released to parents and students.');
+        $count = count($this->students);
+        session()->flash('message', "Report cards for {$count} students generated successfully.");
     }
 
     public function render()
