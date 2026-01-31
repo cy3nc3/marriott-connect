@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         @php
-            $role = $role ?? 'super_admin';
+            $role = $role ?? session('role', 'student');
             $headers = [
                 'super_admin' => 'System Monitor',
                 'admin' => 'DSS & Analytics',
@@ -21,8 +21,8 @@
             {{-- We assume $role is passed from the Layout or View Composer --}}
             {{-- Fallback for testing/simulation --}}
             @php
-                // Default to super_admin if not set, matching the Layout simulation default
-                $role = $role ?? 'super_admin';
+                // Default to student if not set, matching the Layout simulation default
+                $role = $role ?? session('role', 'student');
             @endphp
 
             @if($role === 'super_admin')      <livewire:super-admin.dashboard />

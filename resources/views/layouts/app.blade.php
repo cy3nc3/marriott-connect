@@ -19,8 +19,8 @@
     </head>
     <body class="font-sans antialiased bg-gray-100">
         @php
-            // RBAC Simulation: Use passed role or default
-            $role = $role ?? 'super_admin';
+            // RBAC Simulation: Use passed role or default, fallback to session, then 'student'
+            $role = $role ?? session('role', 'student');
         @endphp
 
         <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
