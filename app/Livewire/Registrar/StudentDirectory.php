@@ -169,6 +169,7 @@ class StudentDirectory extends Component
             return $matchesSearch && $matchesGrade && $matchesStatus;
         })->values()->all();
 
-        return view('livewire.registrar.student-directory');
+        return view('livewire.registrar.student-directory')
+            ->layout('layouts.app', ['header' => 'Student Directory']);
     }
 }

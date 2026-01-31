@@ -16,7 +16,7 @@ class BatchPromotion extends Component
     public $selectedStudents = [];
 
     // Mock Options
-    public $gradeLevels = ['7', '8', '9', '10', '11', '12'];
+    public $gradeLevels = ['7', '8', '9', '10'];
     public $sections = ['Rizal', 'Bonifacio', 'Luna', 'Mabini'];
 
     public function mount()

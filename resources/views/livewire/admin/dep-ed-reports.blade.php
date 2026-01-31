@@ -20,7 +20,7 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Grade Level</label>
                     <select wire:model="sf1_grade" class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        @foreach(range(7, 12) as $grade)
+                        @foreach(range(7, 10) as $grade)
                             <option value="{{ $grade }}">Grade {{ $grade }}</option>
                         @endforeach
                     </select>
@@ -52,7 +52,7 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Grade Level</label>
                     <select wire:model="sf5_grade" class="w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
-                        @foreach(range(7, 12) as $grade)
+                        @foreach(range(7, 10) as $grade)
                             <option value="{{ $grade }}">Grade {{ $grade }}</option>
                         @endforeach
                     </select>
