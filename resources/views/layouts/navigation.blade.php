@@ -46,7 +46,6 @@
                         ['label' => 'Student Accounts', 'route' => 'finance.ledger', 'icon' => 'bx-wallet'],
                         ['label' => 'POS', 'route' => 'finance.pos', 'icon' => 'bx-cart'],
                         ['label' => 'Inventory', 'route' => 'finance.inventory', 'icon' => 'bx-box'],
-                        ['label' => 'Expenses', 'route' => 'finance.expenses', 'icon' => 'bx-wallet'],
                         ['label' => 'History', 'route' => 'finance.history', 'icon' => 'bx-history'],
                         ['label' => 'Discounts', 'route' => 'finance.discounts', 'icon' => 'bx-gift'],
                         ['label' => 'Fee Setup', 'route' => 'finance.fees', 'icon' => 'bx-money'],
