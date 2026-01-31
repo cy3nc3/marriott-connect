@@ -89,6 +89,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Parent Routes
     Route::get('/parent/billing', BillingDetails::class)->name('parent.billing');
+    Route::get('/parent/schedule', \App\Livewire\Parent\StudentSchedule::class)->name('parent.schedule');
+    Route::get('/parent/grades', \App\Livewire\Parent\StudentGrades::class)->name('parent.grades');
 });
 
 Route::middleware('auth')->group(function () {
