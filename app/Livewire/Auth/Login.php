@@ -16,6 +16,7 @@ class Login extends Component
     public function login()
     {
         $credentials = [
+            'superadmin@marriott.edu' => ['role' => 'super_admin', 'redirect' => '/dashboards/super-admin'],
             'admin@marriott.edu' => ['role' => 'admin', 'redirect' => '/dashboards/admin'],
             'registrar@marriott.edu' => ['role' => 'registrar', 'redirect' => '/dashboards/registrar'],
             'finance@marriott.edu' => ['role' => 'finance', 'redirect' => '/finance/fees'],
