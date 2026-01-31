@@ -63,15 +63,15 @@
                     $links = [
                         ['label' => 'My Dashboard', 'route' => 'dashboards.student', 'icon' => 'bx-grid-alt'],
                         ['label' => 'My Schedule', 'route' => 'student.schedule', 'icon' => 'bx-time'],
-                        ['label' => 'Report Card', 'route' => 'student.grades', 'icon' => 'heroicon-o-document-text'],
+                        ['label' => 'Report Card', 'route' => 'student.grades', 'icon' => 'bx-file'],
                     ];
                     break;
                 case 'parent':
                     $links = [
                         ['label' => 'Parent Portal', 'route' => 'dashboards.parent', 'icon' => 'bx-home'],
-                        ['label' => 'Schedule', 'route' => 'parent.schedule', 'icon' => 'heroicon-o-calendar'],
-                        ['label' => 'Report Card', 'route' => 'parent.grades', 'icon' => 'heroicon-o-academic-cap'],
-                        ['label' => 'Statement of Account', 'route' => 'parent.billing', 'icon' => 'heroicon-o-banknotes'],
+                        ['label' => 'Schedule', 'route' => 'parent.schedule', 'icon' => 'bx-calendar'],
+                        ['label' => 'Report Card', 'route' => 'parent.grades', 'icon' => 'bx-file'],
+                        ['label' => 'Statement of Account', 'route' => 'parent.billing', 'icon' => 'bx-money'],
                     ];
                     break;
             }
