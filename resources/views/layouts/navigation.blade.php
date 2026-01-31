@@ -63,12 +63,15 @@
                     $links = [
                         ['label' => 'My Dashboard', 'route' => 'dashboards.student', 'icon' => 'bx-grid-alt'],
                         ['label' => 'My Schedule', 'route' => 'student.schedule', 'icon' => 'bx-time'],
-                        ['label' => 'Report Card', 'route' => 'student.grades', 'icon' => 'bx-report'],
+                        ['label' => 'Report Card', 'route' => 'student.grades', 'icon' => 'heroicon-o-document-text'],
                     ];
                     break;
                 case 'parent':
                     $links = [
                         ['label' => 'Parent Portal', 'route' => 'dashboards.parent', 'icon' => 'bx-home'],
+                        ['label' => 'Schedule', 'route' => 'parent.schedule', 'icon' => 'heroicon-o-calendar'],
+                        ['label' => 'Report Card', 'route' => 'parent.grades', 'icon' => 'heroicon-o-academic-cap'],
+                        ['label' => 'Statement of Account', 'route' => 'parent.billing', 'icon' => 'heroicon-o-banknotes'],
                     ];
                     break;
             }
@@ -77,13 +80,18 @@
         @foreach($links as $link)
             @php
                 $isActive = $link['route'] !== '#' && request()->routeIs($link['route']);
+                $iconColor = $isActive ? 'text-indigo-500' : 'text-gray-400 group-hover:text-gray-500';
             @endphp
             <a href="{{ $link['route'] === '#' ? '#' : route($link['route']) }}"
                class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-all duration-200
                {{ $isActive
                   ? 'bg-indigo-50 text-indigo-700'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
-                <i class="bx {{ $link['icon'] }} mr-3 text-xl flex-shrink-0 transition-colors duration-200 {{ $isActive ? 'text-indigo-500' : 'text-gray-400 group-hover:text-gray-500' }}"></i>
+                @if(Str::startsWith($link['icon'], 'bx-'))
+                    <i class="bx {{ $link['icon'] }} mr-3 text-xl flex-shrink-0 transition-colors duration-200 {{ $iconColor }}"></i>
+                @else
+                    <x-dynamic-component :component="$link['icon']" class="w-5 h-5 mr-3 flex-shrink-0 transition-colors duration-200 {{ $iconColor }}" />
+                @endif
                 {{ $link['label'] }}
             </a>
         @endforeach
