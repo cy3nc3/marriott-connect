@@ -9,8 +9,8 @@ class Dashboard extends Component
     public $data = [
         'forecast_next_year' => 520,
         'current_enrollees' => 450,
-        'revenue' => 1500000,
-        'expenses' => 1200000,
+        'collected' => 1500000,
+        'receivables' => 1000000,
     ];
 
     public function render()

@@ -19,30 +19,30 @@
             </div>
         </div>
 
-        <!-- Card 2: Financial Health Overview -->
+        <!-- Card 2: Collection Overview -->
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-            <h3 class="text-lg font-medium text-gray-900 border-b border-gray-200 pb-2 mb-4">Financial Health Overview</h3>
+            <h3 class="text-lg font-medium text-gray-900 border-b border-gray-200 pb-2 mb-4">Collection Overview</h3>
 
             <div class="space-y-4">
-                <!-- Revenue Bar -->
+                <!-- Collected Bar -->
                 <div>
                     <div class="flex justify-between text-sm font-medium mb-1">
-                        <span class="text-gray-700">Revenue</span>
-                        <span class="text-green-600">₱ {{ number_format($data['revenue']) }}</span>
+                        <span class="text-gray-700">Collected</span>
+                        <span class="text-green-600">₱ {{ number_format($data['collected']) }}</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-4">
-                        <div class="bg-green-500 h-4 rounded-full" style="width: 80%"></div> <!-- Mock 80% -->
+                        <div class="bg-green-500 h-4 rounded-full" style="width: 60%"></div> <!-- Mock 60% -->
                     </div>
                 </div>
 
-                <!-- Expenses Bar -->
+                <!-- Outstanding Receivables Bar -->
                 <div>
                     <div class="flex justify-between text-sm font-medium mb-1">
-                        <span class="text-gray-700">Expenses</span>
-                        <span class="text-red-600">₱ {{ number_format($data['expenses']) }}</span>
+                        <span class="text-gray-700">Outstanding Receivables</span>
+                        <span class="text-orange-500">₱ {{ number_format($data['receivables']) }}</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-4">
-                        <div class="bg-red-500 h-4 rounded-full" style="width: 60%"></div> <!-- Mock 60% relative to revenue scale -->
+                        <div class="bg-orange-400 h-4 rounded-full" style="width: 40%"></div> <!-- Mock 40% -->
                     </div>
                 </div>
             </div>
