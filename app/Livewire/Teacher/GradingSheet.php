@@ -3,66 +3,84 @@
 namespace App\Livewire\Teacher;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class GradingSheet extends Component
 {
-    public $subject = 'Mathematics 7';
-    public $section = 'Emerald';
+    // Filters
+    public $quarter = '1st';
+    public $grade = 'Grade 7';
+    public $section = 'Rizal';
+    public $subject = 'Math';
 
-    // Assessment Columns
-    // Types: ww (Written Work), pt (Performance Task), qa (Quarterly Assessment)
-    public $columns = [
-        ['id' => 1, 'name' => 'Quiz 1', 'type' => 'ww', 'max' => 20],
-        ['id' => 2, 'name' => 'Quiz 2', 'type' => 'ww', 'max' => 25],
-        ['id' => 3, 'name' => 'Activity 1', 'type' => 'pt', 'max' => 50],
-        ['id' => 4, 'name' => 'Project', 'type' => 'pt', 'max' => 100],
-        ['id' => 5, 'name' => '1st Quarter Exam', 'type' => 'qa', 'max' => 50],
-    ];
+    // Data
+    public $columns = [];
+    public $students = [];
+    public $showData = false;
 
-    public $isSubmitted = false;
-
-    // Students and Scores
-    public $students = [
-        [
-            'id' => 1,
-            'name' => 'Cruz, Juan',
-            'scores' => [1 => 18, 2 => 20, 3 => 45, 4 => 85, 5 => 40],
-            'grade' => 0
-        ],
-        [
-            'id' => 2,
-            'name' => 'Santos, Maria',
-            'scores' => [1 => 20, 2 => 25, 3 => 50, 4 => 95, 5 => 48],
-            'grade' => 0
-        ],
-        [
-            'id' => 3,
-            'name' => 'Dizon, Pedro',
-            'scores' => [1 => 10, 2 => 15, 3 => 30, 4 => 70, 5 => 25],
-            'grade' => 0
-        ],
-    ];
+    // Modal State
+    public $showAddModal = false;
+    public $newActivityTitle = '';
+    public $newActivityType = 'ww'; // ww, pt, qa
+    public $newActivityMax = 10;
 
     public function mount()
     {
-        $this->calculateGrades();
+        $this->loadData();
+    }
+
+    public function updated($property)
+    {
+        if (in_array($property, ['quarter', 'grade', 'section', 'subject'])) {
+            $this->loadData();
+        }
+    }
+
+    public function loadData()
+    {
+        // Happy Path Check: Grade 7 - Rizal - Math
+        if ($this->grade === 'Grade 7' && $this->section === 'Rizal' && $this->subject === 'Math') {
+            $this->showData = true;
+
+            // Try loading from session first to persist data across reloads
+            if (session()->has('grading_sheet_data')) {
+                $data = session('grading_sheet_data');
+                $this->columns = $data['columns'];
+                $this->students = $data['students'];
+            } else {
+                // Initialize Mock Data
+                $this->columns = [
+                    ['id' => 'ww1', 'name' => 'Quiz 1', 'type' => 'ww', 'max' => 20],
+                    ['id' => 'ww2', 'name' => 'Quiz 2', 'type' => 'ww', 'max' => 30],
+                    ['id' => 'pt1', 'name' => 'Group Project', 'type' => 'pt', 'max' => 50],
+                ];
+
+                $this->students = [
+                    ['id' => 1, 'name' => 'Cruz, Juan', 'scores' => ['ww1' => 18, 'ww2' => 25, 'pt1' => 45], 'grade' => 0],
+                    ['id' => 2, 'name' => 'Santos, Maria', 'scores' => ['ww1' => 20, 'ww2' => 30, 'pt1' => 50], 'grade' => 0],
+                    ['id' => 3, 'name' => 'Dizon, Pedro', 'scores' => ['ww1' => 15, 'ww2' => 20, 'pt1' => 40], 'grade' => 0],
+                    ['id' => 4, 'name' => 'Reyes, Jose', 'scores' => ['ww1' => 10, 'ww2' => 15, 'pt1' => 35], 'grade' => 0],
+                    ['id' => 5, 'name' => 'Lim, Anna', 'scores' => ['ww1' => 19, 'ww2' => 28, 'pt1' => 48], 'grade' => 0],
+                ];
+
+                $this->calculateGrades();
+            }
+        } else {
+            $this->showData = false;
+            $this->columns = [];
+            $this->students = [];
+        }
     }
 
     public function updatedStudents()
     {
-        if ($this->isSubmitted) return;
         $this->calculateGrades();
-    }
-
-    public function submitGrades()
-    {
-        $this->isSubmitted = true;
-        session()->flash('message', 'Grades submitted successfully. Records are now locked.');
+        $this->persist();
     }
 
     public function calculateGrades()
     {
-        // DepEd Weights: WW 40%, PT 40%, QA 20%
+        // Standard Weights: WW 40%, PT 40%, QA 20%
         $weights = ['ww' => 0.40, 'pt' => 0.40, 'qa' => 0.20];
 
         foreach ($this->students as $index => $student) {
@@ -72,6 +90,12 @@ class GradingSheet extends Component
             // Sum scores and max scores by type
             foreach ($this->columns as $col) {
                 $score = (float) ($student['scores'][$col['id']] ?? 0);
+                // Ensure score doesn't exceed max
+                if ($score > $col['max']) {
+                    $score = $col['max'];
+                    $this->students[$index]['scores'][$col['id']] = $score;
+                }
+
                 $totals[$col['type']] += $score;
                 $max_totals[$col['type']] += $col['max'];
             }
@@ -85,9 +109,50 @@ class GradingSheet extends Component
                 }
             }
 
-            // Transmutation (Simplified: just using the raw weighted average for now,
-            // or we could mock a transmutation table, but raw is fine for this demo)
             $this->students[$index]['grade'] = round($final_grade, 2);
+        }
+    }
+
+    public function openAddModal()
+    {
+        $this->reset(['newActivityTitle', 'newActivityType', 'newActivityMax']);
+        $this->showAddModal = true;
+    }
+
+    public function saveEntry()
+    {
+        $this->validate([
+            'newActivityTitle' => 'required|string',
+            'newActivityType' => 'required|in:ww,pt,qa',
+            'newActivityMax' => 'required|numeric|min:1',
+        ]);
+
+        $newId = (string) Str::uuid();
+
+        $this->columns[] = [
+            'id' => $newId,
+            'name' => $this->newActivityTitle,
+            'type' => $this->newActivityType,
+            'max' => $this->newActivityMax,
+        ];
+
+        // Initialize score for this new column for all students
+        foreach ($this->students as $index => $student) {
+            $this->students[$index]['scores'][$newId] = 0;
+        }
+
+        $this->showAddModal = false;
+        $this->calculateGrades();
+        $this->persist();
+    }
+
+    public function persist()
+    {
+        if ($this->showData) {
+            session()->put('grading_sheet_data', [
+                'columns' => $this->columns,
+                'students' => $this->students,
+            ]);
         }
     }
 
