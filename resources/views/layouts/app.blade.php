@@ -29,7 +29,7 @@
     <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
           x-data="{
               autoCollapse: localStorage.getItem('sidebarAutoCollapse') === 'true',
-              darkMode: document.documentElement.classList.contains('dark'),
+              darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
               hover: false,
               forceCollapsed: false,
               get isExpanded() {
@@ -60,12 +60,14 @@
 
         <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
             <!-- Sidebar -->
+            @persist('sidebar')
             <aside class="bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-all duration-300 ease-in-out"
                    :class="isExpanded ? 'w-72' : 'w-20 hide-scrollbar'"
                    @mouseenter="hover = true"
                    @mouseleave="hover = false; forceCollapsed = false;">
                 @include('layouts.navigation', ['role' => $role])
             </aside>
+            @endpersist
 
             <!-- Main Content -->
             <div class="flex-1 flex flex-col overflow-hidden bg-gray-100 dark:bg-gray-900 transition-colors duration-300 print:block print:overflow-visible print:h-auto">
