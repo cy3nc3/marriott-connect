@@ -42,12 +42,12 @@
         <div class="screen-only w-full space-y-6">
 
             <!-- Filter Bar -->
-            <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
                     <!-- Grade Level -->
                     <div class="w-full md:w-48">
-                        <label for="grade-select" class="block text-sm font-medium text-gray-700 mb-1">Grade Level</label>
-                        <select id="grade-select" wire:model.live="selectedGrade" class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        <label for="grade-select" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Grade Level</label>
+                        <select id="grade-select" wire:model.live="selectedGrade" class="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                             <option value="">Select Grade</option>
                             @foreach($grades as $grade)
                                 <option value="{{ $grade }}">Grade {{ $grade }}</option>
@@ -57,8 +57,8 @@
 
                     <!-- Section -->
                     <div class="w-full md:w-48">
-                        <label for="section-select" class="block text-sm font-medium text-gray-700 mb-1">Section</label>
-                        <select id="section-select" wire:model.live="selectedSection" {{ empty($selectedGrade) ? 'disabled' : '' }} class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm disabled:bg-gray-100 disabled:text-gray-400">
+                        <label for="section-select" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Section</label>
+                        <select id="section-select" wire:model.live="selectedSection" {{ empty($selectedGrade) ? 'disabled' : '' }} class="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm disabled:bg-gray-100 disabled:text-gray-400 dark:disabled:bg-gray-700 dark:disabled:text-gray-500">
                             <option value="">Select Section</option>
                             @foreach($availableSections as $section)
                                 <option value="{{ $section }}">{{ $section }}</option>
@@ -75,40 +75,40 @@
 
             <!-- Management Table -->
             @if($selectedGrade && $selectedSection)
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                         <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-bold text-gray-800">
-                                Student List: <span class="text-indigo-600">Grade {{ $selectedGrade }} - {{ $selectedSection }}</span>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">
+                                Student List: <span class="text-indigo-600 dark:text-indigo-400">Grade {{ $selectedGrade }} - {{ $selectedSection }}</span>
                             </h3>
-                            <span class="text-sm text-gray-500">Total Students: {{ count($filteredStudents) }}</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Total Students: {{ count($filteredStudents) }}</span>
                         </div>
 
                         <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-700">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">LRN</th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student Name</th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">LRN</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Student Name</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Gender</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
+                                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                     @forelse($filteredStudents as $student)
                                         <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $student['lrn'] }}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $student['name'] }}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $student['gender'] }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">{{ $student['lrn'] }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">{{ $student['name'] }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $student['gender'] }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $student['status'] === 'Enrolled' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $student['status'] === 'Enrolled' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' }}">
                                                     {{ $student['status'] }}
                                                 </span>
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">No students found in this class.</td>
+                                            <td colspan="4" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-center">No students found in this class.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -118,12 +118,12 @@
                 </div>
             @else
                 <!-- Empty State -->
-                <div class="bg-white rounded-lg shadow-sm p-12 text-center">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-12 text-center">
                     <div class="mx-auto h-12 w-12 text-gray-400">
                         <i class='bx bx-search-alt text-5xl'></i>
                     </div>
-                    <h3 class="mt-2 text-sm font-medium text-gray-900">No Class Selected</h3>
-                    <p class="mt-1 text-sm text-gray-500">Select a Grade Level and Section to view the class list.</p>
+                    <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">No Class Selected</h3>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Select a Grade Level and Section to view the class list.</p>
                 </div>
             @endif
 

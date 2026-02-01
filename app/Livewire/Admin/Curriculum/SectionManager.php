@@ -57,6 +57,12 @@ class SectionManager extends Component
         // For now, keep it simple.
     }
 
+    public function createMode()
+    {
+        $this->resetForm();
+        $this->dispatch('open-modal');
+    }
+
     public function saveSection()
     {
         $this->validate([
@@ -92,6 +98,7 @@ class SectionManager extends Component
         }
 
         session()->put('sections', $this->sections);
+        $this->dispatch('close-modal');
         $this->resetForm();
     }
 
@@ -105,6 +112,7 @@ class SectionManager extends Component
             $this->adviser = $section['adviser'];
             $this->capacity = $section['capacity'];
             $this->isEditing = true;
+            $this->dispatch('open-modal');
         }
     }
 
@@ -142,7 +150,7 @@ class SectionManager extends Component
         });
 
         return view('livewire.admin.curriculum.section-manager', [
-            'displaySections' => $displaySections
+            'filteredSections' => $displaySections
         ])->layout('layouts.app', ['header' => 'Section Manager']);
     }
 }

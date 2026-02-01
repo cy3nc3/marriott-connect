@@ -119,10 +119,56 @@ class ScheduleBuilder extends Component
         session()->flash('message', 'Schedule added successfully.');
     }
 
+    public function getSlotData($day, $time)
+    {
+        $currentSchedule = $this->scheduleData[$this->selectedSection] ?? [];
+        $slotStart = strtotime($time);
+        $slotEnd = $slotStart + 3600; // 1 Hour Slots
+
+        // Find intersecting class
+        foreach ($currentSchedule as $class) {
+            if ($class['day'] !== $day) continue;
+
+            $classStart = strtotime($class['time_start']);
+            $classEnd = strtotime($class['time_end']);
+
+            // Simple intersection check for 1 hour blocks
+            if ($classStart < $slotEnd && $classEnd > $slotStart) {
+                // Determine Color
+                $classColor = 'bg-green-100 text-green-800 border-green-200'; // Default
+                if ($this->selectedTeacher && $class['teacher'] === $this->selectedTeacher) {
+                    $classColor = 'bg-orange-100 text-orange-800 border-orange-200';
+                }
+                if ($this->selectedSubject && $class['subject'] === $this->selectedSubject) {
+                    $classColor = 'bg-indigo-100 text-indigo-800 border-indigo-200';
+                }
+
+                return [
+                    'status' => 'busy',
+                    'class' => $classColor . ' border shadow-sm',
+                    'title' => $class['subject'],
+                    'subtitle' => $class['teacher'] . ' (' . $class['room'] . ')'
+                ];
+            }
+        }
+
+        return [
+            'status' => 'free',
+            'class' => 'hover:bg-gray-50 cursor-pointer',
+            'title' => '',
+            'subtitle' => ''
+        ];
+    }
+
     public function render()
     {
+        $daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+        $timeSlots = ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'];
+
         return view('livewire.admin.scheduling.schedule-builder', [
-            'currentSchedule' => $this->scheduleData[$this->selectedSection] ?? []
+            'currentSchedule' => $this->scheduleData[$this->selectedSection] ?? [],
+            'daysOfWeek' => $daysOfWeek,
+            'timeSlots' => $timeSlots,
         ])->layout('layouts.app', ['header' => 'Schedule Builder']);
     }
 }

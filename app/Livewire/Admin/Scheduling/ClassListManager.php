@@ -69,9 +69,18 @@ class ClassListManager extends Component
             $filteredStudents = $filteredStudents->where('section', $this->selectedSection);
         }
 
+        $printData = [
+            'adviser' => 'TBA', // Mock adviser logic could go here
+            'boys' => $filteredStudents->where('gender', 'Male')->values(),
+            'girls' => $filteredStudents->where('gender', 'Female')->values(),
+        ];
+
         return view('livewire.admin.scheduling.class-list-manager', [
             'filteredStudents' => $filteredStudents->values(),
-            'currentSections' => $this->selectedGrade ? ($this->sectionMap[$this->selectedGrade] ?? []) : []
+            'currentSections' => $this->selectedGrade ? ($this->sectionMap[$this->selectedGrade] ?? []) : [],
+            'printData' => $printData,
+            'availableSections' => $this->selectedGrade ? ($this->sectionMap[$this->selectedGrade] ?? []) : [],
+            'dateGenerated' => date('F d, Y'),
         ])->layout('layouts.app', ['header' => 'Class Lists']);
     }
 }
