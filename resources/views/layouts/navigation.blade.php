@@ -115,6 +115,7 @@
                     $inactiveClasses = 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200';
                 @endphp
                 <a href="{{ $link['route'] === '#' ? '#' : route($link['route']) }}"
+                   {{ $link['route'] !== '#' ? 'wire:navigate' : '' }}
                    class="group flex items-center py-3 text-sm rounded-xl transition-all duration-200 {{ $isActive ? $activeClasses : $inactiveClasses }}"
                    title="{{ $link['label'] }}">
                     <div class="w-12 flex-shrink-0 flex items-center justify-center">
