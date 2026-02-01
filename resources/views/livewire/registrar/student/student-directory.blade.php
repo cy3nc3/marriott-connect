@@ -1,4 +1,4 @@
-<div class="p-6">
+<div class="p-6 pt-0">
     <!-- Filters -->
     <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow mb-6 flex flex-col md:flex-row gap-4 items-end md:items-center transition-colors duration-300">
         <div class="flex-1 w-full">
