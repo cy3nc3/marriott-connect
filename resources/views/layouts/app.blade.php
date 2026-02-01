@@ -16,8 +16,17 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <script>
+            // Dark Mode Initialization
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
     </head>
-    <body class="font-sans antialiased bg-gray-100">
+    <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         @php
             // RBAC Simulation: Use passed role or default, fallback to session, then 'student'
             $role = $role ?? session('role', 'student');
@@ -25,28 +34,49 @@
 
         <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
             <!-- Sidebar -->
-            <aside class="w-64 bg-white border-r border-gray-200 hidden md:flex flex-col print:hidden">
+            <aside class="w-72 bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-colors duration-300">
                 @include('layouts.navigation', ['role' => $role])
             </aside>
 
             <!-- Main Content -->
             <div class="flex-1 flex flex-col overflow-hidden print:block print:overflow-visible print:h-auto">
                 <!-- Top Header -->
-                <header class="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 shadow-sm z-10 print:hidden">
-                    <div class="font-semibold text-xl text-gray-800 leading-tight">
-                        {{ $header ?? 'Dashboard' }}
+                <header class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 h-20 flex items-center justify-between px-8 shadow-sm z-10 print:hidden transition-colors duration-300">
+                    <div class="flex items-center">
+                         <!-- Mobile Menu Trigger (Optional, kept simpler for now) -->
+                        <h2 class="font-bold text-2xl text-gray-800 dark:text-white leading-tight">
+                            {{ $header ?? 'Dashboard' }}
+                        </h2>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <!-- Simple User Menu Simulation -->
-                        <span class="text-gray-600 text-sm">
-                            {{ Auth::user()->name ?? 'User' }}
-                            <span class="ml-1 px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full uppercase tracking-wide">{{ $role }}</span>
-                        </span>
+
+                    <div class="flex items-center space-x-6">
+                        <!-- Search (Visual Only) -->
+                        <div class="hidden lg:flex items-center bg-gray-100 dark:bg-gray-700 rounded-full px-4 py-2">
+                            <i class='bx bx-search text-gray-500 dark:text-gray-400 text-lg'></i>
+                            <input type="text" placeholder="Search..." class="bg-transparent border-none focus:ring-0 text-sm text-gray-700 dark:text-gray-200 w-48 placeholder-gray-500 dark:placeholder-gray-400">
+                        </div>
+
+                        <!-- Notifications -->
+                        <button class="relative p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors">
+                            <i class='bx bx-bell text-2xl'></i>
+                            <span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 border border-white dark:border-gray-800"></span>
+                        </button>
+
+                        <!-- User Profile -->
+                        <div class="flex items-center space-x-3 pl-4 border-l border-gray-200 dark:border-gray-700">
+                             <div class="flex flex-col text-right hidden sm:block">
+                                <span class="text-sm font-semibold text-gray-800 dark:text-white">{{ Auth::user()->name ?? 'User' }}</span>
+                                <span class="text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-wide font-bold">{{ $role }}</span>
+                             </div>
+                             <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-lg">
+                                {{ substr(Auth::user()->name ?? 'U', 0, 1) }}
+                             </div>
+                        </div>
                     </div>
                 </header>
 
                 <!-- Scrollable Content -->
-                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto">
+                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-[#F4F5FA] dark:bg-gray-900 p-8 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto transition-colors duration-300">
                     {{ $slot }}
                 </main>
             </div>
