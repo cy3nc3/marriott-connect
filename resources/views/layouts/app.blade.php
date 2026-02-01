@@ -30,12 +30,16 @@
           x-data="{
               autoCollapse: localStorage.getItem('sidebarAutoCollapse') === 'true',
               hover: false,
+              forceCollapsed: false,
               get isExpanded() {
-                  return !this.autoCollapse || this.hover;
+                  return !this.autoCollapse || (this.hover && !this.forceCollapsed);
               },
               toggleSidebar() {
                   this.autoCollapse = !this.autoCollapse;
                   localStorage.setItem('sidebarAutoCollapse', this.autoCollapse);
+                  if (this.autoCollapse) {
+                      this.forceCollapsed = true;
+                  }
               }
           }">
         @php
@@ -48,7 +52,7 @@
             <aside class="bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-all duration-300 ease-in-out"
                    :class="isExpanded ? 'w-72' : 'w-20'"
                    @mouseenter="hover = true"
-                   @mouseleave="hover = false">
+                   @mouseleave="hover = false; forceCollapsed = false;">
                 @include('layouts.navigation', ['role' => $role])
             </aside>
 
