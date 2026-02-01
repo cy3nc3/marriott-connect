@@ -41,20 +41,19 @@
             <!-- Main Content -->
             <div class="flex-1 flex flex-col overflow-hidden print:block print:overflow-visible print:h-auto">
                 <!-- Top Header -->
-                <header class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 h-20 flex items-center justify-between px-8 shadow-sm z-10 print:hidden transition-colors duration-300">
+                <header class="bg-transparent h-20 flex items-center justify-between px-8 z-10 print:hidden transition-colors duration-300">
                     <div class="flex items-center">
                          <!-- Mobile Menu Trigger (Optional, kept simpler for now) -->
-                        <h2 class="font-bold text-2xl text-gray-800 dark:text-white leading-tight">
+                        <h2 class="font-bold text-lg text-gray-800 dark:text-white leading-tight">
                             {{ $header ?? 'Dashboard' }}
                         </h2>
                     </div>
 
-                    <div class="flex items-center space-x-6">
-                        <!-- Search (Visual Only) -->
-                        <div class="hidden lg:flex items-center bg-gray-100 dark:bg-gray-700 rounded-full px-4 py-2">
-                            <i class='bx bx-search text-gray-500 dark:text-gray-400 text-lg'></i>
-                            <input type="text" placeholder="Search..." class="bg-transparent border-none focus:ring-0 text-sm text-gray-700 dark:text-gray-200 w-48 placeholder-gray-500 dark:placeholder-gray-400">
-                        </div>
+                    <div class="flex items-center space-x-4">
+                        <!-- Search (Icon Only) -->
+                        <button class="p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors">
+                            <i class='bx bx-search text-2xl'></i>
+                        </button>
 
                         <!-- Notifications -->
                         <button class="relative p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors">
@@ -63,7 +62,7 @@
                         </button>
 
                         <!-- User Profile -->
-                        <div class="flex items-center space-x-3 pl-4 border-l border-gray-200 dark:border-gray-700">
+                        <div class="flex items-center space-x-3 pl-4">
                              <div class="flex flex-col text-right hidden sm:block">
                                 <span class="text-sm font-semibold text-gray-800 dark:text-white">{{ Auth::user()->name ?? 'User' }}</span>
                                 <span class="text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-wide font-bold">{{ $role }}</span>
