@@ -39,7 +39,7 @@
             </aside>
 
             <!-- Main Content -->
-            <div class="flex-1 flex flex-col overflow-hidden bg-[#F4F5FA] dark:bg-gray-900 transition-colors duration-300 print:block print:overflow-visible print:h-auto">
+            <div class="flex-1 flex flex-col overflow-hidden bg-gray-100 dark:bg-gray-900 transition-colors duration-300 print:block print:overflow-visible print:h-auto">
                 <!-- Top Header -->
                 <header class="bg-transparent h-20 flex items-center justify-between px-8 z-10 print:hidden transition-colors duration-300">
                     <div class="flex items-center">
