@@ -44,15 +44,10 @@
               },
               toggleTheme() {
                   this.darkMode = !this.darkMode;
-                  if (this.darkMode) {
-                      document.documentElement.classList.add('dark');
-                      localStorage.theme = 'dark';
-                  } else {
-                      document.documentElement.classList.remove('dark');
-                      localStorage.theme = 'light';
-                  }
+                  localStorage.theme = this.darkMode ? 'dark' : 'light';
               }
-          }">
+          }"
+          x-effect="darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')">
         @php
             // RBAC Simulation: Use passed role or default, fallback to session, then 'student'
             $role = $role ?? session('role', 'student');
