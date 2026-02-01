@@ -8,9 +8,9 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- School Identity Card -->
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 text-gray-900">
-                <h3 class="text-lg font-semibold mb-4 text-gray-800">School Identity</h3>
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+            <div class="p-6 text-gray-900 dark:text-gray-100">
+                <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">School Identity</h3>
 
                 <div class="space-y-4">
                     <!-- School Name -->
@@ -28,27 +28,27 @@
                     <!-- Address -->
                     <div>
                         <x-input-label for="address" :value="__('Address')" />
-                        <textarea wire:model="data.address" id="address" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" rows="3"></textarea>
+                        <textarea wire:model="data.address" id="address" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" rows="3"></textarea>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- System Switches Card -->
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 text-gray-900">
-                <h3 class="text-lg font-semibold mb-4 text-gray-800">System Switches</h3>
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+            <div class="p-6 text-gray-900 dark:text-gray-100">
+                <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">System Switches</h3>
 
                 <div class="space-y-6">
                     <!-- Maintenance Mode -->
                     <div class="flex items-center justify-between">
                         <span class="flex-grow flex flex-col">
-                            <span class="text-sm font-medium text-gray-900">Maintenance Mode</span>
-                            <span class="text-sm text-gray-500">Take the system down for repairs.</span>
+                            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Maintenance Mode</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Take the system down for repairs.</span>
                         </span>
                         <button type="button"
                                 wire:click="$toggle('data.maintenance_mode')"
-                                class="{{ $data['maintenance_mode'] ? 'bg-indigo-600' : 'bg-gray-200' }} relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+                                class="{{ $data['maintenance_mode'] ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-700' }} relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
                                 role="switch"
                                 aria-checked="{{ $data['maintenance_mode'] ? 'true' : 'false' }}">
                             <span aria-hidden="true"
@@ -60,12 +60,12 @@
                     <!-- Allow Parent Portal Access -->
                     <div class="flex items-center justify-between">
                         <span class="flex-grow flex flex-col">
-                            <span class="text-sm font-medium text-gray-900">Allow Parent Portal Access</span>
-                            <span class="text-sm text-gray-500">Enable access for parents.</span>
+                            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Allow Parent Portal Access</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Enable access for parents.</span>
                         </span>
                         <button type="button"
                                 wire:click="$toggle('data.allow_parent_portal')"
-                                class="{{ $data['allow_parent_portal'] ? 'bg-indigo-600' : 'bg-gray-200' }} relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+                                class="{{ $data['allow_parent_portal'] ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-700' }} relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
                                 role="switch"
                                 aria-checked="{{ $data['allow_parent_portal'] ? 'true' : 'false' }}">
                             <span aria-hidden="true"
@@ -78,26 +78,27 @@
         </div>
 
         <!-- Branding Card (Spans full width on mobile, maybe? Or keep in grid. Let's make it span 2 columns if on md) -->
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg md:col-span-2">
-            <div class="p-6 text-gray-900">
-                <h3 class="text-lg font-semibold mb-4 text-gray-800">Branding</h3>
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg md:col-span-2 transition-colors duration-300">
+            <div class="p-6 text-gray-900 dark:text-gray-100">
+                <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Branding</h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Upload Logo -->
                     <div>
                         <x-input-label for="logo" :value="__('Upload Logo')" />
-                        <input type="file" wire:model="logo" id="logo" class="mt-1 block w-full text-sm text-gray-500
+                        <input type="file" wire:model="logo" id="logo" class="mt-1 block w-full text-sm text-gray-500 dark:text-gray-400
                             file:mr-4 file:py-2 file:px-4
                             file:rounded-full file:border-0
                             file:text-sm file:font-semibold
                             file:bg-indigo-50 file:text-indigo-700
-                            hover:file:bg-indigo-100
+                            dark:file:bg-indigo-900 dark:file:text-indigo-300
+                            hover:file:bg-indigo-100 dark:hover:file:bg-indigo-800
                         "/>
                         <div class="mt-2">
                             @if ($logo)
-                                <img src="{{ $logo->temporaryUrl() }}" alt="Logo Preview" class="h-20 w-auto object-contain border rounded p-1">
+                                <img src="{{ $logo->temporaryUrl() }}" alt="Logo Preview" class="h-20 w-auto object-contain border rounded p-1 dark:border-gray-700 bg-white">
                             @else
-                                <img src="https://placehold.co/100" alt="Current Logo" class="h-20 w-auto object-contain border rounded p-1">
+                                <img src="https://placehold.co/100" alt="Current Logo" class="h-20 w-auto object-contain border rounded p-1 dark:border-gray-700 bg-white">
                             @endif
                         </div>
                     </div>
@@ -105,18 +106,19 @@
                     <!-- Upload Letterhead -->
                     <div>
                         <x-input-label for="letterhead" :value="__('Upload Letterhead Header')" />
-                        <input type="file" wire:model="letterhead" id="letterhead" class="mt-1 block w-full text-sm text-gray-500
+                        <input type="file" wire:model="letterhead" id="letterhead" class="mt-1 block w-full text-sm text-gray-500 dark:text-gray-400
                             file:mr-4 file:py-2 file:px-4
                             file:rounded-full file:border-0
                             file:text-sm file:font-semibold
                             file:bg-indigo-50 file:text-indigo-700
-                            hover:file:bg-indigo-100
+                            dark:file:bg-indigo-900 dark:file:text-indigo-300
+                            hover:file:bg-indigo-100 dark:hover:file:bg-indigo-800
                         "/>
                         <div class="mt-2">
                             @if ($letterhead)
-                                <img src="{{ $letterhead->temporaryUrl() }}" alt="Letterhead Preview" class="h-20 w-auto object-contain border rounded p-1">
+                                <img src="{{ $letterhead->temporaryUrl() }}" alt="Letterhead Preview" class="h-20 w-auto object-contain border rounded p-1 dark:border-gray-700 bg-white">
                             @else
-                                <div class="h-20 w-full border border-dashed border-gray-300 rounded flex items-center justify-center text-gray-400 text-sm">
+                                <div class="h-20 w-full border border-dashed border-gray-300 dark:border-gray-600 rounded flex items-center justify-center text-gray-400 dark:text-gray-500 text-sm">
                                     No custom letterhead uploaded
                                 </div>
                             @endif

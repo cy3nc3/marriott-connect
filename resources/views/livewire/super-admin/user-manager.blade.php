@@ -14,23 +14,23 @@
     </div>
 
     <!-- User Table -->
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 text-gray-900 overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+        <div class="p-6 text-gray-900 dark:text-gray-100 overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Permissions</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Name</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Email</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Role</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Permissions</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                     @forelse($users as $loop_index => $user)
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $user['name'] }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $user['email'] }}</td>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{{ $user['name'] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-gray-100">{{ $user['email'] }}</td>
                             <td class="px-6 py-4 whitespace-nowrap capitalize">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">
                                     {{ $user['role'] }}
@@ -46,17 +46,17 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button wire:click="editUser({{ $loop_index }})" class="text-indigo-600 hover:text-indigo-900 mr-3">
+                                <button wire:click="editUser({{ $loop_index }})" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 mr-3">
                                     <i class='bx bx-edit text-xl'></i>
                                 </button>
-                                <button wire:click="openResetModal({{ $loop_index }})" class="text-orange-500 hover:text-orange-700">
+                                <button wire:click="openResetModal({{ $loop_index }})" class="text-orange-500 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300">
                                     <i class='bx bx-key text-xl'></i>
                                 </button>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="px-6 py-4 text-center text-gray-500">No users found.</td>
+                            <td colspan="5" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">No users found.</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -69,9 +69,9 @@
     <div class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <h3 class="text-lg font-semibold leading-6 text-gray-900 mb-4" id="modal-title">
+            <div class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-white dark:bg-gray-800 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100 mb-4" id="modal-title">
                         Reset Password for {{ $resetUserName }}
                     </h3>
                     <div>
@@ -79,7 +79,7 @@
                         <x-text-input wire:model="resetPassword" id="resetPassword" class="block mt-1 w-full" type="text" />
                     </div>
                 </div>
-                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <div class="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <x-primary-button wire:click="savePassword" class="ml-3">
                         Save New Password
                     </x-primary-button>
@@ -101,10 +101,10 @@
 
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
              <!-- Modal Panel -->
-            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
 
-                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <h3 class="text-lg font-semibold leading-6 text-gray-900 mb-4" id="modal-title">
+                <div class="bg-white dark:bg-gray-800 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100 mb-4" id="modal-title">
                         {{ $editingIndex !== null ? 'Edit User' : 'Create New User' }}
                     </h3>
 
@@ -130,7 +130,7 @@
 
                         <div>
                             <x-input-label for="role" :value="__('Role')" />
-                            <select wire:model="role" id="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                            <select wire:model="role" id="role" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                                 <option value="super_admin">Super Admin</option>
                                 <option value="admin">Admin</option>
                                 <option value="registrar">Registrar</option>
@@ -147,14 +147,14 @@
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" wire:model="grantEnrollmentAccess" class="sr-only peer">
                                 <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
-                                <span class="ml-3 text-sm font-medium text-gray-900">Grant Enrollment Access</span>
+                                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Grant Enrollment Access</span>
                             </label>
-                            <p class="text-xs text-gray-500 mt-1 ml-1">Allow this user to process enrollments during peak season.</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-1">Allow this user to process enrollments during peak season.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <div class="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <x-primary-button wire:click="saveUser" class="ml-3">
                         Save
                     </x-primary-button>
