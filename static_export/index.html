@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Left Panel -->
+        <div class="login-left">
+            <div class="login-brand-icon">
+                <i class='bx bxs-graduation'></i>
+            </div>
+            <div class="login-brand-text text-center">
+                <h1>Marriott<span style="color: #bfdbfe;">Connect</span></h1>
+                <p>"Excellence in every step."</p>
+            </div>
+            <div style="position: absolute; bottom: 2rem; color: rgba(255,255,255,0.6); font-size: 0.8rem; letter-spacing: 1px;">
+                © 2024 MARRIOTT SCHOOL SYSTEM
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="login-right">
+            <div class="login-form-wrapper">
+                <div class="text-center mb-4">
+                    <div style="width: 50px; height: 50px; background-color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                        <i class='bx bxs-school' style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h2 style="font-size: 1.8rem; font-weight: 700;">Welcome Back</h2>
+                    <p class="text-gray-500">Please enter your details to sign in.</p>
+                </div>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <div class="input-icon-wrapper">
+                            <i class='bx bx-envelope input-icon'></i>
+                            <input type="email" id="email" class="form-control input-with-icon" placeholder="admin@marriott.edu" value="admin@marriott.edu" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-icon-wrapper">
+                            <i class='bx bx-lock-alt input-icon'></i>
+                            <input type="password" id="password" class="form-control input-with-icon" placeholder="••••••••" value="password" required>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="remember">
+                            <label for="remember" style="margin-left: 0.5rem; font-size: 0.9rem;">Remember me</label>
+                        </div>
+                        <a href="#" class="text-indigo-600 text-sm font-bold">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full" style="padding: 0.75rem; font-size: 1rem;">
+                        <i class='bx bx-log-in'></i> Sign In
+                    </button>
+                </form>
+
+                <div class="mt-4 p-4 bg-gray-100 rounded text-xs text-gray-500">
+                    <strong>Demo Roles:</strong><br>
+                    Super Admin: superadmin@marriott.edu<br>
+                    Admin: admin@marriott.edu<br>
+                    Registrar: registrar@marriott.edu<br>
+                    Finance: finance@marriott.edu<br>
+                    Teacher: teacher@marriott.edu<br>
+                    Student: student@marriott.edu<br>
+                    Parent: parent@marriott.edu
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+
+            let target = 'dashboard-admin.html'; // default
+
+            if (email.includes('super')) target = 'dashboard-super-admin.html';
+            else if (email.includes('registrar')) target = 'dashboard-registrar.html';
+            else if (email.includes('finance')) target = 'dashboard-finance.html';
+            else if (email.includes('teacher')) target = 'dashboard-teacher.html';
+            else if (email.includes('student')) target = 'dashboard-student.html';
+            else if (email.includes('parent')) target = 'dashboard-parent.html';
+
+            window.location.href = target;
+        }
+    </script>
+</body>
+</html>

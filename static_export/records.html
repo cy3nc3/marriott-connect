@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permanent Records - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-registrar.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-registrar.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="student-directory.html" class="nav-link">
+                    <i class='bx bx-user-pin'></i> Student Directory
+                </a>
+                <a href="enrollment-wizard.html" class="nav-link">
+                    <i class='bx bx-id-card'></i> Enrollment
+                </a>
+                <a href="records.html" class="nav-link active">
+                    <i class='bx bx-folder-open'></i> Permanent Records
+                </a>
+                <a href="promotion.html" class="nav-link">
+                    <i class='bx bx-up-arrow-circle'></i> Promotion
+                </a>
+                <a href="remedial.html" class="nav-link">
+                    <i class='bx bx-first-aid'></i> Remedial/Summer
+                </a>
+                <a href="dropping.html" class="nav-link">
+                    <i class='bx bx-user-minus'></i> Dropping/Transfer
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Permanent Records (SF10)</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Registrar User</span>
+                    <span class="role-badge">REGISTRAR</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card mb-4">
+                    <div class="card-body flex gap-4">
+                        <input type="text" class="form-control" placeholder="Search Student LRN or Name..." style="max-width: 400px;">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Academic History: Dela Cruz, Juan</h3>
+                    </div>
+                    <div class="card-body">
+                         <h4 class="font-bold text-gray-700 mb-2">Grade 7 - SY 2023-2024</h4>
+                         <table class="table mb-6">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Q1</th>
+                                    <th>Q2</th>
+                                    <th>Q3</th>
+                                    <th>Q4</th>
+                                    <th>Final</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mathematics 7</td>
+                                    <td>85</td>
+                                    <td>86</td>
+                                    <td>88</td>
+                                    <td>87</td>
+                                    <td class="font-bold">86.5</td>
+                                    <td><span class="text-green-600 font-bold">Passed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>English 7</td>
+                                    <td>88</td>
+                                    <td>89</td>
+                                    <td>90</td>
+                                    <td>91</td>
+                                    <td class="font-bold">89.5</td>
+                                    <td><span class="text-green-600 font-bold">Passed</span></td>
+                                </tr>
+                            </tbody>
+                         </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

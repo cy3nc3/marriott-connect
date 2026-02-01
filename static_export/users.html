@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-super-admin.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-super-admin.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="school-year.html" class="nav-link">
+                    <i class='bx bx-calendar'></i> School Year
+                </a>
+                <a href="users.html" class="nav-link active">
+                    <i class='bx bx-user'></i> User Management
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class='bx bx-cog'></i> Settings
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">User Management</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Super Admin</span>
+                    <span class="role-badge">SUPER_ADMIN</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex gap-2">
+                                <input type="text" class="form-control" placeholder="Search users..." style="width: 250px;">
+                                <select class="form-control" style="width: 150px;">
+                                    <option>All Roles</option>
+                                    <option>Admin</option>
+                                    <option>Teacher</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary btn-sm">
+                                <i class='bx bx-plus'></i> Add User
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th class="text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-bold">Juan Dela Cruz</td>
+                                        <td>juan.delacruz@marriott.edu</td>
+                                        <td><span class="badge badge-info">Admin</span></td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td class="text-right">
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-edit text-indigo-600'></i></button>
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-trash text-red-600'></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold">Maria Santos</td>
+                                        <td>maria.santos@marriott.edu</td>
+                                        <td><span class="badge badge-warning">Registrar</span></td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td class="text-right">
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-edit text-indigo-600'></i></button>
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-trash text-red-600'></i></button>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td class="font-bold">Pedro Penduko</td>
+                                        <td>pedro.penduko@marriott.edu</td>
+                                        <td><span class="badge badge-success">Teacher</span></td>
+                                        <td><span class="badge badge-danger">Inactive</span></td>
+                                        <td class="text-right">
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-edit text-indigo-600'></i></button>
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-trash text-red-600'></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

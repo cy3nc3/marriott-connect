@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Report Card - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-student.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-student.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> My Dashboard
+                </a>
+                <a href="student-schedule.html" class="nav-link">
+                    <i class='bx bx-time'></i> My Schedule
+                </a>
+                <a href="student-grades.html" class="nav-link active">
+                    <i class='bx bx-file'></i> Report Card
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Report Card</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Juan Dela Cruz</span>
+                    <span class="role-badge">STUDENT</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card max-w-4xl mx-auto">
+                    <div class="card-header text-center block">
+                        <h3 class="font-bold text-xl uppercase">Marriott School System</h3>
+                        <p class="text-gray-500">Report Card (Form 138)</p>
+                        <p class="font-bold mt-2">SY 2024 - 2025</p>
+                    </div>
+                    <div class="card-body">
+                         <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
+                             <div>
+                                 <p><span class="font-bold">Name:</span> Dela Cruz, Juan</p>
+                                 <p><span class="font-bold">Grade:</span> 7</p>
+                                 <p><span class="font-bold">Section:</span> Rizal</p>
+                             </div>
+                             <div>
+                                 <p><span class="font-bold">LRN:</span> 1098239012</p>
+                                 <p><span class="font-bold">Adviser:</span> Ms. Clara Oswald</p>
+                             </div>
+                         </div>
+
+                         <table class="table border">
+                             <thead>
+                                 <tr>
+                                     <th class="border">Learning Areas</th>
+                                     <th class="border text-center">Q1</th>
+                                     <th class="border text-center">Q2</th>
+                                     <th class="border text-center">Q3</th>
+                                     <th class="border text-center">Q4</th>
+                                     <th class="border text-center">Final</th>
+                                     <th class="border text-center">Remarks</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 <tr>
+                                     <td class="border font-bold">Filipino</td>
+                                     <td class="border text-center">88</td>
+                                     <td class="border text-center">89</td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                 </tr>
+                                 <tr>
+                                     <td class="border font-bold">English</td>
+                                     <td class="border text-center">85</td>
+                                     <td class="border text-center">87</td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                 </tr>
+                                 <tr>
+                                     <td class="border font-bold">Mathematics</td>
+                                     <td class="border text-center">86</td>
+                                     <td class="border text-center">88</td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                 </tr>
+                                 <tr>
+                                     <td class="border font-bold">Science</td>
+                                     <td class="border text-center">84</td>
+                                     <td class="border text-center">85</td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                 </tr>
+                                 <tr class="bg-gray-100 font-bold">
+                                     <td class="border text-right">General Average</td>
+                                     <td class="border text-center">85.75</td>
+                                     <td class="border text-center">87.25</td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                     <td class="border text-center"></td>
+                                 </tr>
+                             </tbody>
+                         </table>
+
+                         <div class="mt-8 text-center no-print">
+                             <button class="btn btn-secondary" onclick="window.print()"><i class='bx bx-printer'></i> Print Card</button>
+                         </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

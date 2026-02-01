@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier Panel - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-finance.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-finance.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="ledger.html" class="nav-link">
+                    <i class='bx bx-wallet'></i> Student Accounts
+                </a>
+                <a href="pos.html" class="nav-link active">
+                    <i class='bx bx-cart'></i> Cashier Panel
+                </a>
+                <a href="inventory.html" class="nav-link">
+                    <i class='bx bx-box'></i> Inventory
+                </a>
+                <a href="history.html" class="nav-link">
+                    <i class='bx bx-history'></i> History
+                </a>
+                <a href="discounts.html" class="nav-link">
+                    <i class='bx bx-gift'></i> Discounts
+                </a>
+                <a href="fees.html" class="nav-link">
+                    <i class='bx bx-money'></i> Fee Setup
+                </a>
+                <a href="remittance.html" class="nav-link">
+                    <i class='bx bx-printer'></i> Daily Report
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Point of Sale</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Finance User</span>
+                    <span class="role-badge">FINANCE</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-full">
+                    <!-- Left Column: Student & Items -->
+                    <div class="md:col-span-2 flex flex-col gap-6">
+                        <!-- Student Search -->
+                        <div class="card p-4">
+                            <label class="form-label">Select Student</label>
+                            <div class="flex gap-2">
+                                <input type="text" class="form-control" placeholder="Search name or LRN (e.g., Juan)">
+                                <button class="btn btn-primary"><i class='bx bx-search'></i></button>
+                            </div>
+                            <div class="mt-4 p-3 bg-indigo-50 border border-indigo-100 rounded">
+                                <h4 class="font-bold text-indigo-900">Juan Dela Cruz</h4>
+                                <p class="text-sm text-indigo-700">Grade 7 - Rizal</p>
+                                <p class="text-sm text-indigo-700">Balance: ₱ 15,000.00</p>
+                            </div>
+                        </div>
+
+                        <!-- Item Selection -->
+                        <div class="card flex-1">
+                            <div class="card-header">
+                                <h3 class="card-title">Add Fees / Items</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <button class="btn btn-secondary h-20 flex-col gap-1">
+                                        <i class='bx bx-book text-2xl'></i>
+                                        <span>Tuition Fee</span>
+                                    </button>
+                                    <button class="btn btn-secondary h-20 flex-col gap-1">
+                                        <i class='bx bx-pen text-2xl'></i>
+                                        <span>Miscellaneous</span>
+                                    </button>
+                                    <button class="btn btn-secondary h-20 flex-col gap-1">
+                                        <i class='bx bx-t-shirt text-2xl'></i>
+                                        <span>Uniform</span>
+                                    </button>
+                                    <button class="btn btn-secondary h-20 flex-col gap-1">
+                                        <i class='bx bx-id-card text-2xl'></i>
+                                        <span>ID Lace</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Cart -->
+                    <div class="card flex flex-col h-full">
+                        <div class="card-header bg-gray-50">
+                            <h3 class="card-title">Current Transaction</h3>
+                        </div>
+                        <div class="card-body flex-1 overflow-y-auto p-0">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th class="text-right">Amount</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Tuition Fee<br>
+                                            <span class="text-xs text-gray-500">Partial Payment</span>
+                                        </td>
+                                        <td class="text-right">5,000.00</td>
+                                        <td class="text-right"><i class='bx bx-x text-red-500 cursor-pointer'></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="p-4 border-t border-gray-200 bg-gray-50">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span class="font-bold">5,000.00</span>
+                            </div>
+                            <div class="flex justify-between mb-4 text-xl font-bold text-indigo-700">
+                                <span>Total</span>
+                                <span>₱ 5,000.00</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Cash Tendered</label>
+                                <input type="number" class="form-control text-right" placeholder="0.00">
+                            </div>
+                            <button class="btn btn-success w-full py-3 text-lg mt-2">
+                                <i class='bx bx-check-circle'></i> Process Payment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

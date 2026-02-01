@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Remittance - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-finance.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-finance.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="ledger.html" class="nav-link">
+                    <i class='bx bx-wallet'></i> Student Accounts
+                </a>
+                <a href="pos.html" class="nav-link">
+                    <i class='bx bx-cart'></i> Cashier Panel
+                </a>
+                <a href="inventory.html" class="nav-link">
+                    <i class='bx bx-box'></i> Inventory
+                </a>
+                <a href="history.html" class="nav-link">
+                    <i class='bx bx-history'></i> History
+                </a>
+                <a href="discounts.html" class="nav-link">
+                    <i class='bx bx-gift'></i> Discounts
+                </a>
+                <a href="fees.html" class="nav-link">
+                    <i class='bx bx-money'></i> Fee Setup
+                </a>
+                <a href="remittance.html" class="nav-link active">
+                    <i class='bx bx-printer'></i> Daily Report
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Daily Remittance Report</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Finance User</span>
+                    <span class="role-badge">FINANCE</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card p-8 bg-white max-w-4xl mx-auto shadow-lg">
+                    <div class="text-center mb-6 pb-6 border-b">
+                        <h2 class="text-2xl font-bold">Marriott School System</h2>
+                        <h3 class="text-lg text-gray-600">Daily Collection Report</h3>
+                        <p class="text-gray-500">Date: August 01, 2024</p>
+                        <p class="text-gray-500">Cashier: Finance User</p>
+                    </div>
+
+                    <table class="table mb-6">
+                        <thead>
+                            <tr>
+                                <th>OR #</th>
+                                <th>Payer</th>
+                                <th>Particulars</th>
+                                <th class="text-right">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>OR-00921</td>
+                                <td>Dela Cruz, Juan</td>
+                                <td>Tuition Fee (Partial)</td>
+                                <td class="text-right">5,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>OR-00922</td>
+                                <td>Santos, Maria</td>
+                                <td>Uniform Purchase</td>
+                                <td class="text-right">1,350.00</td>
+                            </tr>
+                             <tr>
+                                <td>OR-00923</td>
+                                <td>Reyes, Mark</td>
+                                <td>ID Lace</td>
+                                <td class="text-right">50.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-gray-100 font-bold text-lg">
+                                <td colspan="3" class="text-right">Total Collections</td>
+                                <td class="text-right">6,400.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="grid grid-cols-2 gap-8 mt-12">
+                        <div>
+                            <p class="mb-8 font-bold">Prepared by:</p>
+                            <div class="border-t border-black w-48 pt-2">
+                                <p>Finance User</p>
+                                <p class="text-sm text-gray-500">Cashier</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="mb-8 font-bold">Verified by:</p>
+                            <div class="border-t border-black w-48 pt-2">
+                                <p>Head of Finance</p>
+                                <p class="text-sm text-gray-500">Supervisor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex justify-center no-print">
+                        <button class="btn btn-primary" onclick="window.print()">
+                            <i class='bx bx-printer'></i> Print Report
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
