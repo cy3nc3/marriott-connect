@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-teacher.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-teacher.html" class="nav-link active">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="grading-sheet.html" class="nav-link">
+                    <i class='bx bx-edit'></i> Grading Sheet
+                </a>
+                <a href="advisory-board.html" class="nav-link">
+                    <i class='bx bx-chalkboard'></i> Advisory Board
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Teacher Dashboard</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Teacher User</span>
+                    <span class="role-badge">TEACHER</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="card p-4 flex items-center justify-between">
+                         <div>
+                            <div class="text-sm text-gray-500 font-bold uppercase">My Classes</div>
+                            <div class="text-2xl font-bold mt-1">5</div>
+                        </div>
+                        <div style="width: 48px; height: 48px; background-color: #e0e7ff; color: #4338ca; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class='bx bx-book'></i>
+                        </div>
+                    </div>
+                     <div class="card p-4 flex items-center justify-between">
+                         <div>
+                            <div class="text-sm text-gray-500 font-bold uppercase">Total Students</div>
+                            <div class="text-2xl font-bold mt-1">185</div>
+                        </div>
+                        <div style="width: 48px; height: 48px; background-color: #dcfce7; color: #15803d; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class='bx bx-user'></i>
+                        </div>
+                    </div>
+                     <div class="card p-4 flex items-center justify-between">
+                         <div>
+                            <div class="text-sm text-gray-500 font-bold uppercase">Advisory Class</div>
+                            <div class="text-2xl font-bold mt-1">Grade 7 - Rizal</div>
+                        </div>
+                        <div style="width: 48px; height: 48px; background-color: #fef3c7; color: #b45309; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class='bx bx-star'></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Class Schedule (Today)</h3>
+                    </div>
+                    <div class="card-body p-0">
+                         <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Section</th>
+                                    <th>Subject</th>
+                                    <th>Room</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00 AM - 09:00 AM</td>
+                                    <td class="font-bold">Grade 7 - Rizal</td>
+                                    <td>Mathematics 7</td>
+                                    <td>Rm 101</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00 AM - 10:00 AM</td>
+                                    <td class="font-bold">Grade 7 - Bonifacio</td>
+                                    <td>Mathematics 7</td>
+                                    <td>Rm 102</td>
+                                </tr>
+                                 <tr>
+                                    <td>10:30 AM - 11:30 AM</td>
+                                    <td class="font-bold">Grade 8 - Newton</td>
+                                    <td>Mathematics 8</td>
+                                    <td>Rm 201</td>
+                                </tr>
+                            </tbody>
+                         </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

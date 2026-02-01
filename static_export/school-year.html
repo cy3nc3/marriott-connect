@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Year Management - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-super-admin.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-super-admin.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="school-year.html" class="nav-link active">
+                    <i class='bx bx-calendar'></i> School Year
+                </a>
+                <a href="users.html" class="nav-link">
+                    <i class='bx bx-user'></i> User Management
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class='bx bx-cog'></i> Settings
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">School Year Management</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Super Admin</span>
+                    <span class="role-badge">SUPER_ADMIN</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Academic Years</h3>
+                        <button class="btn btn-primary btn-sm" onclick="openModal('addSYModal')">
+                            <i class='bx bx-plus'></i> New School Year
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>School Year</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Status</th>
+                                        <th>Admissions</th>
+                                        <th class="text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-indigo-50">
+                                        <td class="font-bold">2024 - 2025</td>
+                                        <td>August 2024</td>
+                                        <td>May 2025</td>
+                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked onclick="return false;">
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-edit text-indigo-600'></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold">2023 - 2024</td>
+                                        <td>August 2023</td>
+                                        <td>May 2024</td>
+                                        <td><span class="badge badge-warning">Closed</span></td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" onclick="return false;">
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-edit text-indigo-600'></i></button>
+                                            <button class="btn btn-secondary btn-sm"><i class='bx bx-trash text-red-600'></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="addSYModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title font-bold text-lg">Add School Year</h3>
+                <button class="text-gray-500 hover:text-gray-700" onclick="closeModal('addSYModal')">
+                    <i class='bx bx-x text-2xl'></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">School Year Label</label>
+                    <input type="text" class="form-control" placeholder="e.g. 2025 - 2026">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label">Start Date</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">End Date</label>
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('addSYModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="closeModal('addSYModal'); showAlert('School Year Added!');">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

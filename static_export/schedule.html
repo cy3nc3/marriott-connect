@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Matrix - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .schedule-grid th, .schedule-grid td {
+            border: 1px solid var(--border-color);
+            text-align: center;
+            vertical-align: top;
+            padding: 0;
+            height: 60px;
+        }
+        .schedule-grid th {
+            padding: 10px;
+            background-color: #f3f4f6;
+        }
+        .time-col {
+            width: 80px;
+            background-color: #f9fafb;
+            font-weight: bold;
+            font-size: 0.8rem;
+            vertical-align: middle !important;
+        }
+        .schedule-cell {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        .class-card {
+            background-color: #e0e7ff;
+            color: #3730a3;
+            border-left: 4px solid #4338ca;
+            padding: 4px;
+            font-size: 0.75rem;
+            text-align: left;
+            margin: 2px;
+            border-radius: 2px;
+        }
+        .class-card.minor {
+            background-color: #fef3c7;
+            color: #92400e;
+            border-left-color: #d97706;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-admin.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-admin.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="curriculum.html" class="nav-link">
+                    <i class='bx bx-book-content'></i> Curriculum
+                </a>
+                <a href="sections.html" class="nav-link">
+                    <i class='bx bx-group'></i> Sections
+                </a>
+                <a href="schedule.html" class="nav-link active">
+                    <i class='bx bx-calendar-event'></i> Schedule Matrix
+                </a>
+                <a href="report-classlist.html" class="nav-link">
+                    <i class='bx bx-list-ol'></i> Class Lists
+                </a>
+                <a href="report-deped.html" class="nav-link">
+                    <i class='bx bx-folder'></i> DepEd Reports
+                </a>
+                <a href="report-sf9.html" class="nav-link">
+                    <i class='bx bx-printer'></i> SF9 Generator
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Schedule Builder</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Admin User</span>
+                    <span class="role-badge">ADMIN</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card mb-4">
+                    <div class="card-body py-3 flex gap-4 items-center">
+                        <select class="form-control" style="width: 200px;">
+                            <option>Grade 7 - Rizal</option>
+                            <option>Grade 8 - Newton</option>
+                        </select>
+                        <button class="btn btn-primary btn-sm">Load Schedule</button>
+                    </div>
+                </div>
+
+                <div class="card overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="schedule-grid w-full">
+                            <thead>
+                                <tr>
+                                    <th class="time-col">Time</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="time-col">07:00 AM</td>
+                                    <td><div class="class-card"><strong>Flag Ceremony</strong></div></td>
+                                    <td><div class="class-card"><strong>Flag Ceremony</strong></div></td>
+                                    <td><div class="class-card"><strong>Flag Ceremony</strong></div></td>
+                                    <td><div class="class-card"><strong>Flag Ceremony</strong></div></td>
+                                    <td><div class="class-card"><strong>Flag Ceremony</strong></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="time-col">08:00 AM</td>
+                                    <td><div class="class-card"><strong>MATH7</strong><br>Mr. A. Santos</div></td>
+                                    <td><div class="class-card"><strong>MATH7</strong><br>Mr. A. Santos</div></td>
+                                    <td><div class="class-card"><strong>MATH7</strong><br>Mr. A. Santos</div></td>
+                                    <td><div class="class-card"><strong>MATH7</strong><br>Mr. A. Santos</div></td>
+                                    <td><div class="class-card minor"><strong>ESP7</strong><br>Ms. V. Cruz</div></td>
+                                </tr>
+                                <tr>
+                                    <td class="time-col">09:00 AM</td>
+                                    <td><div class="class-card"><strong>ENG7</strong><br>Ms. B. Reyes</div></td>
+                                    <td><div class="class-card"><strong>ENG7</strong><br>Ms. B. Reyes</div></td>
+                                    <td><div class="class-card"><strong>ENG7</strong><br>Ms. B. Reyes</div></td>
+                                    <td><div class="class-card"><strong>ENG7</strong><br>Ms. B. Reyes</div></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="time-col">10:00 AM</td>
+                                    <td colspan="5" style="background-color: #f3f4f6; vertical-align: middle; font-weight: bold; color: #6b7280; height: 30px;">RECESS</td>
+                                </tr>
+                                <tr>
+                                    <td class="time-col">10:30 AM</td>
+                                    <td><div class="class-card"><strong>SCI7</strong><br>Mr. C. Dizon</div></td>
+                                    <td><div class="class-card"><strong>SCI7</strong><br>Mr. C. Dizon</div></td>
+                                    <td><div class="class-card"><strong>SCI7</strong><br>Mr. C. Dizon</div></td>
+                                    <td><div class="class-card"><strong>SCI7</strong><br>Mr. C. Dizon</div></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="time-col">11:30 AM</td>
+                                    <td colspan="5" style="background-color: #f3f4f6; vertical-align: middle; font-weight: bold; color: #6b7280; height: 30px;">LUNCH BREAK</td>
+                                </tr>
+                                <!-- More rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

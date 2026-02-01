@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Management - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-admin.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-admin.html" class="nav-link">
+                    <i class='bx bx-grid-alt'></i> Dashboard
+                </a>
+                <a href="curriculum.html" class="nav-link">
+                    <i class='bx bx-book-content'></i> Curriculum
+                </a>
+                <a href="sections.html" class="nav-link active">
+                    <i class='bx bx-group'></i> Sections
+                </a>
+                <a href="schedule.html" class="nav-link">
+                    <i class='bx bx-calendar-event'></i> Schedule Matrix
+                </a>
+                <a href="report-classlist.html" class="nav-link">
+                    <i class='bx bx-list-ol'></i> Class Lists
+                </a>
+                <a href="report-deped.html" class="nav-link">
+                    <i class='bx bx-folder'></i> DepEd Reports
+                </a>
+                <a href="report-sf9.html" class="nav-link">
+                    <i class='bx bx-printer'></i> SF9 Generator
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Sections</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Admin User</span>
+                    <span class="role-badge">ADMIN</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="flex justify-between items-center w-full">
+                            <select class="form-control" style="width: 150px;">
+                                <option>Grade 7</option>
+                                <option>Grade 8</option>
+                                <option>Grade 9</option>
+                                <option>Grade 10</option>
+                            </select>
+                            <button class="btn btn-primary btn-sm" onclick="openModal('addSectionModal')">
+                                <i class='bx bx-plus'></i> Add Section
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Section Name</th>
+                                    <th>Adviser</th>
+                                    <th>Room</th>
+                                    <th>Capacity</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">Rizal</td>
+                                    <td>Ms. Clara Oswald</td>
+                                    <td>Rm 101</td>
+                                    <td>40 / 45</td>
+                                    <td class="text-right">
+                                         <button class="btn btn-secondary btn-sm"><i class='bx bx-edit text-indigo-600'></i></button>
+                                         <button class="btn btn-secondary btn-sm"><i class='bx bx-trash text-red-600'></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Bonifacio</td>
+                                    <td>Mr. John Doe</td>
+                                    <td>Rm 102</td>
+                                    <td>38 / 45</td>
+                                    <td class="text-right">
+                                         <button class="btn btn-secondary btn-sm"><i class='bx bx-edit text-indigo-600'></i></button>
+                                         <button class="btn btn-secondary btn-sm"><i class='bx bx-trash text-red-600'></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="addSectionModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title font-bold text-lg">Add Section</h3>
+                <button class="text-gray-500 hover:text-gray-700" onclick="closeModal('addSectionModal')">
+                    <i class='bx bx-x text-2xl'></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Section Name</label>
+                    <input type="text" class="form-control" placeholder="e.g. Einstein">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Adviser</label>
+                    <select class="form-control">
+                        <option>Select Teacher...</option>
+                        <option>Ms. Clara Oswald</option>
+                        <option>Mr. John Doe</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Room</label>
+                    <input type="text" class="form-control" placeholder="Rm 101">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('addSectionModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="closeModal('addSectionModal'); showAlert('Section Added!');">Save</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

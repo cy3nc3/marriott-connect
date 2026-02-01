@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Portal - MarriottConnect</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="dashboard-parent.html">
+                    <i class='bx bxs-graduation'></i> Marriott<span style="color: var(--primary-color);">Connect</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard-parent.html" class="nav-link active">
+                    <i class='bx bx-home'></i> Parent Portal
+                </a>
+                <a href="parent-schedule.html" class="nav-link">
+                    <i class='bx bx-calendar'></i> Schedule
+                </a>
+                <a href="parent-grades.html" class="nav-link">
+                    <i class='bx bx-file'></i> Report Card
+                </a>
+                <a href="billing.html" class="nav-link">
+                    <i class='bx bx-money'></i> Statement of Account
+                </a>
+            </nav>
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="nav-link" style="color: var(--danger-color);">
+                    <i class='bx bx-log-out'></i> Log Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                 <div class="flex items-center gap-4">
+                    <button class="btn btn-secondary md:hidden" onclick="toggleSidebar()">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <h2 class="header-title">Parent Dashboard</h2>
+                </div>
+                <div class="user-menu">
+                    <span>Mr. Dela Cruz</span>
+                    <span class="role-badge">PARENT</span>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="card p-6 bg-gradient-to-r from-green-600 to-green-800 text-white mb-6">
+                    <h1 class="text-2xl font-bold">Good Morning, Mr. Dela Cruz</h1>
+                    <p class="opacity-90 mt-2">Viewing data for: <strong>Juan Dela Cruz</strong> (Grade 7 - Rizal)</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                     <div class="card p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-sm text-gray-500 font-bold uppercase">Current Balance</div>
+                            <div class="text-2xl font-bold mt-1 text-red-600">₱ 15,000.00</div>
+                        </div>
+                        <div style="width: 48px; height: 48px; background-color: #fee2e2; color: #b91c1c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class='bx bx-money'></i>
+                        </div>
+                    </div>
+                     <div class="card p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-sm text-gray-500 font-bold uppercase">Attendance</div>
+                            <div class="text-2xl font-bold mt-1">Present</div>
+                        </div>
+                        <div style="width: 48px; height: 48px; background-color: #dcfce7; color: #15803d; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class='bx bx-check-circle'></i>
+                        </div>
+                    </div>
+                    <div class="card p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-sm text-gray-500 font-bold uppercase">General Average</div>
+                            <div class="text-2xl font-bold mt-1">87.25</div>
+                        </div>
+                        <div style="width: 48px; height: 48px; background-color: #e0f2fe; color: #0369a1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                            <i class='bx bx-trophy'></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                     <div class="card-header">
+                        <h3 class="card-title">Recent Activity</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="p-4 border-b">
+                            <div class="font-bold">Payment Received</div>
+                            <div class="text-sm text-gray-600">Payment of 5,000.00 for Tuition Fee recorded on Aug 01.</div>
+                        </div>
+                         <div class="p-4 border-b">
+                            <div class="font-bold">Grade Posted</div>
+                            <div class="text-sm text-gray-600">Q2 Grade for Mathematics 7 has been posted.</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
