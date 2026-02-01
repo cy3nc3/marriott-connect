@@ -75,7 +75,7 @@
                 </header>
 
                 <!-- Scrollable Content -->
-                <main class="flex-1 overflow-x-hidden overflow-y-auto p-8 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto transition-colors duration-300">
+                <main class="flex-1 overflow-x-hidden overflow-y-auto px-8 py-4 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto transition-colors duration-300">
                     {{ $slot }}
                 </main>
             </div>

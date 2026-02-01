@@ -1,4 +1,4 @@
-<div class="py-12">
+<div class="">
     <style>
         @media print {
             /* Hide non-printable elements */
@@ -47,7 +47,6 @@
         <!-- Header & Action -->
         <div class="flex justify-between items-center mb-8">
             <div>
-                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Daily Collection Report</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-400 mt-1">{{ $date }}</p>
             </div>
             <button onclick="window.print()" class="no-print inline-flex items-center px-5 py-3 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-sm text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150 shadow-md">

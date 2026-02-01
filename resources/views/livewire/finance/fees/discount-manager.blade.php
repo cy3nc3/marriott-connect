@@ -1,4 +1,4 @@
-<div class="py-12" x-data="{ openDiscountModal: false, openTagModal: false }">
+<div class="" x-data="{ openDiscountModal: false, openTagModal: false }">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         @if (session()->has('message'))

@@ -60,6 +60,6 @@ class DailyRemittance extends Component
             'cashOnHand' => $cashOnHand,
             'digitalTotal' => $digitalTotal,
             'breakdown' => $breakdown
-        ]);
+        ])->layout('layouts.app', ['header' => 'Daily Collection Report']);
     }
 }

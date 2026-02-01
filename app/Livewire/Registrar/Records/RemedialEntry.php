@@ -117,6 +117,7 @@ class RemedialEntry extends Component
 
     public function render()
     {
-        return view('livewire.registrar.records.remedial-entry');
+        return view('livewire.registrar.records.remedial-entry')
+            ->layout('layouts.app', ['header' => 'Remedial / Summer Class Entry']);
     }
 }

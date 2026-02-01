@@ -99,6 +99,7 @@ class BatchPromotion extends Component
 
     public function render()
     {
-        return view('livewire.registrar.records.batch-promotion');
+        return view('livewire.registrar.records.batch-promotion')
+            ->layout('layouts.app', ['header' => 'Batch Promotion / Retention']);
     }
 }

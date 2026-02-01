@@ -1,4 +1,4 @@
-<div class="py-12 bg-gray-100 min-h-screen">
+<div class="bg-gray-100 min-h-screen">
     <style>
         @media print {
             /* Hide UI Elements */
@@ -7,7 +7,7 @@
             }
 
             /* Reset Layout */
-            body, .min-h-screen, .py-12 {
+            body, .min-h-screen {
                 background-color: white !important;
                 margin: 0 !important;
                 padding: 0 !important;

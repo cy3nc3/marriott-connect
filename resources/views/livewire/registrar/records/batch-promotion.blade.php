@@ -1,10 +1,5 @@
-<div class="py-12">
+<div class="">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-
-        <!-- Header -->
-        <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold text-gray-800">Batch Promotion / Retention</h2>
-        </div>
 
         @if (session()->has('message'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
