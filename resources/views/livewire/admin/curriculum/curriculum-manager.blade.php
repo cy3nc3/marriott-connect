@@ -1,4 +1,4 @@
-<div class="py-12" x-data="{ open: false }" x-on:open-modal-window.window="open = true" x-on:close-modal.window="open = false">
+<div class="" x-data="{ open: false }" x-on:open-modal-window.window="open = true" x-on:close-modal.window="open = false">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
         @if (session()->has('message'))

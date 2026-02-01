@@ -1,22 +1,18 @@
 <div class="p-6">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-800">Student Directory</h2>
-    </div>
-
     <!-- Filters -->
-    <div class="bg-white p-4 rounded-lg shadow mb-6 flex flex-col md:flex-row gap-4 items-end md:items-center">
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow mb-6 flex flex-col md:flex-row gap-4 items-end md:items-center transition-colors duration-300">
         <div class="flex-1 w-full">
-            <label class="block text-sm font-medium text-gray-700 mb-1">Search Student</label>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Search Student</label>
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <i class='bx bx-search text-gray-400'></i>
                 </div>
-                <input type="text" wire:model.live="search" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Search by Name or LRN...">
+                <input type="text" wire:model.live="search" class="pl-10 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Search by Name or LRN...">
             </div>
         </div>
         <div class="w-full md:w-48">
-            <label class="block text-sm font-medium text-gray-700 mb-1">Grade Level</label>
-            <select wire:model.live="gradeFilter" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Grade Level</label>
+            <select wire:model.live="gradeFilter" class="block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 <option value="">All Grades</option>
                 <option value="Grade 7">Grade 7</option>
                 <option value="Grade 8">Grade 8</option>
@@ -25,8 +21,8 @@
             </select>
         </div>
         <div class="w-full md:w-64">
-            <label class="block text-sm font-medium text-gray-700 mb-1">Document Status</label>
-            <select wire:model.live="statusFilter" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Document Status</label>
+            <select wire:model.live="statusFilter" class="block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 <option value="all">Show All</option>
                 <option value="missing">Missing Requirements Only</option>
                 <option value="cleared">Cleared</option>
@@ -42,19 +38,19 @@
     @endif
 
     <!-- Table -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
+    <div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-lg transition-colors duration-300">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <thead class="bg-gray-50 dark:bg-gray-700">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">LRN</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student Name</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade & Section</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact Parent</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Requirements</th>
-                    <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">LRN</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Student Name</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Grade & Section</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Contact Parent</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Requirements</th>
+                    <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                 @forelse($filteredStudents as $student)
                     @php
                         $missingCount = 0;
@@ -66,18 +62,18 @@
                         $completedCount = $totalReqs - $missingCount;
                     @endphp
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                             {{ $student['lrn'] }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                             {{ $student['name'] }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                             {{ $student['grade'] }} - {{ $student['section'] }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                             <div>{{ $student['parent'] }}</div>
-                            <div class="text-xs text-gray-400">{{ $student['contact'] }}</div>
+                            <div class="text-xs text-gray-400 dark:text-gray-500">{{ $student['contact'] }}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @if($cleared)
@@ -98,7 +94,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
+                        <td colspan="6" class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500 dark:text-gray-400">
                             No students found.
                         </td>
                     </tr>
@@ -116,11 +112,11 @@
 
                 <!-- Modal panel -->
                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="inline-block align-bottom bg-white dark:bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                    <div class="bg-white dark:bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="sm:flex sm:items-start">
                             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
-                                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white" id="modal-title">
                                     Documents for {{ $selectedStudentName }}
                                 </h3>
                                 <div class="mt-4 space-y-4">
@@ -129,8 +125,8 @@
                                     <!-- PSA Birth Certificate -->
                                     <div class="flex items-center justify-between">
                                         <span class="flex-grow flex flex-col">
-                                            <span class="text-sm font-medium text-gray-900">PSA Birth Certificate (Original)</span>
-                                            <span class="text-sm text-gray-500">Official PSA Copy</span>
+                                            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">PSA Birth Certificate (Original)</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">Official PSA Copy</span>
                                         </span>
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" wire:model="requirements.psa" class="sr-only peer">
@@ -141,8 +137,8 @@
                                     <!-- Report Card (SF9) -->
                                     <div class="flex items-center justify-between">
                                         <span class="flex-grow flex flex-col">
-                                            <span class="text-sm font-medium text-gray-900">Report Card (SF9)</span>
-                                            <span class="text-sm text-gray-500">From Previous School</span>
+                                            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Report Card (SF9)</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">From Previous School</span>
                                         </span>
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" wire:model="requirements.sf9" class="sr-only peer">
@@ -153,7 +149,7 @@
                                     <!-- Certificate of Good Moral -->
                                     <div class="flex items-center justify-between">
                                         <span class="flex-grow flex flex-col">
-                                            <span class="text-sm font-medium text-gray-900">Certificate of Good Moral</span>
+                                            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Certificate of Good Moral</span>
                                         </span>
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" wire:model="requirements.good_moral" class="sr-only peer">
@@ -164,7 +160,7 @@
                                     <!-- Medical Certificate -->
                                     <div class="flex items-center justify-between">
                                         <span class="flex-grow flex flex-col">
-                                            <span class="text-sm font-medium text-gray-900">Medical Certificate</span>
+                                            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Medical Certificate</span>
                                         </span>
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" wire:model="requirements.medical" class="sr-only peer">
@@ -176,11 +172,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <div class="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <button type="button" wire:click="saveRequirements" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
                             Save Updates
                         </button>
-                        <button type="button" wire:click="closeModal" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        <button type="button" wire:click="closeModal" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-gray-800 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                             Cancel
                         </button>
                     </div>

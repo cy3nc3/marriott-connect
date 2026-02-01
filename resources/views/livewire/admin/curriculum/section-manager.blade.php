@@ -1,4 +1,4 @@
-<div class="py-12" x-data="{ open: false }"
+<div class="" x-data="{ open: false }"
     @open-modal.window="open = true"
     @close-modal.window="open = false">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

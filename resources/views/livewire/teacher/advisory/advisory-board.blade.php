@@ -1,4 +1,4 @@
-<div class="py-12" x-data="{ tab: 'grades' }">
+<div class="" x-data="{ tab: 'grades' }">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <!-- Control Bar -->
