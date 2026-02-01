@@ -1,14 +1,14 @@
 <div class="h-full flex flex-col px-4 py-6">
     <!-- Logo -->
-    <div class="flex items-center px-2 mb-10">
-        <div class="p-2 bg-indigo-600 rounded-lg">
+    <div class="flex items-center px-2 mb-10 transition-all duration-300" :class="isExpanded ? '' : 'justify-center'">
+        <div class="p-2 bg-indigo-600 rounded-lg flex-shrink-0">
             <x-application-logo class="block h-6 w-auto fill-current text-white" />
         </div>
-        <span class="ml-3 text-xl font-bold text-gray-800 dark:text-white tracking-tight">Marriott<span class="text-indigo-600 dark:text-indigo-400">Connect</span></span>
+        <span x-show="isExpanded" x-transition.opacity.duration.300ms class="ml-3 text-xl font-bold text-gray-800 dark:text-white tracking-tight whitespace-nowrap">Marriott<span class="text-indigo-600 dark:text-indigo-400">Connect</span></span>
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 space-y-2 overflow-y-auto custom-scrollbar">
+    <nav class="flex-1 space-y-2 overflow-y-auto custom-scrollbar overflow-x-hidden">
         @php
             $links = [];
 
@@ -93,7 +93,8 @@
 
         @foreach($links as $link)
             @if($link['type'] === 'header')
-                <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mt-6 mb-2 block px-2 tracking-wider">{{ $link['label'] }}</span>
+                <div x-show="!isExpanded" class="mx-auto w-8 border-t border-gray-300 dark:border-gray-600 my-4 transition-all duration-300"></div>
+                <span x-show="isExpanded" x-transition.opacity.duration.300ms class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mt-6 mb-2 block px-2 tracking-wider whitespace-nowrap">{{ $link['label'] }}</span>
             @else
                 @php
                     $isActive = $link['route'] !== '#' && request()->routeIs($link['route']);
@@ -103,13 +104,18 @@
                     $inactiveClasses = 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200';
                 @endphp
                 <a href="{{ $link['route'] === '#' ? '#' : route($link['route']) }}"
-                   class="group flex items-center px-4 py-3 text-sm rounded-xl transition-all duration-200 {{ $isActive ? $activeClasses : $inactiveClasses }}">
+                   class="group flex items-center py-3 text-sm rounded-xl transition-all duration-200 {{ $isActive ? $activeClasses : $inactiveClasses }}"
+                   :class="isExpanded ? 'px-4' : 'px-0 justify-center'"
+                   title="{{ $link['label'] }}">
                     @if(Str::startsWith($link['icon'], 'bx-'))
-                        <i class="bx {{ $link['icon'] }} mr-3 text-xl flex-shrink-0 transition-colors duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}"></i>
+                        <i class="bx {{ $link['icon'] }} text-xl flex-shrink-0 transition-all duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}"
+                           :class="isExpanded ? 'mr-3' : 'mr-0'"></i>
                     @else
-                        <x-dynamic-component :component="$link['icon']" class="w-5 h-5 mr-3 flex-shrink-0 transition-colors duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}" />
+                        <x-dynamic-component :component="$link['icon']"
+                                             class="w-5 h-5 flex-shrink-0 transition-all duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}"
+                                             :class="isExpanded ? 'mr-3' : 'mr-0'" />
                     @endif
-                    {{ $link['label'] }}
+                    <span x-show="isExpanded" x-transition.opacity.duration.300ms class="whitespace-nowrap">{{ $link['label'] }}</span>
                 </a>
             @endif
         @endforeach
@@ -118,7 +124,7 @@
     <!-- Bottom Actions -->
     <div class="mt-auto pt-4 space-y-3">
         <!-- Theme Toggle Segmented Control -->
-        <div class="bg-gray-100 dark:bg-gray-700 p-1 rounded-xl flex items-center">
+        <div x-show="isExpanded" x-transition.opacity.duration.300ms class="bg-gray-100 dark:bg-gray-700 p-1 rounded-xl flex items-center">
             <button onclick="setTheme('light')" id="btn-light" class="flex-1 flex items-center justify-center py-2 rounded-lg text-sm font-medium transition-all duration-200">
                 <i class='bx bx-sun text-lg mr-2'></i> Light
             </button>
@@ -127,15 +133,9 @@
             </button>
         </div>
 
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <a href="{{ route('logout') }}"
-               onclick="event.preventDefault(); this.closest('form').submit();"
-               class="group flex items-center px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400 rounded-xl hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-700 dark:hover:text-red-400 transition-colors duration-200">
-                <i class='bx bx-log-out mr-3 text-xl flex-shrink-0 text-gray-400 dark:text-gray-500 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors duration-200'></i>
-                Log Out
-            </a>
-        </form>
+        <button @click="toggleSidebar" class="flex items-center justify-center w-full py-3 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+             <i class='bx text-2xl' :class="autoCollapse ? 'bx-chevron-right' : 'bx-chevron-left'"></i>
+        </button>
     </div>
 </div>
 
