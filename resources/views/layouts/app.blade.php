@@ -26,7 +26,18 @@
             }
         </script>
     </head>
-    <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+          x-data="{
+              autoCollapse: localStorage.getItem('sidebarAutoCollapse') === 'true',
+              hover: false,
+              get isExpanded() {
+                  return !this.autoCollapse || this.hover;
+              },
+              toggleSidebar() {
+                  this.autoCollapse = !this.autoCollapse;
+                  localStorage.setItem('sidebarAutoCollapse', this.autoCollapse);
+              }
+          }">
         @php
             // RBAC Simulation: Use passed role or default, fallback to session, then 'student'
             $role = $role ?? session('role', 'student');
@@ -34,7 +45,10 @@
 
         <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
             <!-- Sidebar -->
-            <aside class="w-72 bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-colors duration-300">
+            <aside class="bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-all duration-300 ease-in-out"
+                   :class="isExpanded ? 'w-72' : 'w-20'"
+                   @mouseenter="hover = true"
+                   @mouseleave="hover = false">
                 @include('layouts.navigation', ['role' => $role])
             </aside>
 
@@ -62,15 +76,31 @@
                         </button>
 
                         <!-- User Profile -->
-                        <div class="flex items-center space-x-3 pl-4">
-                             <div class="flex flex-col text-right hidden sm:flex">
-                                <span class="text-sm font-semibold text-gray-800 dark:text-white">{{ Auth::user()->name ?? 'User' }}</span>
-                                <span class="text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-wide font-bold">{{ $role }}</span>
-                             </div>
-                             <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-lg">
-                                {{ substr(Auth::user()->name ?? 'U', 0, 1) }}
-                             </div>
-                        </div>
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="flex items-center space-x-3 pl-4 focus:outline-none transition ease-in-out duration-150 group">
+                                     <div class="flex flex-col text-right hidden sm:flex">
+                                        <span class="text-sm font-semibold text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{{ Auth::user()->name ?? 'User' }}</span>
+                                        <span class="text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-wide font-bold">{{ $role }}</span>
+                                     </div>
+                                     <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-lg group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                                        {{ substr(Auth::user()->name ?? 'U', 0, 1) }}
+                                     </div>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <!-- Log Out -->
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-dropdown>
                     </div>
                 </header>
 
