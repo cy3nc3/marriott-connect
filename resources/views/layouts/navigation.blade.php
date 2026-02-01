@@ -1,10 +1,17 @@
 <div class="h-full flex flex-col px-4 py-6">
     <!-- Logo -->
-    <div class="flex items-center px-2 mb-10 transition-all duration-300" :class="isExpanded ? '' : 'justify-center'">
-        <div class="p-2 bg-indigo-600 rounded-lg flex-shrink-0">
-            <x-application-logo class="block h-6 w-auto fill-current text-white" />
+    <div class="flex items-center mb-10 transition-all duration-300">
+        <div class="w-12 flex-shrink-0 flex items-center justify-center">
+            <div class="p-2 bg-indigo-600 rounded-lg">
+                <x-application-logo class="block h-6 w-auto fill-current text-white" />
+            </div>
         </div>
-        <span x-show="isExpanded" x-transition.opacity.duration.300ms class="ml-3 text-xl font-bold text-gray-800 dark:text-white tracking-tight whitespace-nowrap">Marriott<span class="text-indigo-600 dark:text-indigo-400">Connect</span></span>
+        <div x-show="isExpanded" x-transition.opacity.duration.300ms class="flex items-center ml-3 overflow-hidden whitespace-nowrap">
+            <span class="text-xl font-bold text-gray-800 dark:text-white tracking-tight">Marriott<span class="text-indigo-600 dark:text-indigo-400">Connect</span></span>
+            <button @click="toggleSidebar" class="ml-2 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 focus:outline-none transition-colors" title="Toggle Sidebar">
+                <i class='bx text-xl' :class="!autoCollapse ? 'bx-chevron-left' : 'bx-pin'"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -93,28 +100,31 @@
 
         @foreach($links as $link)
             @if($link['type'] === 'header')
-                <div x-show="!isExpanded" class="mx-auto w-8 border-t border-gray-300 dark:border-gray-600 my-4 transition-all duration-300"></div>
-                <span x-show="isExpanded" x-transition.opacity.duration.300ms class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mt-6 mb-2 block px-2 tracking-wider whitespace-nowrap">{{ $link['label'] }}</span>
+                <div class="relative h-10 flex items-center mt-4 mb-2">
+                    <div class="absolute inset-0 flex items-center justify-center w-12 transition-opacity duration-300"
+                         :class="isExpanded ? 'opacity-0' : 'opacity-100'">
+                        <div class="w-6 border-t border-gray-300 dark:border-gray-600"></div>
+                    </div>
+                    <span class="absolute left-12 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider whitespace-nowrap transition-opacity duration-300"
+                          :class="isExpanded ? 'opacity-100' : 'opacity-0'">{{ $link['label'] }}</span>
+                </div>
             @else
                 @php
                     $isActive = $link['route'] !== '#' && request()->routeIs($link['route']);
-                    // Active: Light (Indigo Text, Indigo BG), Dark (White Text, Indigo BG/Opacity)
-                    // Inactive: Gray Text, Hover Gray BG
                     $activeClasses = 'bg-indigo-50 text-indigo-700 dark:bg-indigo-600 dark:text-white font-semibold shadow-sm';
                     $inactiveClasses = 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200';
                 @endphp
                 <a href="{{ $link['route'] === '#' ? '#' : route($link['route']) }}"
                    class="group flex items-center py-3 text-sm rounded-xl transition-all duration-200 {{ $isActive ? $activeClasses : $inactiveClasses }}"
-                   :class="isExpanded ? 'px-4' : 'px-0 justify-center'"
                    title="{{ $link['label'] }}">
-                    @if(Str::startsWith($link['icon'], 'bx-'))
-                        <i class="bx {{ $link['icon'] }} text-xl flex-shrink-0 transition-all duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}"
-                           :class="isExpanded ? 'mr-3' : 'mr-0'"></i>
-                    @else
-                        <x-dynamic-component :component="$link['icon']"
-                                             class="w-5 h-5 flex-shrink-0 transition-all duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}"
-                                             :class="isExpanded ? 'mr-3' : 'mr-0'" />
-                    @endif
+                    <div class="w-12 flex-shrink-0 flex items-center justify-center">
+                        @if(Str::startsWith($link['icon'], 'bx-'))
+                            <i class="bx {{ $link['icon'] }} text-xl transition-colors duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}"></i>
+                        @else
+                            <x-dynamic-component :component="$link['icon']"
+                                                 class="w-5 h-5 transition-colors duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}" />
+                        @endif
+                    </div>
                     <span x-show="isExpanded" x-transition.opacity.duration.300ms class="whitespace-nowrap">{{ $link['label'] }}</span>
                 </a>
             @endif
@@ -133,9 +143,6 @@
             </button>
         </div>
 
-        <button @click="toggleSidebar" class="flex items-center justify-center w-full py-3 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none">
-             <i class='bx text-2xl' :class="autoCollapse ? 'bx-chevron-right' : 'bx-chevron-left'"></i>
-        </button>
     </div>
 </div>
 
