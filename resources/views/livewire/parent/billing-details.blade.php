@@ -1,15 +1,6 @@
 <div class="">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
-        <!-- Header -->
-        <div class="md:flex md:items-center md:justify-between">
-            <div class="min-w-0 flex-1">
-                <h2 class="text-2xl font-bold leading-7 text-gray-900 dark:text-gray-100 sm:truncate sm:text-3xl sm:tracking-tight">
-                    Statement of Account History
-                </h2>
-            </div>
-        </div>
-
         <!-- Top Card: Total Outstanding -->
         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-red-500 transition-colors duration-300">
             <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Total Outstanding Balance</h3>
@@ -17,7 +8,7 @@
                 <span class="text-4xl font-extrabold text-red-600 dark:text-red-400">
                     ₱ {{ number_format($outstandingBalance, 2) }}
                 </span>
-                <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">as of {{ date('M d, Y') }}</span>
+                <span class="ml-2 text-sm text-gray-500 dark:text-gray-300">as of {{ date('M d, Y') }}</span>
             </div>
         </div>
 

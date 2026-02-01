@@ -5,7 +5,7 @@
 
             <!-- Header & Filters -->
             <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Payment Transaction Log</h3>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Placeholder</h3>
 
                 <div class="flex gap-2 text-sm">
                     <input type="date" wire:model.live="dateFrom" class="rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-xs">
@@ -36,16 +36,16 @@
                     <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                         @foreach($transactions as $txn)
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-indigo-600 dark:text-indigo-400">{{ $txn['or_number'] }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-indigo-600 dark:text-white">{{ $txn['or_number'] }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">{{ $txn['student'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $txn['type'] }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">{{ $txn['type'] }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900 dark:text-gray-100 text-right">{{ number_format($txn['amount'], 2) }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $txn['mode'] === 'Cash' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' }}">
                                         {{ $txn['mode'] }}
                                     </span>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $txn['timestamp'] }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">{{ $txn['timestamp'] }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                     <button class="text-gray-600 dark:text-gray-400 hover:text-indigo-900 dark:hover:text-indigo-300 mx-1" title="View Receipt">
                                         <i class='bx bx-receipt text-lg'></i>

@@ -7,15 +7,17 @@
         </div>
     @endif
 
-    <div class="flex justify-end mb-4">
-        <x-primary-button wire:click="openCreateModal">
-            {{ __('Create User') }}
-        </x-primary-button>
-    </div>
+
 
     <!-- User Table -->
     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
         <div class="p-6 text-gray-900 dark:text-gray-100 overflow-x-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Placeholder</h3>
+                    <x-primary-button wire:click="openCreateModal">
+                        <i class='bx bx-plus mr-2'></i> {{ __('Create User') }}
+                    </x-primary-button>
+                </div>
             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>

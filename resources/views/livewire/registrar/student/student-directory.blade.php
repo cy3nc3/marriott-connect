@@ -62,18 +62,18 @@
                         $completedCount = $totalReqs - $missingCount;
                     @endphp
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-200">
                             {{ $student['lrn'] }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                             {{ $student['name'] }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-200">
                             {{ $student['grade'] }} - {{ $student['section'] }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-200">
                             <div>{{ $student['parent'] }}</div>
-                            <div class="text-xs text-gray-400 dark:text-gray-500">{{ $student['contact'] }}</div>
+                            <div class="text-xs text-gray-400 dark:text-gray-200">{{ $student['contact'] }}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @if($cleared)

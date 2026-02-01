@@ -15,7 +15,7 @@
 
             <!-- Search Bar -->
             <div class="bg-white dark:bg-gray-800 p-4 shadow-sm sm:rounded-lg transition-colors duration-300">
-                <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Find Student</label>
+                <label for="search" class="block text-medium font-medium text-gray-700 dark:text-gray-200 mb-1">Find Student</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class='bx bx-search text-gray-400'></i>
@@ -27,7 +27,6 @@
                            class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md leading-5 bg-white dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out"
                            autocomplete="off">
                 </div>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Try "Juan" or "Maria"</p>
             </div>
 
             <!-- Student Card -->
@@ -152,10 +151,7 @@
                 <div class="inline-block align-bottom bg-white dark:bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     <div class="bg-white dark:bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="sm:flex sm:items-start">
-                            <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 sm:mx-0 sm:h-10 sm:w-10">
-                                <i class='bx bx-plus text-indigo-600 dark:text-indigo-300 text-xl'></i>
-                            </div>
-                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-0 sm:text-left w-full">
                                 <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100" id="modal-title">
                                     Add Item to Transaction
                                 </h3>

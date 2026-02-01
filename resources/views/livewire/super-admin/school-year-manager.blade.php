@@ -10,7 +10,7 @@
     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
         <div class="p-6 text-gray-900 dark:text-gray-100">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Academic Calendar Management</h3>
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Placeholder</h3>
                 <x-primary-button wire:click="create">
                     <i class='bx bx-plus mr-2'></i> {{ __('Create New School Year') }}
                 </x-primary-button>
