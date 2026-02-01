@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Livewire\Registrar\EnrollmentWizard;
+use App\Livewire\Registrar\Enrollment\EnrollmentWizard;
 use Livewire\Livewire;
 use Tests\TestCase;
 

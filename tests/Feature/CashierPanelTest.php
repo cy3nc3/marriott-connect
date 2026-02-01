@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Livewire\Finance\CashierPanel;
+use App\Livewire\Finance\Cashier\CashierPanel;
 use Livewire\Livewire;
 use Tests\TestCase;
 
