@@ -29,6 +29,7 @@
     <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
           x-data="{
               autoCollapse: localStorage.getItem('sidebarAutoCollapse') === 'true',
+              darkMode: document.documentElement.classList.contains('dark'),
               hover: false,
               forceCollapsed: false,
               get isExpanded() {
@@ -40,6 +41,16 @@
                   if (this.autoCollapse) {
                       this.forceCollapsed = true;
                   }
+              },
+              toggleTheme() {
+                  this.darkMode = !this.darkMode;
+                  if (this.darkMode) {
+                      document.documentElement.classList.add('dark');
+                      localStorage.theme = 'dark';
+                  } else {
+                      document.documentElement.classList.remove('dark');
+                      localStorage.theme = 'light';
+                  }
               }
           }">
         @php
@@ -50,7 +61,7 @@
         <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
             <!-- Sidebar -->
             <aside class="bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-all duration-300 ease-in-out"
-                   :class="isExpanded ? 'w-72' : 'w-20'"
+                   :class="isExpanded ? 'w-72' : 'w-20 hide-scrollbar'"
                    @mouseenter="hover = true"
                    @mouseleave="hover = false; forceCollapsed = false;">
                 @include('layouts.navigation', ['role' => $role])
@@ -77,6 +88,11 @@
                         <button class="relative p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors">
                             <i class='bx bx-bell text-2xl'></i>
                             <span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 border border-white dark:border-gray-800"></span>
+                        </button>
+
+                        <!-- Theme Toggle -->
+                        <button @click="toggleTheme()" class="p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors" title="Toggle Theme">
+                            <i class='bx text-2xl' :class="darkMode ? 'bx-sun' : 'bx-moon'"></i>
                         </button>
 
                         <!-- User Profile -->
