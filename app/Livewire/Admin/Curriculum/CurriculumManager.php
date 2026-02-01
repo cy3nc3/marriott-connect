@@ -32,6 +32,13 @@ class CurriculumManager extends Component
         $this->loadSubjects();
     }
 
+    public function openModal($grade)
+    {
+        $this->resetForm();
+        $this->gradeLevel = $grade;
+        $this->dispatch('open-modal-window');
+    }
+
     public function loadSubjects()
     {
         $allSubjects = session('curriculum', []);

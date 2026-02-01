@@ -24,6 +24,6 @@ class BillingDetails extends Component
     public function render()
     {
         return view('livewire.parent.billing-details')
-            ->layout('layouts.app', ['header' => 'Billing Details']);
+            ->layout('layouts.app', ['header' => 'Statement of Account']);
     }
 }
