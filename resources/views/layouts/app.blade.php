@@ -39,7 +39,7 @@
             </aside>
 
             <!-- Main Content -->
-            <div class="flex-1 flex flex-col overflow-hidden print:block print:overflow-visible print:h-auto">
+            <div class="flex-1 flex flex-col overflow-hidden bg-[#F4F5FA] dark:bg-gray-900 transition-colors duration-300 print:block print:overflow-visible print:h-auto">
                 <!-- Top Header -->
                 <header class="bg-transparent h-20 flex items-center justify-between px-8 z-10 print:hidden transition-colors duration-300">
                     <div class="flex items-center">
@@ -63,7 +63,7 @@
 
                         <!-- User Profile -->
                         <div class="flex items-center space-x-3 pl-4">
-                             <div class="flex flex-col text-right hidden sm:block">
+                             <div class="flex flex-col text-right hidden sm:flex">
                                 <span class="text-sm font-semibold text-gray-800 dark:text-white">{{ Auth::user()->name ?? 'User' }}</span>
                                 <span class="text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-wide font-bold">{{ $role }}</span>
                              </div>
@@ -75,7 +75,7 @@
                 </header>
 
                 <!-- Scrollable Content -->
-                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-[#F4F5FA] dark:bg-gray-900 p-8 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto transition-colors duration-300">
+                <main class="flex-1 overflow-x-hidden overflow-y-auto p-8 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto transition-colors duration-300">
                     {{ $slot }}
                 </main>
             </div>
