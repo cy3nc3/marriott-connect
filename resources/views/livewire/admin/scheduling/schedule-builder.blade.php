@@ -172,7 +172,7 @@
                             </div>
                             <div>
                                 <x-input-label :value="__('Room')" />
-                                <x-text-input wire:model="newSchedule.room" type="text" class="block mt-1 w-full" placeholder="e.g. 101" />
+                                <x-text-input wire:model="newSchedule.room" type="text" class="block mt-1 w-full" placeholder="eg. 101" />
                             </div>
                         </div>
 

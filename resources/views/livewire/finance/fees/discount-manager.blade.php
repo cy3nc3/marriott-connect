@@ -85,12 +85,12 @@
                     <div class="mt-4 space-y-4">
                         <div>
                             <x-input-label :value="__('Name')" />
-                            <x-text-input wire:model="newDiscountName" class="block mt-1 w-full" type="text" placeholder="e.g. Loyalty Award" />
+                            <x-text-input wire:model="newDiscountName" class="block mt-1 w-full" type="text" placeholder="eg. Loyalty Award" />
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <x-input-label :value="__('Type')" />
-                                <select wire:model="newDiscountType" class="block mt-1 w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                <select wire:model="newDiscountType" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                                     <option value="Percentage">Percentage (%)</option>
                                     <option value="Fixed">Fixed Amount (₱)</option>
                                 </select>
@@ -128,7 +128,7 @@
                         </div>
                         <div>
                             <x-input-label :value="__('Select Discount')" />
-                            <select wire:model="tagDiscountId" class="block mt-1 w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                            <select wire:model="tagDiscountId" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                                 <option value="">Select a discount</option>
                                 @foreach($discounts as $d)
                                     <option value="{{ $d['id'] }}">{{ $d['name'] }} ({{ $d['value'] }})</option>

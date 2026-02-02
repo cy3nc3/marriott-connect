@@ -103,14 +103,14 @@
                         <!-- Code -->
                         <div>
                             <x-input-label for="code" :value="__('Subject Code')" />
-                            <x-text-input wire:model="code" id="code" class="block mt-1 w-full" type="text" placeholder="e.g. MATH7" />
+                            <x-text-input wire:model="code" id="code" class="block mt-1 w-full" type="text" placeholder="eg. MATH7" />
                             @error('code') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         </div>
 
                         <!-- Name -->
                         <div>
                             <x-input-label for="name" :value="__('Descriptive Title')" />
-                            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" placeholder="e.g. Mathematics 7" />
+                            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" placeholder="eg. Mathematics 7" />
                             @error('name') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         </div>
 

@@ -33,27 +33,27 @@
         <!-- Step 1: Identity -->
         @if($step === 1)
             <div class="space-y-6">
-                <h3 class="text-lg font-medium text-gray-900">Student & Parent Information</h3>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Student & Parent Information</h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <x-input-label for="studentName" :value="__('Student Name')" />
-                        <x-text-input wire:model="studentName" id="studentName" class="block mt-1 w-full" type="text" />
+                        <x-text-input wire:model="studentName" id="studentName" class="block mt-1 w-full" type="text" placeholder="eg. Juan Dela Cruz" />
                         <x-input-error :messages="$errors->get('studentName')" class="mt-2" />
                     </div>
                     <div>
                         <x-input-label for="lrn" :value="__('LRN')" />
-                        <x-text-input wire:model="lrn" id="lrn" class="block mt-1 w-full" type="text" />
+                        <x-text-input wire:model="lrn" id="lrn" class="block mt-1 w-full" type="text" placeholder="eg. 123456789012" />
                         <x-input-error :messages="$errors->get('lrn')" class="mt-2" />
                     </div>
                     <div>
                         <x-input-label for="parentName" :value="__('Parent Name')" />
-                        <x-text-input wire:model="parentName" id="parentName" class="block mt-1 w-full" type="text" />
+                        <x-text-input wire:model="parentName" id="parentName" class="block mt-1 w-full" type="text" placeholder="eg. Maria Santos" />
                         <x-input-error :messages="$errors->get('parentName')" class="mt-2" />
                     </div>
                     <div>
                         <x-input-label for="parentEmail" :value="__('Parent Email')" />
-                        <x-text-input wire:model="parentEmail" id="parentEmail" class="block mt-1 w-full" type="email" />
+                        <x-text-input wire:model="parentEmail" id="parentEmail" class="block mt-1 w-full" type="email" placeholder="eg. parent@email.com" />
                         <x-input-error :messages="$errors->get('parentEmail')" class="mt-2" />
                     </div>
                 </div>
@@ -150,7 +150,7 @@
 
                     <div>
                         <x-input-label for="downpayment" :value="__('Downpayment Amount')" />
-                        <x-text-input wire:model="downpayment" id="downpayment" class="block mt-1 w-full" type="number" placeholder="e.g. 5000" />
+                        <x-text-input wire:model="downpayment" id="downpayment" class="block mt-1 w-full" type="number" placeholder="eg. 5000" />
                         <x-input-error :messages="$errors->get('downpayment')" class="mt-2" />
                     </div>
 

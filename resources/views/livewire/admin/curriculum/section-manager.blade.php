@@ -100,7 +100,7 @@
 
                         <div>
                             <x-input-label for="name" :value="__('Section Name')" />
-                            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" placeholder="e.g. Rizal" />
+                            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" placeholder="eg. Rizal" />
                             @error('name') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         </div>
 
@@ -127,7 +127,7 @@
 
                         <div>
                             <x-input-label for="capacity" :value="__('Capacity')" />
-                            <x-text-input wire:model="capacity" id="capacity" class="block mt-1 w-full" type="number" min="1" placeholder="e.g. 40" />
+                            <x-text-input wire:model="capacity" id="capacity" class="block mt-1 w-full" type="number" min="1" placeholder="eg. 40" />
                             @error('capacity') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                         </div>
 
