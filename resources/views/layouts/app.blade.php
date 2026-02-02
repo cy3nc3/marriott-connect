@@ -32,6 +32,18 @@
               darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
               hover: false,
               forceCollapsed: false,
+              init() {
+                  const restoreTime = sessionStorage.getItem('sidebar_restore_hover');
+                  if (restoreTime && (Date.now() - parseInt(restoreTime)) < 2000) {
+                      this.hover = true;
+                      sessionStorage.removeItem('sidebar_restore_hover');
+                      setTimeout(() => {
+                          if (this.$refs.sidebar && !this.$refs.sidebar.matches(':hover')) {
+                              this.hover = false;
+                          }
+                      }, 100);
+                  }
+              },
               get isExpanded() {
                   return !this.autoCollapse || (this.hover && !this.forceCollapsed);
               },
@@ -56,7 +68,9 @@
         <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
             <!-- Sidebar -->
             <aside class="h-full bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-all duration-300 ease-in-out"
+                   x-ref="sidebar"
                    :class="isExpanded ? 'w-72' : 'w-20'"
+                   @mousedown="sessionStorage.setItem('sidebar_restore_hover', Date.now())"
                    @mouseenter="hover = true"
                    @mouseleave="hover = false; forceCollapsed = false;">
                 @include('layouts.navigation', ['role' => $role])
