@@ -15,7 +15,8 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 space-y-2 overflow-y-auto custom-scrollbar overflow-x-hidden">
+    <nav class="flex-1 min-h-0 space-y-2 overflow-y-auto custom-scrollbar overflow-x-hidden"
+         :class="{'hide-scrollbar': !isExpanded}">
         @php
             $links = [];
 
