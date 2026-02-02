@@ -118,7 +118,7 @@
                     }
 
                     $activeClasses = 'bg-indigo-50 text-indigo-700 dark:bg-indigo-600 dark:text-white font-semibold shadow-sm';
-                    $inactiveClasses = 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200';
+                    $inactiveClasses = 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-200';
 
                     $finalClasses = $isActive ? $activeClasses : $inactiveClasses;
                 @endphp
