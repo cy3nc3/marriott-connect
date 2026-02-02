@@ -62,7 +62,6 @@
                    @mouseleave="hover = false; forceCollapsed = false;">
                 @include('layouts.navigation', ['role' => $role])
             </aside>
-            @endpersist
 
             <!-- Main Content -->
             <div class="flex-1 flex flex-col overflow-hidden bg-gray-100 dark:bg-gray-900 transition-colors duration-300 print:block print:overflow-visible print:h-auto">
