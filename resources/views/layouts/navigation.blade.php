@@ -18,13 +18,11 @@
     <nav class="flex-1 min-h-0 space-y-2 overflow-y-auto custom-scrollbar overflow-x-hidden"
          :class="{'hide-scrollbar': !isExpanded}"
          x-data="{
-             currentPath: window.location.pathname,
              init() {
                  this.$el.scrollTop = sessionStorage.getItem('sidebarScroll') || 0;
              }
          }"
-         @scroll="sessionStorage.setItem('sidebarScroll', $el.scrollTop)"
-         x-on:livewire:navigated.window="currentPath = window.location.pathname">
+         @scroll="sessionStorage.setItem('sidebarScroll', $el.scrollTop)">
         @php
             $links = [];
 
@@ -120,24 +118,29 @@
             @else
                 @php
                     $linkRoute = $link['route'] === '#' ? '#' : route($link['route']);
-                    $linkPath = $link['route'] === '#' ? '#' : parse_url($linkRoute, PHP_URL_PATH);
+
+                    // Determine active state server-side
+                    $isActive = false;
+                    if ($link['route'] !== '#') {
+                        $isActive = request()->routeIs($link['route']);
+                        // Also check for prefix if it's a resource or group (optional simplification)
+                    }
 
                     $activeClasses = 'bg-indigo-50 text-indigo-700 dark:bg-indigo-600 dark:text-white font-semibold shadow-sm';
                     $inactiveClasses = 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200';
+
+                    $finalClasses = $isActive ? $activeClasses : $inactiveClasses;
                 @endphp
                 <a href="{{ $linkRoute }}"
                    {{ $link['route'] !== '#' ? 'wire:navigate' : '' }}
-                   class="group flex items-center py-3 text-sm rounded-xl transition-all duration-200"
-                   :class="currentPath === '{{ $linkPath }}' ? '{{ $activeClasses }}' : '{{ $inactiveClasses }}'"
+                   class="group flex items-center py-3 text-sm rounded-xl transition-all duration-200 {{ $finalClasses }}"
                    title="{{ $link['label'] }}">
                     <div class="w-12 flex-shrink-0 flex items-center justify-center">
                         @if(Str::startsWith($link['icon'], 'bx-'))
-                            <i class="bx {{ $link['icon'] }} text-xl transition-colors duration-200"
-                               :class="currentPath === '{{ $linkPath }}' ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300'"></i>
+                            <i class="bx {{ $link['icon'] }} text-xl transition-colors duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}"></i>
                         @else
                             <x-dynamic-component :component="$link['icon']"
-                                                 class="w-5 h-5 transition-colors duration-200"
-                                                 :class="currentPath === '{{ $linkPath }}' ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300'" />
+                                                 class="w-5 h-5 transition-colors duration-200 {{ $isActive ? 'text-indigo-700 dark:text-white' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300' }}" />
                         @endif
                     </div>
                     <span x-show="isExpanded" x-transition.opacity.duration.300ms class="whitespace-nowrap">{{ $link['label'] }}</span>
