@@ -1,9 +1,5 @@
 <div class="space-y-6">
-    <div class="flex justify-between items-center">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-100 leading-tight">
-            DepEd Reports Dashboard
-        </h2>
-    </div>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col items-center">
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card 1: SF1 -->
@@ -96,4 +92,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

@@ -1,9 +1,9 @@
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 transition-colors duration-300">
+<div class="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 pt-0 transition-colors duration-300">
     {{-- Screen Only: Interface --}}
     <div class="no-print max-w-7xl mx-auto space-y-6">
         <div class="flex justify-between items-center">
             <div>
-                <h1 class="text-2xl font-bold text-gray-800 dark:text-white">SF9 Report Card Generator</h1>
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Report Card Generator</h1>
                 <p class="text-sm text-gray-500 dark:text-gray-400">Bulk print official report cards for Card Distribution Day.</p>
             </div>
             <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded shadow flex items-center gap-2 transition">
