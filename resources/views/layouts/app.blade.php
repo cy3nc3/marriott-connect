@@ -26,7 +26,7 @@
             }
         </script>
     </head>
-    <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+    <body class="font-sans antialiased bg-neutral-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
           x-data="{
               autoCollapse: localStorage.getItem('sidebarAutoCollapse') === 'true',
               darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
@@ -77,7 +77,7 @@
             </aside>
 
             <!-- Main Content -->
-            <div class="flex-1 flex flex-col overflow-hidden bg-gray-100 dark:bg-gray-900 print:block print:overflow-visible print:h-auto">
+            <div class="flex-1 flex flex-col overflow-hidden bg-neutral-50 dark:bg-gray-900 print:block print:overflow-visible print:h-auto">
                 <!-- Top Header -->
                 <header class="bg-transparent h-20 flex items-center justify-between px-8 z-10 print:hidden">
                     <div class="flex items-center">
