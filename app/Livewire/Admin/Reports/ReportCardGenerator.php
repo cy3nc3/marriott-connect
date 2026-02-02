@@ -290,6 +290,6 @@ class ReportCardGenerator extends Component
     public function render()
     {
         return view('livewire.admin.reports.report-card-generator')
-            ->layout('layouts.app');
+            ->layout('layouts.app', ['header' => 'SF9 Generator']);
     }
 }

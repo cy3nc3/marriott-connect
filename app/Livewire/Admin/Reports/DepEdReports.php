@@ -21,7 +21,8 @@ class DepEdReports extends Component
 
     public function render()
     {
-        return view('livewire.admin.reports.dep-ed-reports');
+        return view('livewire.admin.reports.dep-ed-reports')
+            ->layout('layouts.app', ['header' => 'DepEd Reports']);
     }
 
     public function generateSf1()

@@ -23,6 +23,7 @@ class ReportPreview extends Component
 
     public function render()
     {
-        return view('livewire.admin.reports.report-preview');
+        return view('livewire.admin.reports.report-preview')
+            ->layout('layouts.app', ['header' => 'Report Preview']);
     }
 }
