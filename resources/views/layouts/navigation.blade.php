@@ -106,16 +106,7 @@
         @endphp
 
         @foreach($links as $link)
-            @if($link['type'] === 'header')
-                <div class="relative h-10 flex items-center mt-4 mb-2">
-                    <div class="absolute inset-0 flex items-center justify-center w-12 transition-opacity duration-300"
-                         :class="isExpanded ? 'opacity-0' : 'opacity-100'">
-                        <div class="w-6 border-t border-gray-300 dark:border-gray-600"></div>
-                    </div>
-                    <span class="absolute left-12 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider whitespace-nowrap transition-opacity duration-300"
-                          :class="isExpanded ? 'opacity-100' : 'opacity-0'">{{ $link['label'] }}</span>
-                </div>
-            @else
+            @if($link['type'] !== 'header')
                 @php
                     $linkRoute = $link['route'] === '#' ? '#' : route($link['route']);
 
