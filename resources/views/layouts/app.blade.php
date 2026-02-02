@@ -55,7 +55,8 @@
 
         <div class="flex h-screen overflow-hidden print:block print:overflow-visible print:h-auto">
             <!-- Sidebar -->
-            <aside class="bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-all duration-300 ease-in-out"
+            @persist('sidebar')
+            <aside class="h-full bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 hidden md:flex flex-col print:hidden transition-all duration-300 ease-in-out"
                    :class="isExpanded ? 'w-72' : 'w-20'"
                    @mouseenter="hover = true"
                    @mouseleave="hover = false; forceCollapsed = false;">
