@@ -1,6 +1,6 @@
 <div class="">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
             <div class="p-6">
                  <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 mb-4">Progress Report</h3>
                  <div class="overflow-x-auto border dark:border-gray-700 rounded-lg">

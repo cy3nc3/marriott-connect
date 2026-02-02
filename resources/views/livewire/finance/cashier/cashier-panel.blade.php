@@ -31,7 +31,7 @@
 
             <!-- Student Card -->
             @if($student)
-                <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg overflow-hidden flex-1 flex flex-col transition-colors duration-300">
+                <div class="bg-white dark:bg-gray-800 shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent overflow-hidden flex-1 flex flex-col transition-colors duration-300">
                     <div class="p-6 flex flex-col items-center border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
                         <img class="h-24 w-24 rounded-full border-4 border-white dark:border-gray-600 shadow-md mb-4"
                              src="https://ui-avatars.com/api/?{{ $student['avatar_params'] }}&size=128"
@@ -76,7 +76,7 @@
         </div>
 
         <!-- Right Column: Transaction Cart -->
-        <div class="lg:col-span-2 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex flex-col h-full border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+        <div class="lg:col-span-2 bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent flex flex-col h-full transition-colors duration-300">
 
             <!-- Header -->
             <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-700">

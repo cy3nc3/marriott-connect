@@ -50,7 +50,7 @@
         </div>
 
         <!-- Tab 1: Academic Summary -->
-        <div x-show="tab === 'grades'" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div x-show="tab === 'grades'" class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                     <thead class="bg-gray-50 dark:bg-gray-700">
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Tab 2: Conduct/Values Grading -->
-        <div x-show="tab === 'values'" style="display: none;" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div x-show="tab === 'values'" style="display: none;" class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                     <thead class="bg-gray-50 dark:bg-gray-700">

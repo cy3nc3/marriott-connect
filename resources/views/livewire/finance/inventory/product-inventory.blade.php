@@ -10,7 +10,7 @@
 
 
     <!-- Inventory Table -->
-    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
         <div class="p-6 text-gray-900 dark:text-gray-100 overflow-x-auto">
             <div class="flex justify-between items-center mb-6">
                     <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Placeholder</h3>

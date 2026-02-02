@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
         <!-- Top Card: Total Outstanding -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-red-500 transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 border-l-4 border-red-500 transition-colors duration-300">
             <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Total Outstanding Balance</h3>
             <div class="mt-4 flex items-baseline">
                 <span class="text-4xl font-extrabold text-red-600 dark:text-red-400">
@@ -13,7 +13,7 @@
         </div>
 
         <!-- Section A: Bill Breakdown -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
             <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Bill Breakdown</h3>
             </div>
@@ -46,7 +46,7 @@
         </div>
 
         <!-- Section B: Transaction History -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
             <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Transaction History</h3>
             </div>

@@ -8,7 +8,7 @@
         @endif
 
         @foreach ([7, 8, 9, 10] as $grade)
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white border border-gray-500/10 dark:border-transparent dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg">
                 <!-- Header & Actions -->
                 <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 flex justify-between items-center">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Grade {{ $grade }} Subjects</h3>

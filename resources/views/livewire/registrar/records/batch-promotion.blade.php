@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- Student Table -->
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
                     <div class="p-6 border-b border-gray-200 dark:border-gray-700">
                         <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Student List</h3>
                         <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Select students to promote to the next level.</p>

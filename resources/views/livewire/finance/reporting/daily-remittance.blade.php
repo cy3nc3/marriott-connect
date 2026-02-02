@@ -57,7 +57,7 @@
         <!-- Summary Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <!-- Total Collected -->
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-green-500 transition-colors duration-300">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 border-l-4 border-green-500 transition-colors duration-300">
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Total Collected</div>
                 <div class="text-3xl font-extrabold text-green-600 dark:text-green-400 print-color-green">
                     ₱{{ number_format($totalCollected, 2) }}
@@ -65,7 +65,7 @@
             </div>
 
             <!-- Cash on Hand -->
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-blue-500 transition-colors duration-300">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 border-l-4 border-blue-500 transition-colors duration-300">
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Cash on Hand</div>
                 <div class="text-2xl font-bold text-gray-800 dark:text-gray-100">
                     ₱{{ number_format($cashOnHand, 2) }}
@@ -73,7 +73,7 @@
             </div>
 
             <!-- Digital/Bank -->
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-indigo-500 transition-colors duration-300">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 border-l-4 border-indigo-500 transition-colors duration-300">
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Digital / Bank</div>
                 <div class="text-2xl font-bold text-gray-800 dark:text-gray-100">
                     ₱{{ number_format($digitalTotal, 2) }}
@@ -82,7 +82,7 @@
         </div>
 
         <!-- Breakdown Table -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
             <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Collection Breakdown</h3>
             </div>

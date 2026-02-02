@@ -87,7 +87,7 @@
                         </h2>
                     </div>
 
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 h-full">
                         <!-- Search (Icon Only) -->
                         <button class="p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors">
                             <i class='bx bx-search text-2xl'></i>
@@ -105,7 +105,7 @@
                         </button>
 
                         <!-- Vertical Divider -->
-                        <div class="h-6 w-px bg-gray-600 dark:bg-gray-300"></div>
+                        <div class="h-[80%] w-px self-center bg-gradient-to-b from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-100 "></div>
 
                         <!-- User Profile -->
                         <x-dropdown align="right" width="48">
@@ -137,7 +137,7 @@
                 </header>
 
                 <!-- Horizontal Divider -->
-                <div class="w-[90%] h-px mx-auto bg-gray-600 dark:bg-gray-300"></div>
+                <div class="w-[100%] h-px mx-auto bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-100 "></div>
 
                 <!-- Scrollable Content -->
                 <main class="flex-1 overflow-x-hidden overflow-y-auto px-8 py-4 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto transition-colors duration-300">
