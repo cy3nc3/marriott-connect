@@ -17,7 +17,13 @@
     <!-- Navigation -->
     <nav class="flex-1 min-h-0 space-y-2 overflow-y-auto custom-scrollbar overflow-x-hidden"
          :class="{'hide-scrollbar': !isExpanded}"
-         x-data="{ currentPath: window.location.pathname }"
+         x-data="{
+             currentPath: window.location.pathname,
+             init() {
+                 this.$el.scrollTop = sessionStorage.getItem('sidebarScroll') || 0;
+             }
+         }"
+         @scroll="sessionStorage.setItem('sidebarScroll', $el.scrollTop)"
          x-on:livewire:navigated.window="currentPath = window.location.pathname">
         @php
             $links = [];
