@@ -2,7 +2,7 @@
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
         <div>
-            <h1 class="text-2xl font-bold text-gray-800">
+            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
                 Official Report Preview:
                 @if($type === 'SF1') School Form 1 (School Register)
                 @elseif($type === 'SF5') School Form 5 (Report on Promotion)
@@ -10,7 +10,7 @@
                 @else {{ $type }}
                 @endif
             </h1>
-            <p class="text-sm text-gray-500 mt-1">
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
                 @if($type === 'SF1' || $type === 'SF5')
                     Grade {{ $grade }} - Section {{ $section }}
                 @elseif($type === 'SF10')
