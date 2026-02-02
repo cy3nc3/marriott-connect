@@ -6,15 +6,15 @@
 
 <div class="">
     <div class="max-w-full mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
             <!-- Control Bar -->
-            <div class="p-6 border-b border-gray-200 bg-gray-50 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex flex-wrap gap-4 items-center w-full md:w-auto">
                     <!-- Quarter -->
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 uppercase">Quarter</label>
-                        <select wire:model.live="quarter" class="mt-1 block w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label class="block text-xs font-bold text-gray-500 dark:text-gray-300 uppercase">Quarter</label>
+                        <select wire:model.live="quarter" class="mt-1 block w-32 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 sm:text-sm">
                             <option value="1st">1st</option>
                             <option value="2nd">2nd</option>
                             <option value="3rd">3rd</option>
@@ -24,8 +24,8 @@
 
                     <!-- Grade -->
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 uppercase">Grade</label>
-                        <select wire:model.live="grade" class="mt-1 block w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label class="block text-xs font-bold text-gray-500 dark:text-gray-300 uppercase">Grade</label>
+                        <select wire:model.live="grade" class="mt-1 block w-32 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 sm:text-sm">
                             <option value="Grade 7">Grade 7</option>
                             <option value="Grade 8">Grade 8</option>
                             <option value="Grade 9">Grade 9</option>
@@ -35,8 +35,8 @@
 
                     <!-- Section -->
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 uppercase">Section</label>
-                        <select wire:model.live="section" class="mt-1 block w-40 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label class="block text-xs font-bold text-gray-500 dark:text-gray-300 uppercase">Section</label>
+                        <select wire:model.live="section" class="mt-1 block w-40 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 sm:text-sm">
                             <option value="Rizal">Rizal</option>
                             <option value="Bonifacio">Bonifacio</option>
                             <option value="Newton">Newton</option>
@@ -48,8 +48,8 @@
 
                     <!-- Subject -->
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 uppercase">Subject</label>
-                        <select wire:model.live="subject" class="mt-1 block w-40 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <label class="block text-xs font-bold text-gray-500 dark:text-gray-300 uppercase">Subject</label>
+                        <select wire:model.live="subject" class="mt-1 block w-40 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 sm:text-sm">
                             <option value="Math">Math</option>
                             <option value="Science">Science</option>
                             <option value="English">English</option>
@@ -73,36 +73,36 @@
             <!-- Content -->
             <div class="overflow-x-auto relative min-h-[400px]">
                 @if($showData)
-                    <table class="min-w-full divide-y divide-gray-200 border-collapse">
-                        <thead class="bg-gray-50">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border-collapse">
+                        <thead class="bg-gray-50 dark:bg-gray-700">
                             <!-- Header Row 1 -->
                             <tr>
-                                <th rowspan="2" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky left-0 bg-gray-50 z-20 border-r border-gray-200">
+                                <th rowspan="2" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sticky left-0 bg-gray-50 dark:bg-gray-700 z-20 border-r border-gray-200 dark:border-gray-600">
                                     Student Name
                                 </th>
 
                                 <!-- Written Works Header -->
                                 @if($wwCols->count() > 0)
-                                    <th colspan="{{ $wwCols->count() }}" class="px-3 py-2 text-center text-xs font-bold text-white uppercase tracking-wider bg-blue-500 border-l border-white">
+                                    <th colspan="{{ $wwCols->count() }}" class="px-3 py-2 text-center text-xs font-bold text-white uppercase tracking-wider bg-blue-500 dark:bg-blue-600 border-l border-white dark:border-gray-600">
                                         Written Works (40%)
                                     </th>
                                 @endif
 
                                 <!-- Performance Tasks Header -->
                                 @if($ptCols->count() > 0)
-                                    <th colspan="{{ $ptCols->count() }}" class="px-3 py-2 text-center text-xs font-bold text-white uppercase tracking-wider bg-green-500 border-l border-white">
+                                    <th colspan="{{ $ptCols->count() }}" class="px-3 py-2 text-center text-xs font-bold text-white uppercase tracking-wider bg-green-500 dark:bg-green-600 border-l border-white dark:border-gray-600">
                                         Performance Tasks (40%)
                                     </th>
                                 @endif
 
                                 <!-- QA Header -->
                                 @if($qaCols->count() > 0)
-                                    <th colspan="{{ $qaCols->count() }}" class="px-3 py-2 text-center text-xs font-bold text-white uppercase tracking-wider bg-purple-500 border-l border-white">
+                                    <th colspan="{{ $qaCols->count() }}" class="px-3 py-2 text-center text-xs font-bold text-white uppercase tracking-wider bg-purple-500 dark:bg-purple-600 border-l border-white dark:border-gray-600">
                                         Quarterly Assessment (20%)
                                     </th>
                                 @endif
 
-                                <th rowspan="2" class="px-6 py-3 text-center text-xs font-bold text-indigo-700 uppercase tracking-wider bg-indigo-50 sticky right-0 z-20 border-l border-gray-200">
+                                <th rowspan="2" class="px-6 py-3 text-center text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider bg-indigo-50 dark:bg-indigo-900 sticky right-0 z-20 border-l border-gray-200 dark:border-gray-600">
                                     Initial Grade
                                 </th>
                             </tr>
@@ -111,7 +111,7 @@
                             <tr>
                                 <!-- WW Columns -->
                                 @foreach($wwCols as $col)
-                                    <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 bg-blue-50 border-r border-white min-w-[100px]">
+                                    <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 dark:text-gray-300 bg-blue-50 dark:bg-blue-900/50 border-r border-white dark:border-gray-600 min-w-[100px]">
                                         <div class="flex flex-col">
                                             <span class="font-bold truncate max-w-[120px]" title="{{ $col['name'] }}">{{ $col['name'] }}</span>
                                             <span class="text-[10px] text-gray-400">/ {{ $col['max'] }} pts</span>
@@ -121,7 +121,7 @@
 
                                 <!-- PT Columns -->
                                 @foreach($ptCols as $col)
-                                    <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 bg-green-50 border-r border-white min-w-[100px]">
+                                    <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 dark:text-gray-300 bg-green-50 dark:bg-green-900/50 border-r border-white dark:border-gray-600 min-w-[100px]">
                                         <div class="flex flex-col">
                                             <span class="font-bold truncate max-w-[120px]" title="{{ $col['name'] }}">{{ $col['name'] }}</span>
                                             <span class="text-[10px] text-gray-400">/ {{ $col['max'] }} pts</span>
@@ -131,7 +131,7 @@
 
                                 <!-- QA Columns -->
                                 @foreach($qaCols as $col)
-                                    <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 bg-purple-50 border-r border-white min-w-[100px]">
+                                    <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 dark:text-gray-300 bg-purple-50 dark:bg-purple-900/50 border-r border-white dark:border-gray-600 min-w-[100px]">
                                         <div class="flex flex-col">
                                             <span class="font-bold truncate max-w-[120px]" title="{{ $col['name'] }}">{{ $col['name'] }}</span>
                                             <span class="text-[10px] text-gray-400">/ {{ $col['max'] }} pts</span>
@@ -140,10 +140,10 @@
                                 @endforeach
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                             @foreach($students as $index => $student)
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900 sticky left-0 bg-white z-10 border-r border-gray-100">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <td class="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100 sticky left-0 bg-white dark:bg-gray-800 z-10 border-r border-gray-100 dark:border-gray-700">
                                         {{ $student['name'] }}
                                     </td>
 
@@ -152,7 +152,7 @@
                                         <td class="px-2 py-2 whitespace-nowrap text-center">
                                             <input type="number"
                                                    wire:model.blur="students.{{ $index }}.scores.{{ $col['id'] }}"
-                                                   class="w-20 text-center text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                                   class="w-20 text-center text-sm border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-200 rounded-md focus:ring-blue-500 focus:border-blue-500"
                                                    min="0" max="{{ $col['max'] }}">
                                         </td>
                                     @endforeach
@@ -162,7 +162,7 @@
                                         <td class="px-2 py-2 whitespace-nowrap text-center">
                                             <input type="number"
                                                    wire:model.blur="students.{{ $index }}.scores.{{ $col['id'] }}"
-                                                   class="w-20 text-center text-sm border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                                                   class="w-20 text-center text-sm border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-200 rounded-md focus:ring-green-500 focus:border-green-500"
                                                    min="0" max="{{ $col['max'] }}">
                                         </td>
                                     @endforeach
@@ -172,13 +172,13 @@
                                         <td class="px-2 py-2 whitespace-nowrap text-center">
                                             <input type="number"
                                                    wire:model.blur="students.{{ $index }}.scores.{{ $col['id'] }}"
-                                                   class="w-20 text-center text-sm border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
+                                                   class="w-20 text-center text-sm border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-200 rounded-md focus:ring-purple-500 focus:border-purple-500"
                                                    min="0" max="{{ $col['max'] }}">
                                         </td>
                                     @endforeach
 
                                     <!-- Initial Grade -->
-                                    <td class="px-6 py-3 whitespace-nowrap text-center text-sm font-bold {{ $student['grade'] < 75 ? 'text-red-600' : 'text-green-600' }} bg-indigo-50 sticky right-0 z-10 border-l border-gray-200">
+                                    <td class="px-6 py-3 whitespace-nowrap text-center text-sm font-bold {{ $student['grade'] < 75 ? 'text-red-600 dark:text-red-400' : 'text-green-600 dark:text-green-400' }} bg-indigo-50 dark:bg-indigo-900 sticky right-0 z-10 border-l border-gray-200 dark:border-gray-600">
                                         {{ number_format($student['grade'], 2) }}
                                     </td>
                                 </tr>

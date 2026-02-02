@@ -16,8 +16,8 @@
 
             <!-- Left Column: Search & Selection -->
             <div class="lg:col-span-1">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">Find Retained Student</h3>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Find Retained Student</h3>
 
                     <div class="relative">
                         <x-input-label :value="__('Search Name')" class="sr-only" />
@@ -26,13 +26,13 @@
                                 wire:model.live="searchQuery"
                                 type="text"
                                 placeholder="Search Retained Student..."
-                                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
+                                class="w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 text-sm"
                             >
                         </div>
 
                         <!-- Dropdown Results -->
                         @if(!empty($searchQuery))
-                            <div class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto sm:text-sm">
+                            <div class="absolute z-10 mt-1 w-full bg-white dark:bg-gray-700 shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto sm:text-sm">
                                 @if(count($this->filteredStudents) > 0)
                                     @foreach($this->filteredStudents as $s)
                                         <button
@@ -40,17 +40,17 @@
                                             class="cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white w-full text-left"
                                         >
                                             <div class="flex items-center">
-                                                <span class="font-normal truncate block">
+                                                <span class="font-normal truncate block dark:text-gray-200">
                                                     {{ $s['name'] }}
                                                 </span>
-                                                <span class="ml-2 text-gray-500 hover:text-gray-200 text-xs truncate">
+                                                <span class="ml-2 text-gray-500 dark:text-gray-400 hover:text-gray-200 text-xs truncate">
                                                     ({{ $s['subject'] }}: {{ $s['final_grade'] }})
                                                 </span>
                                             </div>
                                         </button>
                                     @endforeach
                                 @else
-                                    <div class="cursor-default select-none relative py-2 pl-3 pr-9 text-gray-700">
+                                    <div class="cursor-default select-none relative py-2 pl-3 pr-9 text-gray-700 dark:text-gray-300">
                                         No matches found.
                                     </div>
                                 @endif
@@ -58,7 +58,7 @@
                         @endif
                     </div>
 
-                    <p class="text-xs text-gray-500 mt-2">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
                         Only students marked as "Retained" will appear here.
                     </p>
                 </div>
@@ -67,34 +67,34 @@
             <!-- Right Column: Adjustment Card -->
             <div class="lg:col-span-2">
                 @if($this->selectedStudent)
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                        <div class="flex justify-between items-start border-b border-gray-200 pb-4 mb-6">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+                        <div class="flex justify-between items-start border-b border-gray-200 dark:border-gray-700 pb-4 mb-6">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-900">{{ $this->selectedStudent['name'] }}</h3>
-                                <p class="text-sm text-gray-500">Student ID: {{ $this->selectedStudent['id'] }}</p>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ $this->selectedStudent['name'] }}</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Student ID: {{ $this->selectedStudent['id'] }}</p>
                             </div>
-                            <button wire:click="clearSelection" class="text-sm text-gray-400 hover:text-gray-600">
+                            <button wire:click="clearSelection" class="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
                                 Close
                             </button>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <!-- Current Status -->
-                            <div class="bg-red-50 p-4 rounded-md border border-red-200">
-                                <h4 class="text-sm font-bold text-red-800 uppercase mb-2">Failed Subject</h4>
+                            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-md border border-red-200 dark:border-red-800">
+                                <h4 class="text-sm font-bold text-red-800 dark:text-red-300 uppercase mb-2">Failed Subject</h4>
                                 <div class="flex justify-between items-center mb-1">
-                                    <span class="text-gray-700">Subject:</span>
-                                    <span class="font-medium text-gray-900">{{ $this->selectedStudent['subject'] }}</span>
+                                    <span class="text-gray-700 dark:text-gray-300">Subject:</span>
+                                    <span class="font-medium text-gray-900 dark:text-gray-100">{{ $this->selectedStudent['subject'] }}</span>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <span class="text-gray-700">Old Final Grade:</span>
-                                    <span class="font-bold text-red-600 text-lg">{{ $this->selectedStudent['final_grade'] }}</span>
+                                    <span class="text-gray-700 dark:text-gray-300">Old Final Grade:</span>
+                                    <span class="font-bold text-red-600 dark:text-red-400 text-lg">{{ $this->selectedStudent['final_grade'] }}</span>
                                 </div>
                             </div>
 
                             <!-- Remedial Entry -->
                             <div>
-                                <h4 class="text-sm font-bold text-gray-800 uppercase mb-4">Remedial / Summer</h4>
+                                <h4 class="text-sm font-bold text-gray-800 dark:text-gray-200 uppercase mb-4">Remedial / Summer</h4>
 
                                 <div class="mb-4">
                                     <x-input-label :value="__('Remedial Grade')" />
@@ -108,18 +108,18 @@
                                 </div>
 
                                 @if(is_numeric($remedialGrade))
-                                    <div class="bg-gray-50 p-4 rounded-md border border-gray-200 mt-4">
+                                    <div class="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-md border border-gray-200 dark:border-gray-600 mt-4">
                                         <div class="flex justify-between items-center">
-                                            <span class="text-sm font-medium text-gray-500">New Final Grade:</span>
-                                            <span class="text-xl font-bold {{ $this->recomputedFinalGrade >= 75 ? 'text-green-600' : 'text-red-600' }}">
+                                            <span class="text-sm font-medium text-gray-500 dark:text-gray-300">New Final Grade:</span>
+                                            <span class="text-xl font-bold {{ $this->recomputedFinalGrade >= 75 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400' }}">
                                                 {{ number_format($this->recomputedFinalGrade, 2) }}
                                             </span>
                                         </div>
                                         <div class="text-right mt-1">
                                             @if($this->recomputedFinalGrade >= 75)
-                                                <span class="text-xs font-bold text-green-600 uppercase tracking-wide">Result: Passed</span>
+                                                <span class="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-wide">Result: Passed</span>
                                             @else
-                                                <span class="text-xs font-bold text-red-600 uppercase tracking-wide">Result: Failed</span>
+                                                <span class="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">Result: Failed</span>
                                             @endif
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                         </div>
 
                         <!-- Actions -->
-                        <div class="mt-8 pt-4 border-t border-gray-200 flex justify-end">
+                        <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 flex justify-end">
                             <button
                                 wire:click="updateStatus"
                                 @if(!$remedialGrade || $this->recomputedFinalGrade < 75) disabled @endif
@@ -141,8 +141,8 @@
 
                     </div>
                 @else
-                    <div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg h-64 flex items-center justify-center">
-                        <div class="text-center text-gray-500">
+                    <div class="bg-gray-50 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg h-64 flex items-center justify-center">
+                        <div class="text-center text-gray-500 dark:text-gray-400">
                             <i class='bx bx-search text-4xl mb-2'></i>
                             <p>Select a student to begin entry.</p>
                         </div>

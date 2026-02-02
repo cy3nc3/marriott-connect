@@ -13,12 +13,12 @@
             <div class="lg:col-span-2 flex flex-col space-y-6">
 
                 <!-- Filter Section -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">Select Class</h3>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Select Class</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <x-input-label :value="__('Current Grade Level')" />
-                            <select wire:model.live="selectedGrade" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                            <select wire:model.live="selectedGrade" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                                 @foreach($gradeLevels as $gl)
                                     <option value="{{ $gl }}">Grade {{ $gl }}</option>
                                 @endforeach
@@ -26,7 +26,7 @@
                         </div>
                         <div>
                             <x-input-label :value="__('Section')" />
-                            <select wire:model.live="selectedSection" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                            <select wire:model.live="selectedSection" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                                 @foreach($sections as $sec)
                                     <option value="{{ $sec }}">{{ $sec }}</option>
                                 @endforeach
@@ -36,29 +36,31 @@
                 </div>
 
                 <!-- Student Table -->
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 border-b border-gray-200">
-                        <h3 class="text-lg font-medium text-gray-900">Student List</h3>
-                        <p class="text-sm text-gray-500 mt-1">Select students to promote to the next level.</p>
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Student List</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Select students to promote to the next level.</p>
                     </div>
                     <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider w-10">
                                         <!-- Checkbox Header -->
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student Name</th>
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">General Average</th>
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Student Name</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">General Average</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                 @foreach($students as $student)
                                     @php
                                         $isRetained = $student['average'] < 75;
                                         // Row styling: Green for Eligible, Red for Retained
-                                        $rowClass = $isRetained ? 'bg-red-50 text-red-700' : 'bg-green-50';
+                                        $rowClass = $isRetained
+                                            ? 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300'
+                                            : 'bg-green-50 dark:bg-green-900/20 text-gray-900 dark:text-gray-100';
                                     @endphp
                                     <tr class="{{ $rowClass }}">
                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -66,21 +68,21 @@
                                                    value="{{ $student['id'] }}"
                                                    wire:model.live="selectedStudents"
                                                    @if($isRetained) disabled @endif
-                                                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50 disabled:bg-gray-100">
+                                                   class="rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50 disabled:bg-gray-100 dark:disabled:bg-gray-800">
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             {{ $student['name'] }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-bold {{ $isRetained ? 'text-red-600' : 'text-gray-700' }}">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-bold {{ $isRetained ? 'text-red-600 dark:text-red-400' : 'text-gray-700 dark:text-gray-300' }}">
                                             {{ $student['average'] }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-center">
                                             @if($isRetained)
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200">
                                                     RETAINED
                                                 </span>
                                             @else
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200">
                                                     ELIGIBLE
                                                 </span>
                                             @endif
@@ -96,36 +98,36 @@
 
             <!-- Right Column: Action Card -->
             <div class="lg:col-span-1">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 sticky top-6">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">Promotion Actions</h3>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 sticky top-6">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Promotion Actions</h3>
 
                     <div class="space-y-4">
                         <div>
                             <x-input-label :value="__('Target Grade Level')" />
-                            <select wire:model="targetGrade" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50">
+                            <select wire:model="targetGrade" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm bg-gray-50">
                                 @foreach($gradeLevels as $gl)
                                     <option value="{{ $gl }}">Grade {{ $gl }}</option>
                                 @endforeach
                             </select>
                         </div>
 
-                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4">
+                        <div class="bg-indigo-50 dark:bg-indigo-900/50 border-l-4 border-indigo-400 dark:border-indigo-600 p-4">
                             <div class="flex">
                                 <div class="flex-shrink-0">
-                                    <i class='bx bx-info-circle text-indigo-500'></i>
+                                    <i class='bx bx-info-circle text-indigo-500 dark:text-indigo-300'></i>
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-sm text-indigo-700">
+                                    <p class="text-sm text-indigo-700 dark:text-indigo-200">
                                         Selected students will be tagged as <strong>'Returning'</strong> and eligible for enrollment in the selected target grade for the next School Year.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="border-t border-gray-200 pt-4">
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
                             <div class="flex justify-between items-center mb-2">
-                                <span class="text-sm text-gray-600">Selected Count:</span>
-                                <span class="text-lg font-bold text-gray-900">{{ count($selectedStudents) }}</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Selected Count:</span>
+                                <span class="text-lg font-bold text-gray-900 dark:text-gray-100">{{ count($selectedStudents) }}</span>
                             </div>
                             <button wire:click="promoteStudents"
                                     wire:loading.attr="disabled"
