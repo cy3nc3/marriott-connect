@@ -19,10 +19,10 @@ class Login extends Component
             'superadmin@marriott.edu' => ['role' => 'super_admin', 'redirect' => '/dashboards/super-admin'],
             'admin@marriott.edu' => ['role' => 'admin', 'redirect' => '/dashboards/admin'],
             'registrar@marriott.edu' => ['role' => 'registrar', 'redirect' => '/dashboards/registrar'],
-            'finance@marriott.edu' => ['role' => 'finance', 'redirect' => '/finance/fees'],
-            'teacher@marriott.edu' => ['role' => 'teacher', 'redirect' => '/teacher/grading'],
-            'student@marriott.edu' => ['role' => 'student', 'redirect' => '/student/grades'],
-            'parent@marriott.edu' => ['role' => 'parent', 'redirect' => '/parent/billing'],
+            'finance@marriott.edu' => ['role' => 'finance', 'redirect' => '/dashboards/finance'],
+            'teacher@marriott.edu' => ['role' => 'teacher', 'redirect' => '/dashboards/teacher'],
+            'student@marriott.edu' => ['role' => 'student', 'redirect' => '/dashboards/student'],
+            'parent@marriott.edu' => ['role' => 'parent', 'redirect' => '/dashboards/parent'],
         ];
 
         if (array_key_exists($this->email, $credentials)) {
