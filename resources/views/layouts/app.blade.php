@@ -104,6 +104,9 @@
                             <i class='bx text-2xl' :class="darkMode ? 'bx-sun' : 'bx-moon'"></i>
                         </button>
 
+                        <!-- Vertical Divider -->
+                        <div class="h-6 w-px bg-gray-600 dark:bg-gray-300"></div>
+
                         <!-- User Profile -->
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
@@ -132,6 +135,9 @@
                         </x-dropdown>
                     </div>
                 </header>
+
+                <!-- Horizontal Divider -->
+                <div class="w-[90%] h-px mx-auto bg-gray-600 dark:bg-gray-300"></div>
 
                 <!-- Scrollable Content -->
                 <main class="flex-1 overflow-x-hidden overflow-y-auto px-8 py-4 print:block print:overflow-visible print:p-0 print:bg-white print:h-auto transition-colors duration-300">
