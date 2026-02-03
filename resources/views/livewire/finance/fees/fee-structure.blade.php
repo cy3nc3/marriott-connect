@@ -1,8 +1,6 @@
 <div class="space-y-6">
     <!-- Header -->
     <div class="flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">School Fee Setup</h1>
-
         <!-- Flash Messages -->
         <div class="flex-1 ml-6">
             @if (session()->has('message'))
@@ -22,9 +20,9 @@
             @endphp
 
             <!-- Grade Card -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col h-full transition-colors duration-300">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-500/10 dark:border-transparent flex flex-col h-full transition-colors duration-300">
                 <!-- Card Header -->
-                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-700 rounded-t-lg">
+                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center bg-gray-100 dark:bg-gray-700 rounded-t-lg">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Grade {{ $grade }} Fees</h2>
                     <button wire:click="openAddFeeModal({{ $grade }})" class="inline-flex items-center px-3 py-1.5 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150">
                         <i class='bx bx-plus mr-1'></i> Add Fee

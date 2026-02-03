@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
         <!-- Top Card: Total Outstanding -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 border-l-4 border-red-500 transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 transition-colors duration-300">
             <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Total Outstanding Balance</h3>
             <div class="mt-4 flex items-baseline">
                 <span class="text-4xl font-extrabold text-red-600 dark:text-red-400">
@@ -13,13 +13,13 @@
         </div>
 
         <!-- Section A: Bill Breakdown -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
-            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-700">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Bill Breakdown</h3>
             </div>
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead class="bg-white dark:bg-gray-800">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Description</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Due Date</th>
@@ -46,13 +46,13 @@
         </div>
 
         <!-- Section B: Transaction History -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
-            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-700">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Transaction History</h3>
             </div>
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead class="bg-white dark:bg-gray-800">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Reference No.</th>

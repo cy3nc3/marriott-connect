@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <!-- Header Controls (Control Panel) -->
-        <div class="mb-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+        <div class="mb-6 bg-white border border-gray-300/75 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
             <h2 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">Schedule Control Panel</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Filter 1: Target Section -->
@@ -46,10 +46,10 @@
         @endif
 
         <!-- Smart Matrix Grid -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+        <div class="bg-white border border-gray-300/75 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border-collapse">
-                    <thead class="bg-gray-50 dark:bg-gray-700">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider w-24 border border-gray-200 dark:border-gray-700">
                                 Time
@@ -65,7 +65,7 @@
                         @foreach($timeSlots as $time)
                             <tr>
                                 <!-- Time Column -->
-                                <td class="px-4 py-4 whitespace-nowrap text-sm font-bold text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 text-center">
+                                <td class="px-4 py-4 whitespace-nowrap text-sm font-bold text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 text-center">
                                     {{ date('g:i A', strtotime($time)) }}
                                     <span class="block text-xs text-gray-400 font-normal">
                                         {{ date('g:i A', strtotime($time) + 3600) }}

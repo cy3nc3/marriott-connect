@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 pt-0 transition-colors duration-300">
+<div class="min-h-screen dark:bg-gray-900 p-6 pt-0 transition-colors duration-300">
     {{-- Screen Only: Interface --}}
     <div class="no-print max-w-7xl mx-auto space-y-6">
         <div class="flex justify-between items-center">
@@ -12,7 +12,7 @@
         </div>
 
         {{-- Filters --}}
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow grid grid-cols-1 md:grid-cols-3 gap-6 transition-colors duration-300">
+        <div class="bg-white border border-gray-300/75 dark:bg-gray-800 p-6 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-3 gap-6 transition-colors duration-300">
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">School Year</label>
                 <select wire:model.live="schoolYear" class="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
@@ -40,7 +40,7 @@
         </div>
 
         {{-- Preview List --}}
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden transition-colors duration-300">
+        <div class="bg-white border border-gray-300/75 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-colors duration-300">
             <div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 flex justify-between items-center">
                 <h3 class="font-bold text-gray-700 dark:text-gray-200">Student Preview List</h3>
                 <span class="text-sm text-gray-500 dark:text-gray-400">{{ count($selectedStudents) }} Selected</span>

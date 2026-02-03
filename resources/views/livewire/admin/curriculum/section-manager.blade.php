@@ -9,10 +9,10 @@
             </div>
         @endif
 
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
+        <div class="bg-white border border-gray-300/75 dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent">
 
             <!-- Header & Actions -->
-            <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-700 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                 <div class="flex items-center space-x-4">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Section Management</h3>
 
@@ -39,7 +39,7 @@
             <!-- Table -->
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead class="bg-gray-50 dark:bg-gray-700">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Section Name</th>
                             <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Grade Level</th>

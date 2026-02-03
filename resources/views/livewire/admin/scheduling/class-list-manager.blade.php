@@ -42,7 +42,7 @@
         <div class="screen-only w-full space-y-6">
 
             <!-- Filter Bar -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="bg-white border border-gray-300/75 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
                     <!-- Grade Level -->
                     <div class="w-full md:w-48">
@@ -75,7 +75,7 @@
 
             <!-- Management Table -->
             @if($selectedGrade && $selectedSection)
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
+                <div class="bg-white border border-gray-300/75 dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg dark:border-transparent">
                     <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                         <div class="flex justify-between items-center mb-4">
                             <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">
@@ -118,7 +118,7 @@
                 </div>
             @else
                 <!-- Empty State -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-12 text-center">
+                <div class="bg-white border border-gray-300/75 dark:bg-gray-800 rounded-lg shadow-lg p-12 text-center">
                     <div class="mx-auto h-12 w-12 text-gray-400">
                         <i class='bx bx-search-alt text-5xl'></i>
                     </div>

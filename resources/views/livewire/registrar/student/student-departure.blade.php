@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
         <!-- Search Section -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 transition-colors duration-300">
             <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Search Active Student</h2>
             <div class="flex gap-4">
                 <div class="flex-1">
@@ -32,7 +32,7 @@
 
                 <!-- Student Info Card -->
                 <div class="col-span-1">
-                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 border-l-4 border-indigo-500 transition-colors duration-300">
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg p-6 border border-gray-500/10 dark:border-transparent transition-colors duration-300">
                         <div class="flex items-center justify-center mb-4">
                             <div class="h-20 w-20 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-3xl">
                                 {{ substr($selectedStudent['name'], 0, 1) }}
@@ -74,7 +74,7 @@
 
                 <!-- Departure Form -->
                 <div class="col-span-1 md:col-span-2">
-                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 transition-colors duration-300">
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg border border-gray-500/10 dark:border-transparent sm:rounded-lg p-6 transition-colors duration-300">
                         <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-6 border-b border-gray-200 dark:border-gray-700 pb-2">Departure Details</h3>
 
                         <div class="space-y-6">

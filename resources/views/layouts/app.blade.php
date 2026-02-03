@@ -26,7 +26,7 @@
             }
         </script>
     </head>
-    <body class="font-sans antialiased bg-neutral-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+    <body class="font-sans antialiased bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-100"
           x-data="{
               autoCollapse: localStorage.getItem('sidebarAutoCollapse') === 'true',
               darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
@@ -77,7 +77,7 @@
             </aside>
 
             <!-- Main Content -->
-            <div class="flex-1 flex flex-col overflow-hidden bg-neutral-50 dark:bg-gray-900 print:block print:overflow-visible print:h-auto">
+            <div class="flex-1 flex flex-col overflow-hidden bg-gray-200 dark:bg-gray-900 print:block print:overflow-visible print:h-auto">
                 <!-- Top Header -->
                 <header class="bg-transparent h-20 flex items-center justify-between px-8 z-10 print:hidden">
                     <div class="flex items-center">
@@ -89,30 +89,30 @@
 
                     <div class="flex items-center space-x-4 h-full">
                         <!-- Search (Icon Only) -->
-                        <button class="p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors">
+                        <button class="p-2 text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition-colors">
                             <i class='bx bx-search text-2xl'></i>
                         </button>
 
                         <!-- Notifications -->
-                        <button class="relative p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors">
+                        <button class="relative p-2 text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition-colors">
                             <i class='bx bx-bell text-2xl'></i>
-                            <span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 border border-white dark:border-gray-800"></span>
+                            <!--<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 border border-white dark:border-gray-800"></span>-->
                         </button>
 
                         <!-- Theme Toggle -->
-                        <button @click="toggleTheme()" class="p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors" title="Toggle Theme">
+                        <button @click="toggleTheme()" class="p-2 text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-400 transition-colors" title="Toggle Theme">
                             <i class='bx text-2xl' :class="darkMode ? 'bx-sun' : 'bx-moon'"></i>
                         </button>
 
                         <!-- Vertical Divider -->
-                        <div class="h-[80%] w-px self-center bg-gradient-to-b from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-100 "></div>
+                        <div class="h-[70%] w-px self-center bg-gradient-to-b from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-100 "></div>
 
                         <!-- User Profile -->
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button class="flex items-center space-x-3 pl-4 focus:outline-none transition ease-in-out duration-150 group">
                                      <div class="flex flex-col text-right hidden sm:flex">
-                                        <span class="text-sm font-semibold text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{{ Auth::user()->name ?? 'User' }}</span>
+                                        <span class="text-sm font-semibold text-gray-800 dark:text-white group-hover:text-gray-500 dark:group-hover:text-gray-400 transition-colors">{{ Auth::user()->name ?? 'User' }}</span>
                                         <span class="text-xs text-indigo-500 dark:text-indigo-400 uppercase tracking-wide font-bold">{{ $role }}</span>
                                      </div>
                                      <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-lg group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">

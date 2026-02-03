@@ -8,7 +8,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- School Identity Card -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
             <div class="p-6 text-gray-900 dark:text-gray-100">
                 <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">School Identity</h3>
 
@@ -35,7 +35,7 @@
         </div>
 
         <!-- System Switches Card -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
             <div class="p-6 text-gray-900 dark:text-gray-100">
                 <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">System Switches</h3>
 
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Branding Card (Spans full width on mobile, maybe? Or keep in grid. Let's make it span 2 columns if on md) -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg md:col-span-2 transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent md:col-span-2 transition-colors duration-300">
             <div class="p-6 text-gray-900 dark:text-gray-100">
                 <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Branding</h3>
 

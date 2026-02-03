@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <!-- Control Bar -->
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-500/10 dark:border-transparent flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
             <div>
                 <h2 class="text-lg font-bold text-gray-800 dark:text-gray-200">Advisory Section: <span class="text-indigo-600 dark:text-indigo-400">Grade 7 - Rizal</span></h2>
                 <p class="text-sm text-gray-500 dark:text-gray-400">View consolidated grades and manage student conduct.</p>
@@ -50,12 +50,12 @@
         </div>
 
         <!-- Tab 1: Academic Summary -->
-        <div x-show="tab === 'grades'" class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
+        <div x-show="tab === 'grades'" class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead class="bg-gray-50 dark:bg-gray-700">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sticky left-0 bg-gray-50 dark:bg-gray-700 z-10 shadow-sm">Student Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sticky left-0 z-10 shadow-sm">Student Name</th>
                             @php
                                 // Get subjects from the first student as headers
                                 $subjects = !empty($students) ? array_keys($students[0]['grades']) : [];
@@ -86,10 +86,10 @@
         </div>
 
         <!-- Tab 2: Conduct/Values Grading -->
-        <div x-show="tab === 'values'" style="display: none;" class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
+        <div x-show="tab === 'values'" style="display: none;" class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent">
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead class="bg-gray-50 dark:bg-gray-700">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider w-1/4">Student Name</th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Maka-Diyos</th>

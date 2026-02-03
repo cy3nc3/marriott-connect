@@ -136,7 +136,7 @@ class FeeStructure extends Component
     public function render()
     {
         return view('livewire.finance.fees.fee-structure', [
-            'fees' => $this->feeMatrix,
-        ]);
+            'fees' => $this->feeMatrix,])
+        ->layout('layouts.app', ['header' => 'Fee Structure']);
     }
 }

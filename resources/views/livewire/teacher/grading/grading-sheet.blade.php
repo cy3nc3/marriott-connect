@@ -6,10 +6,10 @@
 
 <div class="">
     <div class="max-w-full mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent">
 
             <!-- Control Bar -->
-            <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex flex-wrap gap-4 items-center w-full md:w-auto">
                     <!-- Quarter -->
                     <div>
@@ -74,10 +74,10 @@
             <div class="overflow-x-auto relative min-h-[400px]">
                 @if($showData)
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border-collapse">
-                        <thead class="bg-gray-50 dark:bg-gray-700">
+                        <thead class="bg-gray-100 dark:bg-gray-700">
                             <!-- Header Row 1 -->
                             <tr>
-                                <th rowspan="2" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sticky left-0 bg-gray-50 dark:bg-gray-700 z-20 border-r border-gray-200 dark:border-gray-600">
+                                <th rowspan="2" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sticky left-0 bg-gray-100 dark:bg-gray-700 z-20 border-r border-gray-200 dark:border-gray-600">
                                     Student Name
                                 </th>
 
@@ -112,9 +112,9 @@
                                 <!-- WW Columns -->
                                 @foreach($wwCols as $col)
                                     <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 dark:text-gray-300 bg-blue-50 dark:bg-blue-900/50 border-r border-white dark:border-gray-600 min-w-[100px]">
-                                        <div class="flex flex-col">
+                                        <div class="flex flex-col items-center gap-1">
                                             <span class="font-bold truncate max-w-[120px]" title="{{ $col['name'] }}">{{ $col['name'] }}</span>
-                                            <span class="text-[10px] text-gray-400">/ {{ $col['max'] }} pts</span>
+                                            <span class="text-[10px] text-gray-400">({{ $col['max'] }} pts)</span>
                                         </div>
                                     </th>
                                 @endforeach
@@ -122,9 +122,9 @@
                                 <!-- PT Columns -->
                                 @foreach($ptCols as $col)
                                     <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 dark:text-gray-300 bg-green-50 dark:bg-green-900/50 border-r border-white dark:border-gray-600 min-w-[100px]">
-                                        <div class="flex flex-col">
+                                        <div class="flex flex-col gap-1 items-center">
                                             <span class="font-bold truncate max-w-[120px]" title="{{ $col['name'] }}">{{ $col['name'] }}</span>
-                                            <span class="text-[10px] text-gray-400">/ {{ $col['max'] }} pts</span>
+                                            <span class="text-[10px] text-gray-400">({{ $col['max'] }} pts)</span>
                                         </div>
                                     </th>
                                 @endforeach
@@ -132,9 +132,9 @@
                                 <!-- QA Columns -->
                                 @foreach($qaCols as $col)
                                     <th class="px-3 py-2 text-center text-xs font-medium text-gray-600 dark:text-gray-300 bg-purple-50 dark:bg-purple-900/50 border-r border-white dark:border-gray-600 min-w-[100px]">
-                                        <div class="flex flex-col">
+                                        <div class="flex flex-col flex-items-center">
                                             <span class="font-bold truncate max-w-[120px]" title="{{ $col['name'] }}">{{ $col['name'] }}</span>
-                                            <span class="text-[10px] text-gray-400">/ {{ $col['max'] }} pts</span>
+                                            <span class="text-[10px] text-gray-400">({{ $col['max'] }} pts)</span>
                                         </div>
                                     </th>
                                 @endforeach

@@ -16,7 +16,7 @@
 
             <!-- Left Column: Search & Selection -->
             <div class="lg:col-span-1">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-500/10 dark:border-transparent">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Find Retained Student</h3>
 
                     <div class="relative">
@@ -67,7 +67,7 @@
             <!-- Right Column: Adjustment Card -->
             <div class="lg:col-span-2">
                 @if($this->selectedStudent)
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-500/10 dark:border-transparent">
                         <div class="flex justify-between items-start border-b border-gray-200 dark:border-gray-700 pb-4 mb-6">
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ $this->selectedStudent['name'] }}</h3>
@@ -141,7 +141,7 @@
 
                     </div>
                 @else
-                    <div class="bg-gray-50 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg h-64 flex items-center justify-center">
+                    <div class="bg-gray-50 dark:bg-gray-800 shadow-lg border border-gray-500/10 dark:border-transparent rounded-lg h-64 flex items-center justify-center">
                         <div class="text-center text-gray-500 dark:text-gray-400">
                             <i class='bx bx-search text-4xl mb-2'></i>
                             <p>Select a student to begin entry.</p>

@@ -8,9 +8,9 @@
         @endif
 
         @foreach ([7, 8, 9, 10] as $grade)
-            <div class="bg-white border border-gray-500/10 dark:border-transparent dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg">
+            <div class="bg-white border border-gray-300/75 dark:border-transparent dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg">
                 <!-- Header & Actions -->
-                <div class="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 flex justify-between items-center">
+                <div class="p-6 border-b border-gray-200 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 flex justify-between items-center">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Grade {{ $grade }} Subjects</h3>
                     <button
                         wire:click="openModal({{ $grade }})"
@@ -22,7 +22,7 @@
                 <!-- Table -->
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-700">
+                        <thead class="bg-gray-100 dark:bg-gray-700">
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Subject Code</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Descriptive Title</th>

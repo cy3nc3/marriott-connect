@@ -13,7 +13,7 @@
             <div class="lg:col-span-2 flex flex-col space-y-6">
 
                 <!-- Filter Section -->
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-500/10 dark:border-transparent">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Select Class</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
@@ -36,14 +36,14 @@
                 </div>
 
                 <!-- Student Table -->
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent">
-                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div class="bg-gray-100 dark:bg-gray-700 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent">
+                    <div class="p-6 border border-gray-200 dark:border-gray-700">
                         <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Student List</h3>
                         <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Select students to promote to the next level.</p>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                            <thead class="bg-gray-50 dark:bg-gray-700">
+                            <thead class="bg-gray-100 dark:bg-gray-700">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider w-10">
                                         <!-- Checkbox Header -->
@@ -98,7 +98,7 @@
 
             <!-- Right Column: Action Card -->
             <div class="lg:col-span-1">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 sticky top-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-500/10 dark:border-transparent sticky top-6">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Promotion Actions</h3>
 
                     <div class="space-y-4">

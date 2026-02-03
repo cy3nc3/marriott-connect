@@ -14,7 +14,7 @@
         <div class="lg:col-span-1 flex flex-col space-y-4">
 
             <!-- Search Bar -->
-            <div class="bg-white dark:bg-gray-800 p-4 shadow-sm sm:rounded-lg transition-colors duration-300">
+            <div class="bg-white dark:bg-gray-800 p-4 shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
                 <label for="search" class="block text-medium font-medium text-gray-700 dark:text-gray-200 mb-1">Find Student</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -31,8 +31,8 @@
 
             <!-- Student Card -->
             @if($student)
-                <div class="bg-white dark:bg-gray-800 shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent overflow-hidden flex-1 flex flex-col transition-colors duration-300">
-                    <div class="p-6 flex flex-col items-center border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
+                <div class="bg-white dark:bg-gray-800 shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent overflow-hidden flex-1 flex flex-col transition-colors duration-300">
+                    <div class="p-6 flex flex-col items-center border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-700">
                         <img class="h-24 w-24 rounded-full border-4 border-white dark:border-gray-600 shadow-md mb-4"
                              src="https://ui-avatars.com/api/?{{ $student['avatar_params'] }}&size=128"
                              alt="{{ $student['name'] }}">
@@ -58,14 +58,14 @@
                     </div>
                 </div>
             @elseif(!empty($search))
-                <div class="bg-white dark:bg-gray-800 p-8 shadow-sm sm:rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 flex-1 transition-colors duration-300">
+                <div class="bg-white dark:bg-gray-800 p-8 shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent flex items-center justify-center text-gray-500 dark:text-gray-400 flex-1 transition-colors duration-300">
                     <div class="text-center">
                         <i class='bx bx-user-x text-4xl mb-2'></i>
                         <p>Student Not Found</p>
                     </div>
                 </div>
             @else
-                <div class="bg-white dark:bg-gray-800 p-8 shadow-sm sm:rounded-lg flex items-center justify-center text-gray-400 dark:text-gray-500 flex-1 transition-colors duration-300">
+                <div class="bg-white dark:bg-gray-800 p-8 shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent flex items-center justify-center text-gray-400 dark:text-gray-500 flex-1 transition-colors duration-300">
                     <div class="text-center">
                         <i class='bx bx-search-alt text-4xl mb-2 opacity-50'></i>
                         <p>Search for a student to begin</p>
@@ -76,10 +76,10 @@
         </div>
 
         <!-- Right Column: Transaction Cart -->
-        <div class="lg:col-span-2 bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent flex flex-col h-full transition-colors duration-300">
+        <div class="lg:col-span-2 bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent flex flex-col h-full transition-colors duration-300">
 
             <!-- Header -->
-            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-700">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-100 dark:bg-gray-700">
                 <h3 class="text-lg font-bold text-gray-800 dark:text-white flex items-center">
                     <i class='bx bx-cart-alt mr-2 text-indigo-600 dark:text-indigo-400'></i>
                     Current Transaction

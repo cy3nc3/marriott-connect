@@ -1,6 +1,6 @@
 <div class="p-6 pt-0">
     <!-- Filters -->
-    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow mb-6 flex flex-col md:flex-row gap-4 items-end md:items-center transition-colors duration-300">
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-500/10 dark:border-transparent mb-6 flex flex-col md:flex-row gap-4 items-end md:items-center transition-colors duration-300">
         <div class="flex-1 w-full">
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Search Student</label>
             <div class="relative">
@@ -38,9 +38,9 @@
     @endif
 
     <!-- Table -->
-    <div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-lg transition-colors duration-300">
+    <div class="bg-white dark:bg-gray-800 shadow-lg overflow-hidden sm:rounded-lg border border-gray-500/10 dark:border-transparent transition-colors duration-300">
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead class="bg-gray-50 dark:bg-gray-700">
+            <thead class="bg-gray-100 dark:bg-gray-700">
                 <tr>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">LRN</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Student Name</th>

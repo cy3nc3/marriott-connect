@@ -3,7 +3,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card 1: SF1 -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 flex flex-col h-full border-t-4 border-indigo-500 transition-colors duration-300">
+        <div class="bg-white border border-gray-300/75 dark:bg-gray-800 shadow-lg sm:rounded-lg dark:border-transparent p-6 flex flex-col h-full transition-colors duration-300">
             <div class="flex items-center mb-4">
                 <div class="p-3 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-500 dark:text-indigo-300 mr-4">
                     <i class='bx bx-file text-2xl'></i>
@@ -35,7 +35,7 @@
         </div>
 
         <!-- Card 2: SF5 -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 flex flex-col h-full border-t-4 border-green-500 transition-colors duration-300">
+        <div class="bg-white border border-gray-300/75 dark:bg-gray-800 shadow-lg sm:rounded-lg dark:border-transparent p-6 flex flex-col h-full transition-colors duration-300">
              <div class="flex items-center mb-4">
                 <div class="p-3 rounded-full bg-green-100 dark:bg-green-900 text-green-500 dark:text-green-300 mr-4">
                     <i class='bx bx-file text-2xl'></i>
@@ -67,7 +67,7 @@
         </div>
 
         <!-- Card 3: SF10 -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 flex flex-col h-full border-t-4 border-orange-500 transition-colors duration-300">
+        <div class="bg-white border border-gray-300/75 dark:bg-gray-800 shadow-lg sm:rounded-lg dark:border-transparent p-6 flex flex-col h-full transition-colors duration-300">
              <div class="flex items-center mb-4">
                 <div class="p-3 rounded-full bg-orange-100 dark:bg-orange-900 text-orange-500 dark:text-orange-300 mr-4">
                     <i class='bx bx-file text-2xl'></i>

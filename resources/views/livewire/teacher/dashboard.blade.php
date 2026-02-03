@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Card 1: My Schedule Today -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 transition-colors duration-300">
             <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">My Schedule Today</h3>
             <ul class="divide-y divide-gray-200 dark:divide-gray-700">
                 @foreach($data['schedule'] as $class)
@@ -15,7 +15,7 @@
         </div>
 
         <!-- Card 2: Action Required -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent border-l-4 border-yellow-500 dark:border-yellow-600 p-6 transition-colors duration-300">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent border-l-4 border-yellow-500 dark:border-yellow-600 p-6 transition-colors duration-300">
             <div class="flex items-start">
                 <div class="flex-shrink-0">
                     <i class='bx bx-error text-2xl text-yellow-600 dark:text-yellow-400'></i>

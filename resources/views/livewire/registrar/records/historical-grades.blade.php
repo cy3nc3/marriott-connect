@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
         <!-- Step 1: Student Selector -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6">
             <div class="flex items-end gap-4">
                 <div class="flex-1">
                     <x-input-label for="studentQuery" :value="__('Find Student')" />
@@ -43,8 +43,8 @@
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Academic History</h3>
 
                     @foreach($history as $record)
-                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg border border-gray-200 dark:border-gray-700">
-                            <div class="bg-gray-50 dark:bg-gray-700 px-6 py-4 border-b border-gray-200 dark:border-gray-600 flex justify-between items-center">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent">
+                            <div class="bg-gray-100 dark:bg-gray-700 px-6 py-4 border-b border-gray-200 dark:border-gray-600 flex justify-between items-center">
                                 <div>
                                     <h4 class="text-md font-bold text-gray-900 dark:text-gray-100">{{ $record['grade_level'] }}</h4>
                                     <p class="text-sm text-gray-500 dark:text-gray-400">{{ $record['school_year'] }} • {{ $record['school_name'] }}</p>
@@ -75,7 +75,7 @@
 
                 <!-- Step 3: Add History Form -->
                 <div class="lg:col-span-1">
-                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 sticky top-6">
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-lg border border-gray-500/10 dark:border-transparent p-6 sticky top-6">
                         <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Add Historical Record</h3>
 
                         @if (session()->has('message'))
