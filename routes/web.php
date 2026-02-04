@@ -13,37 +13,28 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         $role = session('role');
         return match($role) {
-            'super_admin' => redirect()->route('dashboards.super-admin'),
-            'admin' => redirect()->route('dashboards.admin'),
-            'registrar' => redirect()->route('dashboards.registrar'),
-            'finance' => redirect()->route('dashboards.finance'),
-            'teacher' => redirect()->route('dashboards.teacher'),
-            'student' => redirect()->route('dashboards.student'),
-            'parent' => redirect()->route('dashboards.parent'),
+            'super_admin' => redirect()->route('super-admin.dashboard'),
+            'admin' => redirect()->route('admin.dashboard'),
+            'registrar' => redirect()->route('registrar.dashboard'),
+            'finance' => redirect()->route('finance.dashboard'),
+            'teacher' => redirect()->route('teacher.dashboard'),
+            'student' => redirect()->route('student.dashboard'),
+            'parent' => redirect()->route('parent.dashboard'),
             default => redirect()->route('login'),
         };
     })->name('dashboard');
 
-    Route::get('/users', App\Livewire\SuperAdmin\UserManager::class)->name('users');
-
-    // Dashboards (Role Specific)
-    Route::prefix('dashboards')->name('dashboards.')->group(function () {
-        Route::get('/super-admin', App\Livewire\SuperAdmin\Dashboard::class)->name('super-admin');
-        Route::get('/admin', App\Livewire\Admin\Dashboard::class)->name('admin');
-        Route::get('/registrar', App\Livewire\Registrar\Dashboard::class)->name('registrar');
-        Route::get('/finance', App\Livewire\Finance\Dashboard::class)->name('finance');
-        Route::get('/teacher', App\Livewire\Teacher\Dashboard::class)->name('teacher');
-        Route::get('/student', App\Livewire\Student\Dashboard::class)->name('student');
-        Route::get('/parent', App\Livewire\Parent\Dashboard::class)->name('parent');
-    });
-
-    // Super Admin & Admin Common Routes
-    Route::prefix('admin')->name('admin.')->group(function () {
-        // Super Admin Specific
+    // Super Admin Routes
+    Route::prefix('super-admin')->name('super-admin.')->group(function () {
+        Route::get('/dashboard', App\Livewire\SuperAdmin\Dashboard::class)->name('dashboard');
+        Route::get('/users', App\Livewire\SuperAdmin\UserManager::class)->name('users');
         Route::get('/school-year', App\Livewire\SuperAdmin\SchoolYearManager::class)->name('school-year');
         Route::get('/settings', App\Livewire\SuperAdmin\SystemSettings::class)->name('settings');
+    });
 
-        // Admin
+    // Admin Routes
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/dashboard', App\Livewire\Admin\Dashboard::class)->name('dashboard');
         Route::get('/curriculum', App\Livewire\Admin\Curriculum\CurriculumManager::class)->name('curriculum');
         Route::get('/sections', App\Livewire\Admin\Curriculum\SectionManager::class)->name('sections');
         Route::get('/schedule', App\Livewire\Admin\Scheduling\ScheduleBuilder::class)->name('schedule');
@@ -59,6 +50,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Finance Routes
     Route::prefix('finance')->name('finance.')->group(function () {
+        Route::get('/dashboard', App\Livewire\Finance\Dashboard::class)->name('dashboard');
         Route::get('/inventory', App\Livewire\Finance\Inventory\ProductInventory::class)->name('inventory');
         Route::get('/pos', App\Livewire\Finance\Cashier\CashierPanel::class)->name('pos');
         Route::get('/history', App\Livewire\Finance\Reporting\TransactionHistory::class)->name('history');
@@ -70,6 +62,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Registrar Routes
     Route::prefix('registrar')->name('registrar.')->group(function () {
+        Route::get('/dashboard', App\Livewire\Registrar\Dashboard::class)->name('dashboard');
         Route::get('/students', App\Livewire\Registrar\Student\StudentDirectory::class)->name('students');
         Route::get('/enrollment', App\Livewire\Registrar\Enrollment\EnrollmentWizard::class)->name('enrollment');
         Route::get('/print-cor', function () {
@@ -87,18 +80,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Teacher Routes
     Route::prefix('teacher')->name('teacher.')->group(function () {
+        Route::get('/dashboard', App\Livewire\Teacher\Dashboard::class)->name('dashboard');
         Route::get('/grading', App\Livewire\Teacher\Grading\GradingSheet::class)->name('grading');
         Route::get('/advisory', App\Livewire\Teacher\Advisory\AdvisoryBoard::class)->name('advisory');
     });
 
     // Student Routes
     Route::prefix('student')->name('student.')->group(function () {
+        Route::get('/dashboard', App\Livewire\Student\Dashboard::class)->name('dashboard');
         Route::get('/schedule', App\Livewire\Student\StudentSchedule::class)->name('schedule');
         Route::get('/grades', App\Livewire\Student\StudentGrades::class)->name('grades');
     });
 
     // Parent Routes
     Route::prefix('parent')->name('parent.')->group(function () {
+        Route::get('/dashboard', App\Livewire\Parent\Dashboard::class)->name('dashboard');
         Route::get('/billing', App\Livewire\Parent\BillingDetails::class)->name('billing');
         Route::get('/schedule', App\Livewire\Parent\StudentSchedule::class)->name('schedule');
         Route::get('/grades', App\Livewire\Parent\StudentGrades::class)->name('grades');

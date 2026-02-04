@@ -16,13 +16,13 @@ class Login extends Component
     public function login()
     {
         $credentials = [
-            'superadmin@marriott.edu' => ['role' => 'super_admin', 'redirect' => '/dashboards/super-admin'],
-            'admin@marriott.edu' => ['role' => 'admin', 'redirect' => '/dashboards/admin'],
-            'registrar@marriott.edu' => ['role' => 'registrar', 'redirect' => '/dashboards/registrar'],
-            'finance@marriott.edu' => ['role' => 'finance', 'redirect' => '/dashboards/finance'],
-            'teacher@marriott.edu' => ['role' => 'teacher', 'redirect' => '/dashboards/teacher'],
-            'student@marriott.edu' => ['role' => 'student', 'redirect' => '/dashboards/student'],
-            'parent@marriott.edu' => ['role' => 'parent', 'redirect' => '/dashboards/parent'],
+            'superadmin@marriott.edu' => ['role' => 'super_admin', 'redirect' => '/super-admin/dashboard'],
+            'admin@marriott.edu' => ['role' => 'admin', 'redirect' => '/admin/dashboard'],
+            'registrar@marriott.edu' => ['role' => 'registrar', 'redirect' => '/registrar/dashboard'],
+            'finance@marriott.edu' => ['role' => 'finance', 'redirect' => '/finance/dashboard'],
+            'teacher@marriott.edu' => ['role' => 'teacher', 'redirect' => '/teacher/dashboard'],
+            'student@marriott.edu' => ['role' => 'student', 'redirect' => '/student/dashboard'],
+            'parent@marriott.edu' => ['role' => 'parent', 'redirect' => '/parent/dashboard'],
         ];
 
         if (array_key_exists($this->email, $credentials)) {

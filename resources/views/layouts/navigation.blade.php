@@ -30,16 +30,16 @@
             switch ($role) {
                 case 'super_admin':
                     $links = [
-                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'dashboards.super-admin', 'icon' => 'bx-grid-alt'],
+                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'super-admin.dashboard', 'icon' => 'bx-grid-alt'],
                         ['type' => 'header', 'label' => 'System Management'],
-                        ['type' => 'link', 'label' => 'School Year', 'route' => 'admin.school-year', 'icon' => 'bx-calendar'],
-                        ['type' => 'link', 'label' => 'User Management', 'route' => 'users', 'icon' => 'bx-user'],
-                        ['type' => 'link', 'label' => 'Settings', 'route' => 'admin.settings', 'icon' => 'bx-cog'],
+                        ['type' => 'link', 'label' => 'School Year', 'route' => 'super-admin.school-year', 'icon' => 'bx-calendar'],
+                        ['type' => 'link', 'label' => 'User Management', 'route' => 'super-admin.users', 'icon' => 'bx-user'],
+                        ['type' => 'link', 'label' => 'Settings', 'route' => 'super-admin.settings', 'icon' => 'bx-cog'],
                     ];
                     break;
                 case 'admin':
                     $links = [
-                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'dashboards.admin', 'icon' => 'bx-grid-alt'],
+                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'admin.dashboard', 'icon' => 'bx-grid-alt'],
                         ['type' => 'header', 'label' => 'Academic Management'],
                         ['type' => 'link', 'label' => 'Curriculum', 'route' => 'admin.curriculum', 'icon' => 'bx-book-content'],
                         ['type' => 'link', 'label' => 'Sections', 'route' => 'admin.sections', 'icon' => 'bx-group'],
@@ -52,7 +52,7 @@
                     break;
                 case 'registrar':
                     $links = [
-                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'dashboards.registrar', 'icon' => 'bx-grid-alt'],
+                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'registrar.dashboard', 'icon' => 'bx-grid-alt'],
                         ['type' => 'header', 'label' => 'Records & Enrollment'],
                         ['type' => 'link', 'label' => 'Student Directory', 'route' => 'registrar.students', 'icon' => 'bx-user-pin'],
                         ['type' => 'link', 'label' => 'Enrollment', 'route' => 'registrar.enrollment', 'icon' => 'bx-id-card'],
@@ -65,7 +65,7 @@
                     break;
                 case 'finance':
                     $links = [
-                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'dashboards.finance', 'icon' => 'bx-grid-alt'],
+                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'finance.dashboard', 'icon' => 'bx-grid-alt'],
                         ['type' => 'header', 'label' => 'Cashiering'],
                         ['type' => 'link', 'label' => 'Student Accounts', 'route' => 'finance.ledger', 'icon' => 'bx-wallet'],
                         ['type' => 'link', 'label' => 'Cashier Panel', 'route' => 'finance.pos', 'icon' => 'bx-cart'],
@@ -79,7 +79,7 @@
                     break;
                 case 'teacher':
                     $links = [
-                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'dashboards.teacher', 'icon' => 'bx-grid-alt'],
+                        ['type' => 'link', 'label' => 'Dashboard', 'route' => 'teacher.dashboard', 'icon' => 'bx-grid-alt'],
                         ['type' => 'header', 'label' => 'Academic Tasks'],
                         ['type' => 'link', 'label' => 'Grading Sheet', 'route' => 'teacher.grading', 'icon' => 'bx-edit'],
                         ['type' => 'link', 'label' => 'Advisory Board', 'route' => 'teacher.advisory', 'icon' => 'bx-chalkboard'],
@@ -87,7 +87,7 @@
                     break;
                 case 'student':
                     $links = [
-                        ['type' => 'link', 'label' => 'My Dashboard', 'route' => 'dashboards.student', 'icon' => 'bx-grid-alt'],
+                        ['type' => 'link', 'label' => 'My Dashboard', 'route' => 'student.dashboard', 'icon' => 'bx-grid-alt'],
                         ['type' => 'header', 'label' => 'Academics'],
                         ['type' => 'link', 'label' => 'My Schedule', 'route' => 'student.schedule', 'icon' => 'bx-time'],
                         ['type' => 'link', 'label' => 'Report Card', 'route' => 'student.grades', 'icon' => 'bx-file'],
@@ -95,7 +95,7 @@
                     break;
                 case 'parent':
                     $links = [
-                        ['type' => 'link', 'label' => 'Parent Portal', 'route' => 'dashboards.parent', 'icon' => 'bx-home'],
+                        ['type' => 'link', 'label' => 'Parent Portal', 'route' => 'parent.dashboard', 'icon' => 'bx-home'],
                         ['type' => 'header', 'label' => 'Student Info'],
                         ['type' => 'link', 'label' => 'Schedule', 'route' => 'parent.schedule', 'icon' => 'bx-calendar'],
                         ['type' => 'link', 'label' => 'Report Card', 'route' => 'parent.grades', 'icon' => 'bx-file'],

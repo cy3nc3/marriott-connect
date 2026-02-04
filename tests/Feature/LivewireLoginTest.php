@@ -18,7 +18,7 @@ class LivewireLoginTest extends TestCase
             ->set('email', 'superadmin@marriott.edu')
             ->set('password', 'password')
             ->call('login')
-            ->assertRedirect('/dashboards/super-admin');
+            ->assertRedirect('/super-admin/dashboard');
 
         $this->assertEquals('super_admin', session('role'));
 
@@ -33,7 +33,7 @@ class LivewireLoginTest extends TestCase
             ->set('email', 'finance@marriott.edu')
             ->set('password', 'password')
             ->call('login')
-            ->assertRedirect('/dashboards/finance');
+            ->assertRedirect('/finance/dashboard');
 
         $this->assertEquals('finance', session('role'));
     }
@@ -44,7 +44,7 @@ class LivewireLoginTest extends TestCase
             ->set('email', 'teacher@marriott.edu')
             ->set('password', 'password')
             ->call('login')
-            ->assertRedirect('/dashboards/teacher');
+            ->assertRedirect('/teacher/dashboard');
 
         $this->assertEquals('teacher', session('role'));
     }
@@ -55,7 +55,7 @@ class LivewireLoginTest extends TestCase
             ->set('email', 'student@marriott.edu')
             ->set('password', 'password')
             ->call('login')
-            ->assertRedirect('/dashboards/student');
+            ->assertRedirect('/student/dashboard');
 
         $this->assertEquals('student', session('role'));
     }
@@ -66,7 +66,7 @@ class LivewireLoginTest extends TestCase
             ->set('email', 'parent@marriott.edu')
             ->set('password', 'password')
             ->call('login')
-            ->assertRedirect('/dashboards/parent');
+            ->assertRedirect('/parent/dashboard');
 
         $this->assertEquals('parent', session('role'));
     }
